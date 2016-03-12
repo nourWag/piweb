@@ -1,0 +1,4 @@
+piwebapp:
+    resource: "@piwebappBundle/Resources/config/routing.yml"
+    prefix:   /
+

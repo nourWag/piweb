@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: /Users/nour/Sites/monsite.com/piweb/app/config/routing_dev.yml
