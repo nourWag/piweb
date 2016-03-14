@@ -1,3 +1,8 @@
 myapp_responsable_homepage:
     path:     /hello/{name}
     defaults: { _controller: MyappResponsableBundle:Default:index }
+PagesBundle_adminPages:
+    resource: "@MyappResponsableBundle/Resources/config/rout/routingresponsable.yml"
+    prefix:   /respensable/pages/
+
+

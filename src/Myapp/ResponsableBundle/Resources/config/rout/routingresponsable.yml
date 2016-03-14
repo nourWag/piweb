@@ -1,0 +1,19 @@
+respensablePages:
+    path:  /
+    defaults: { _controller: "MyappResponsableBundle:resp:aff" }
+     
+profile1:
+    path:     /profile
+    defaults: { _controller: "MyappResponsableBundle:Profile2:show" }
+edit1:
+    path:     /edit
+    defaults: { _controller: "MyappResponsableBundle:Profile2:edit" }  
+changePassword1:
+    path:     /changePassword
+    defaults: { _controller: "MyappResponsableBundle:ChangePassword:changePassword" }    
+respensablePagespack:
+   path:  /aff
+   defaults: { _controller: "MyappResponsableBundle:Image:upload" }  
+
+     
+  
