@@ -1,3 +1,7 @@
+myappadmin:
+    resource: "@MyappadminBundle/Resources/config/routing.yml"
+    prefix:   /
+
 piwebapp:
     resource: "@piwebappBundle/Resources/config/routing.yml"
     prefix:   /
