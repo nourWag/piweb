@@ -842,11 +842,11 @@ class Application
         }
 
         if (true === $input->hasParameterOption(array('--no-interaction', '-n'))) {
-            $input->setInteractive(false);
+            //$input->setInteractive(false);
         } elseif (function_exists('posix_isatty') && $this->getHelperSet()->has('question')) {
             $inputStream = $this->getHelperSet()->get('question')->getInputStream();
             if (!@posix_isatty($inputStream)) {
-                $input->setInteractive(false);
+                //$input->setInteractive(false);
             }
         }
 
