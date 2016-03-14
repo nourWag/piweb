@@ -133,11 +133,43 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'myapp_responsable_homepage')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\DefaultController::indexAction',));
             }
 
-            // myappadmin_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'myappadmin_homepage')), array (  '_controller' => 'Myapp\\adminBundle\\Controller\\DefaultController::indexAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/respensable/pages')) {
+            // respensablePages
+            if (rtrim($pathinfo, '/') === '/respensable/pages') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'respensablePages');
+                }
+
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\respController::affAction',  '_route' => 'respensablePages',);
             }
 
+            // profile1
+            if ($pathinfo === '/respensable/pages/profile') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\Profile2Controller::showAction',  '_route' => 'profile1',);
+            }
+
+            // edit1
+            if ($pathinfo === '/respensable/pages/edit') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\Profile2Controller::editAction',  '_route' => 'edit1',);
+            }
+
+            // changePassword1
+            if ($pathinfo === '/respensable/pages/changePassword') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ChangePasswordController::changePasswordAction',  '_route' => 'changePassword1',);
+            }
+
+            // respensablePagespack
+            if ($pathinfo === '/respensable/pages/aff') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ImageController::uploadAction',  '_route' => 'respensablePagespack',);
+            }
+
+        }
+
+        // myappadmin_homepage
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'myappadmin_homepage')), array (  '_controller' => 'Myapp\\adminBundle\\Controller\\DefaultController::indexAction',));
         }
 
         if (0 === strpos($pathinfo, '/admin/pages')) {
