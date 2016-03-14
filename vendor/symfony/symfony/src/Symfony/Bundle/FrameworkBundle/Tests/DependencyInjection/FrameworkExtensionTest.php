@@ -246,6 +246,14 @@ abstract class FrameworkExtensionTest extends TestCase
         $this->assertEquals(array('fr'), $calls[0][1][0]);
     }
 
+    public function testTranslatorMultipleFullback()
+    {
+        $container = $this->createContainerFromFile('translator_fallbacks');
+
+        $calls = $container->getDefinition('translator.default')->getMethodCalls();
+        $this->assertEquals(array('en', 'fr'), $calls[0][1][0]);
+    }
+
     /**
      * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
      */
@@ -280,7 +288,7 @@ abstract class FrameworkExtensionTest extends TestCase
         $this->assertEquals(array(new Reference('validator.mapping.cache.apc')), $calls[5][1]);
         $this->assertSame('setApiVersion', $calls[6][0]);
 
-        if (version_compare(PHP_VERSION, '5.3.9', '<')) {
+        if (PHP_VERSION_ID < 50309) {
             $this->assertEquals(array(Validation::API_VERSION_2_4), $calls[6][1]);
         } else {
             $this->assertEquals(array(Validation::API_VERSION_2_5_BC), $calls[6][1]);
@@ -433,7 +441,7 @@ abstract class FrameworkExtensionTest extends TestCase
         $this->assertSame('setApiVersion', $calls[5][0]);
         // no cache, no annotations
 
-        if (version_compare(PHP_VERSION, '5.3.9', '<')) {
+        if (PHP_VERSION_ID < 50309) {
             $this->assertSame(array(Validation::API_VERSION_2_4), $calls[5][1]);
         } else {
             $this->assertSame(array(Validation::API_VERSION_2_5_BC), $calls[5][1]);
@@ -457,7 +465,7 @@ abstract class FrameworkExtensionTest extends TestCase
         $this->assertSame('setApiVersion', $calls[5][0]);
         // no cache, no annotations
 
-        if (version_compare(PHP_VERSION, '5.3.9', '<')) {
+        if (PHP_VERSION_ID < 50309) {
             $this->assertSame(array(Validation::API_VERSION_2_4), $calls[5][1]);
         } else {
             $this->assertSame(array(Validation::API_VERSION_2_5_BC), $calls[5][1]);
@@ -490,12 +498,12 @@ abstract class FrameworkExtensionTest extends TestCase
     protected function createContainer(array $data = array())
     {
         return new ContainerBuilder(new ParameterBag(array_merge(array(
-            'kernel.bundles'     => array('FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle'),
-            'kernel.cache_dir'   => __DIR__,
-            'kernel.debug'       => false,
+            'kernel.bundles' => array('FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle'),
+            'kernel.cache_dir' => __DIR__,
+            'kernel.debug' => false,
             'kernel.environment' => 'test',
-            'kernel.name'        => 'kernel',
-            'kernel.root_dir'    => __DIR__,
+            'kernel.name' => 'kernel',
+            'kernel.root_dir' => __DIR__,
         ), $data)));
     }
 

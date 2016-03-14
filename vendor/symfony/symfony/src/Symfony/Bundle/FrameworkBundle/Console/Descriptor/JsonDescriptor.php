@@ -168,15 +168,16 @@ class JsonDescriptor extends Descriptor
         unset($requirements['_scheme'], $requirements['_method']);
 
         return array(
-            'path'         => $route->getPath(),
-            'host'         => '' !== $route->getHost() ? $route->getHost() : 'ANY',
-            'scheme'       => $route->getSchemes() ? implode('|', $route->getSchemes()) : 'ANY',
-            'method'       => $route->getMethods() ? implode('|', $route->getMethods()) : 'ANY',
-            'class'        => get_class($route),
-            'defaults'     => $route->getDefaults(),
+            'path' => $route->getPath(),
+            'pathRegex' => $route->compile()->getRegex(),
+            'host' => '' !== $route->getHost() ? $route->getHost() : 'ANY',
+            'hostRegex' => '' !== $route->getHost() ? $route->compile()->getHostRegex() : '',
+            'scheme' => $route->getSchemes() ? implode('|', $route->getSchemes()) : 'ANY',
+            'method' => $route->getMethods() ? implode('|', $route->getMethods()) : 'ANY',
+            'class' => get_class($route),
+            'defaults' => $route->getDefaults(),
             'requirements' => $requirements ?: 'NO CUSTOM',
-            'options'      => $route->getOptions(),
-            'pathRegex'    => $route->compile()->getRegex(),
+            'options' => $route->getOptions(),
         );
     }
 
@@ -189,12 +190,27 @@ class JsonDescriptor extends Descriptor
     private function getContainerDefinitionData(Definition $definition, $omitTags = false)
     {
         $data = array(
-            'class'     => (string) $definition->getClass(),
-            'scope'     => $definition->getScope(),
-            'public'    => $definition->isPublic(),
+            'class' => (string) $definition->getClass(),
+            'scope' => $definition->getScope(),
+            'public' => $definition->isPublic(),
             'synthetic' => $definition->isSynthetic(),
-            'file'      => $definition->getFile(),
+            'lazy' => $definition->isLazy(),
+            'synchronized' => $definition->isSynchronized(),
+            'abstract' => $definition->isAbstract(),
+            'file' => $definition->getFile(),
         );
+
+        if ($definition->getFactoryClass()) {
+            $data['factory_class'] = $definition->getFactoryClass();
+        }
+
+        if ($definition->getFactoryService()) {
+            $data['factory_service'] = $definition->getFactoryService();
+        }
+
+        if ($definition->getFactoryMethod()) {
+            $data['factory_method'] = $definition->getFactoryMethod();
+        }
 
         if (!$omitTags) {
             $data['tags'] = array();
@@ -219,7 +235,7 @@ class JsonDescriptor extends Descriptor
     {
         return array(
             'service' => (string) $alias,
-            'public'  => $alias->isPublic(),
+            'public' => $alias->isPublic(),
         );
     }
 }

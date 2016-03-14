@@ -11,7 +11,7 @@
 
 namespace Symfony\Bundle\FrameworkBundle\Console\Descriptor;
 
-use Symfony\Component\Console\Helper\TableHelper;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -31,8 +31,8 @@ class TextDescriptor extends Descriptor
     {
         $showControllers = isset($options['show_controllers']) && $options['show_controllers'];
         $headers = array('Name', 'Method', 'Scheme', 'Host', 'Path');
-        $table = new TableHelper();
-        $table->setLayout(TableHelper::LAYOUT_COMPACT);
+        $table = new Table($this->getOutput());
+        $table->setStyle('compact');
         $table->setHeaders($showControllers ? array_merge($headers, array('Controller')) : $headers);
 
         foreach ($routes->all() as $name => $route) {
@@ -72,23 +72,20 @@ class TextDescriptor extends Descriptor
         // fixme: values were originally written as raw
         $description = array(
             '<comment>Path</comment>         '.$route->getPath(),
+            '<comment>Path Regex</comment>   '.$route->compile()->getRegex(),
             '<comment>Host</comment>         '.('' !== $route->getHost() ? $route->getHost() : 'ANY'),
+            '<comment>Host Regex</comment>   '.('' !== $route->getHost() ? $route->compile()->getHostRegex() : ''),
             '<comment>Scheme</comment>       '.($route->getSchemes() ? implode('|', $route->getSchemes()) : 'ANY'),
             '<comment>Method</comment>       '.($route->getMethods() ? implode('|', $route->getMethods()) : 'ANY'),
             '<comment>Class</comment>        '.get_class($route),
             '<comment>Defaults</comment>     '.$this->formatRouterConfig($route->getDefaults()),
-            '<comment>Requirements</comment> '.$this->formatRouterConfig($requirements) ?: 'NO CUSTOM',
+            '<comment>Requirements</comment> '.($requirements ? $this->formatRouterConfig($requirements) : 'NO CUSTOM'),
             '<comment>Options</comment>      '.$this->formatRouterConfig($route->getOptions()),
-            '<comment>Path-Regex</comment>   '.$route->compile()->getRegex(),
         );
 
         if (isset($options['name'])) {
             array_unshift($description, '<comment>Name</comment>         '.$options['name']);
             array_unshift($description, $this->formatSection('router', sprintf('Route "%s"', $options['name'])));
-        }
-
-        if (null !== $route->compile()->getHostRegex()) {
-            $description[] = '<comment>Host-Regex</comment>   '.$route->compile()->getHostRegex();
         }
 
         $this->writeText(implode("\n", $description)."\n", $options);
@@ -99,8 +96,8 @@ class TextDescriptor extends Descriptor
      */
     protected function describeContainerParameters(ParameterBag $parameters, array $options = array())
     {
-        $table = new TableHelper();
-        $table->setLayout(TableHelper::LAYOUT_COMPACT);
+        $table = new Table($this->getOutput());
+        $table->setStyle('compact');
         $table->setHeaders(array('Parameter', 'Value'));
 
         foreach ($this->sortParameters($parameters) as $parameter => $value) {
@@ -200,8 +197,8 @@ class TextDescriptor extends Descriptor
         $tagsCount = count($maxTags);
         $tagsNames = array_keys($maxTags);
 
-        $table = new TableHelper();
-        $table->setLayout(TableHelper::LAYOUT_COMPACT);
+        $table = new Table($this->getOutput());
+        $table->setStyle('compact');
         $table->setHeaders(array_merge(array('Service ID'), $tagsNames, array('Scope', 'Class name')));
 
         foreach ($this->sortServiceIds($serviceIds) as $serviceId) {
@@ -263,7 +260,25 @@ class TextDescriptor extends Descriptor
         $description[] = sprintf('<comment>Scope</comment>            %s', $definition->getScope());
         $description[] = sprintf('<comment>Public</comment>           %s', $definition->isPublic() ? 'yes' : 'no');
         $description[] = sprintf('<comment>Synthetic</comment>        %s', $definition->isSynthetic() ? 'yes' : 'no');
-        $description[] = sprintf('<comment>Required File</comment>    %s', $definition->getFile() ? $definition->getFile() : '-');
+        $description[] = sprintf('<comment>Lazy</comment>             %s', $definition->isLazy() ? 'yes' : 'no');
+        $description[] = sprintf('<comment>Synchronized</comment>     %s', $definition->isSynchronized() ? 'yes' : 'no');
+        $description[] = sprintf('<comment>Abstract</comment>         %s', $definition->isAbstract() ? 'yes' : 'no');
+
+        if ($definition->getFile()) {
+            $description[] = sprintf('<comment>Required File</comment>    %s', $definition->getFile() ? $definition->getFile() : '-');
+        }
+
+        if ($definition->getFactoryClass()) {
+            $description[] = sprintf('<comment>Factory Class</comment>    %s', $definition->getFactoryClass());
+        }
+
+        if ($definition->getFactoryService()) {
+            $description[] = sprintf('<comment>Factory Service</comment>  %s', $definition->getFactoryService());
+        }
+
+        if ($definition->getFactoryMethod()) {
+            $description[] = sprintf('<comment>Factory Method</comment>   %s', $definition->getFactoryMethod());
+        }
 
         $this->writeText(implode("\n", $description)."\n", $options);
     }
@@ -291,6 +306,10 @@ class TextDescriptor extends Descriptor
      */
     private function formatRouterConfig(array $array)
     {
+        if (!count($array)) {
+            return 'NONE';
+        }
+
         $string = '';
         ksort($array);
         foreach ($array as $name => $value) {
