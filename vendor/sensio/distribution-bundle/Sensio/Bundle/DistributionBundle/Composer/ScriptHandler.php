@@ -27,7 +27,7 @@ class ScriptHandler
      * a composer.json and set new options, making them immediately available
      * to forthcoming listeners.
      */
-    private static $options = array(
+    protected static $options = array(
         'symfony-app-dir' => 'app',
         'symfony-web-dir' => 'web',
         'symfony-assets-install' => 'hard',
@@ -41,7 +41,7 @@ class ScriptHandler
      */
     public static function defineDirectoryStructure(CommandEvent $event)
     {
-        $options = self::getOptions($event);
+        $options = static::getOptions($event);
 
         if (!getenv('SENSIOLABS_ENABLE_NEW_DIRECTORY_STRUCTURE') || !$event->getIO()->askConfirmation('Would you like to use Symfony 3 directory structure? [y/N] ', false)) {
             return;
@@ -50,8 +50,8 @@ class ScriptHandler
         $rootDir = getcwd();
         $appDir = $options['symfony-app-dir'];
         $webDir = $options['symfony-web-dir'];
-        $binDir = self::$options['symfony-bin-dir'] = 'bin';
-        $varDir = self::$options['symfony-var-dir'] = 'var';
+        $binDir = static::$options['symfony-bin-dir'] = 'bin';
+        $varDir = static::$options['symfony-var-dir'] = 'var';
 
         static::updateDirectoryStructure($event, $rootDir, $appDir, $binDir, $varDir, $webDir);
     }
@@ -66,16 +66,16 @@ class ScriptHandler
      */
     public static function buildBootstrap(CommandEvent $event)
     {
-        $options = self::getOptions($event);
+        $options = static::getOptions($event);
         $bootstrapDir = $autoloadDir = $options['symfony-app-dir'];
 
-        if (self::useNewDirectoryStructure($options)) {
+        if (static::useNewDirectoryStructure($options)) {
             $bootstrapDir = $options['symfony-var-dir'];
-            if (!self::hasDirectory($event, 'symfony-var-dir', $bootstrapDir, 'build bootstrap file')) {
+            if (!static::hasDirectory($event, 'symfony-var-dir', $bootstrapDir, 'build bootstrap file')) {
                 return;
             }
         }
-        if (!self::hasDirectory($event, 'symfony-app-dir', $autoloadDir, 'build bootstrap file')) {
+        if (!static::hasDirectory($event, 'symfony-app-dir', $autoloadDir, 'build bootstrap file')) {
             return;
         }
 
@@ -94,14 +94,37 @@ class ScriptHandler
     }
 
     /**
+     * Sets up deployment target specific features.
+     * Could be custom web server configs, boot command files etc.
+     *
+     * @param $event CommandEvent An instance
+     */
+    public static function prepareDeploymentTarget(CommandEvent $event)
+    {
+        static::prepareDeploymentTargetHeroku($event);
+    }
+
+    protected static function prepareDeploymentTargetHeroku(CommandEvent $event)
+    {
+        $options = static::getOptions($event);
+        if (($stack = getenv('STACK')) && ($stack == 'cedar' || $stack == 'cedar-14')) {
+            $fs = new Filesystem();
+            if (!$fs->exists('Procfile')) {
+                $event->getIO()->write('Heroku deploy detected; creating default Procfile for "web" dyno');
+                $fs->dumpFile('Procfile', sprintf('web: $(composer config bin-dir)/heroku-php-apache2 %s/', $options['symfony-web-dir']));
+            }
+        }
+    }
+
+    /**
      * Clears the Symfony cache.
      *
      * @param $event CommandEvent A instance
      */
     public static function clearCache(CommandEvent $event)
     {
-        $options = self::getOptions($event);
-        $consoleDir = self::getConsoleDir($event, 'clear the cache');
+        $options = static::getOptions($event);
+        $consoleDir = static::getConsoleDir($event, 'clear the cache');
 
         if (null === $consoleDir) {
             return;
@@ -129,8 +152,8 @@ class ScriptHandler
      */
     public static function installAssets(CommandEvent $event)
     {
-        $options = self::getOptions($event);
-        $consoleDir = self::getConsoleDir($event, 'install assets');
+        $options = static::getOptions($event);
+        $consoleDir = static::getConsoleDir($event, 'install assets');
 
         if (null === $consoleDir) {
             return;
@@ -145,11 +168,11 @@ class ScriptHandler
             $symlink = '--symlink --relative ';
         }
 
-        if (!self::hasDirectory($event, 'symfony-web-dir', $webDir, 'install assets')) {
+        if (!static::hasDirectory($event, 'symfony-web-dir', $webDir, 'install assets')) {
             return;
         }
 
-        static::executeCommand($event, $consoleDir, 'assets:install '.$symlink.escapeshellarg($webDir));
+        static::executeCommand($event, $consoleDir, 'assets:install '.$symlink.escapeshellarg($webDir), $options['process-timeout']);
     }
 
     /**
@@ -159,14 +182,14 @@ class ScriptHandler
      */
     public static function installRequirementsFile(CommandEvent $event)
     {
-        $options = self::getOptions($event);
+        $options = static::getOptions($event);
         $appDir = $options['symfony-app-dir'];
         $fs = new Filesystem();
 
-        $newDirectoryStructure = self::useNewDirectoryStructure($options);
+        $newDirectoryStructure = static::useNewDirectoryStructure($options);
 
         if (!$newDirectoryStructure) {
-            if (!self::hasDirectory($event, 'symfony-app-dir', $appDir, 'install the requirements files')) {
+            if (!static::hasDirectory($event, 'symfony-app-dir', $appDir, 'install the requirements files')) {
                 return;
             }
             $fs->copy(__DIR__.'/../Resources/skeleton/app/SymfonyRequirements.php', $appDir.'/SymfonyRequirements.php', true);
@@ -174,17 +197,18 @@ class ScriptHandler
         } else {
             $binDir = $options['symfony-bin-dir'];
             $varDir = $options['symfony-var-dir'];
-            if (!self::hasDirectory($event, 'symfony-var-dir', $varDir, 'install the requirements files')) {
+            if (!static::hasDirectory($event, 'symfony-var-dir', $varDir, 'install the requirements files')) {
                 return;
             }
-            if (!self::hasDirectory($event, 'symfony-bin-dir', $binDir, 'install the requirements files')) {
+            if (!static::hasDirectory($event, 'symfony-bin-dir', $binDir, 'install the requirements files')) {
                 return;
             }
             $fs->copy(__DIR__.'/../Resources/skeleton/app/SymfonyRequirements.php', $varDir.'/SymfonyRequirements.php', true);
             $fs->copy(__DIR__.'/../Resources/skeleton/app/check.php', $binDir.'/symfony_requirements', true);
             $fs->remove(array($appDir.'/check.php', $appDir.'/SymfonyRequirements.php', true));
 
-            $fs->dumpFile($binDir.'/symfony_requirements', '#!/usr/bin/env php'.PHP_EOL.str_replace(".'/SymfonyRequirements.php'", ".'/".$fs->makePathRelative($varDir, $binDir)."SymfonyRequirements.php'", file_get_contents($binDir.'/symfony_requirements')), 0755);
+            $fs->dumpFile($binDir.'/symfony_requirements', '#!/usr/bin/env php'.PHP_EOL.str_replace(".'/SymfonyRequirements.php'", ".'/".$fs->makePathRelative($varDir, $binDir)."SymfonyRequirements.php'", file_get_contents($binDir.'/symfony_requirements')));
+            $fs->chmod($binDir.'/symfony_requirements', 0755);
         }
 
         $webDir = $options['symfony-web-dir'];
@@ -202,7 +226,7 @@ class ScriptHandler
 
     public static function removeSymfonyStandardFiles(CommandEvent $event)
     {
-        $options = self::getOptions($event);
+        $options = static::getOptions($event);
         $appDir = $options['symfony-app-dir'];
 
         if (!is_dir($appDir)) {
@@ -220,7 +244,7 @@ class ScriptHandler
     public static function installAcmeDemoBundle(CommandEvent $event)
     {
         $rootDir = getcwd();
-        $options = self::getOptions($event);
+        $options = static::getOptions($event);
 
         if (file_exists($rootDir.'/src/Acme/DemoBundle')) {
             return;
@@ -239,7 +263,7 @@ class ScriptHandler
         $kernelFile = $appDir.'/AppKernel.php';
 
         $fs = new Filesystem();
-        $fs->mirror(__DIR__.'/../Resources/skeleton/acme-demo-bundle', $rootDir.'/src', null, array('override'));
+        $fs->mirror(__DIR__.'/../Resources/skeleton/acme-demo-bundle', $rootDir.'/src', null, array('override' => true));
 
         $ref = '$bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();';
         $bundleDeclaration = "\$bundles[] = new Acme\\DemoBundle\\AcmeDemoBundle();";
@@ -253,7 +277,7 @@ class ScriptHandler
             $fs->dumpFile($kernelFile, $updatedContent);
         }
 
-        self::patchAcmeDemoBundleConfiguration($appDir, $fs);
+        static::patchAcmeDemoBundleConfiguration($appDir, $fs);
     }
 
     private static function patchAcmeDemoBundleConfiguration($appDir, Filesystem $fs)
@@ -319,7 +343,7 @@ security:
 
     # with these settings you can restrict or allow access for different parts
     # of your application based on roles, ip, host or methods
-    # http://symfony.com/doc/current/book/security.html#security-book-access-control-matching-options
+    # http://symfony.com/doc/current/cookbook/security/access_control.html
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
 EOF;
@@ -363,8 +387,10 @@ EOF;
         $autoloaders = spl_autoload_functions();
         if (is_array($autoloaders[0]) && method_exists($autoloaders[0][0], 'findFile') && $autoloaders[0][0]->findFile('Symfony\\Bundle\\FrameworkBundle\\HttpKernel')) {
             $classes[] = 'Symfony\\Bundle\\FrameworkBundle\\HttpKernel';
-        } else {
+        } elseif (is_array($autoloaders[0]) && method_exists($autoloaders[0][0], 'findFile') && $autoloaders[0][0]->findFile('Symfony\\Component\\HttpKernel\\DependencyInjection\\ContainerAwareHttpKernel')) {
             $classes[] = 'Symfony\\Component\\HttpKernel\\DependencyInjection\\ContainerAwareHttpKernel';
+        } else {
+            $classes[] = 'Symfony\\Component\\HttpKernel\\HttpKernel';
         }
 
         ClassCollectionLoader::load($classes, dirname($file), basename($file, '.php.cache'), false, false, '.php.cache');
@@ -382,20 +408,26 @@ EOF;
             $autoloadDir = $fs->makePathRelative($autoloadDir, $bootstrapDir);
         }
 
-        file_put_contents($file, sprintf("<?php
+        file_put_contents($file, sprintf(<<<'EOF'
+<?php
 
-namespace { \$loader = require_once __DIR__.'/".$autoloadDir."autoload.php'; }
+namespace {
+    error_reporting(error_reporting() & ~E_USER_DEPRECATED);
+    $loader = require_once __DIR__.'/%sautoload.php';
+}
 
 %s
 
-namespace { return \$loader; }
-            ", $bootstrapContent));
+namespace { return $loader; }
+
+EOF
+            , $autoloadDir, $bootstrapContent));
     }
 
     protected static function executeCommand(CommandEvent $event, $consoleDir, $cmd, $timeout = 300)
     {
-        $php = escapeshellarg(self::getPhp(false));
-        $phpArgs = implode(' ', array_map('escapeshellarg', self::getPhpArguments()));
+        $php = escapeshellarg(static::getPhp(false));
+        $phpArgs = implode(' ', array_map('escapeshellarg', static::getPhpArguments()));
         $console = escapeshellarg($consoleDir.'/console');
         if ($event->getIO()->isDecorated()) {
             $console .= ' --ansi';
@@ -404,19 +436,19 @@ namespace { return \$loader; }
         $process = new Process($php.($phpArgs ? ' '.$phpArgs : '').' '.$console.' '.$cmd, null, null, null, $timeout);
         $process->run(function ($type, $buffer) use ($event) { $event->getIO()->write($buffer, false); });
         if (!$process->isSuccessful()) {
-            throw new \RuntimeException(sprintf('An error occurred when executing the "%s" command.', escapeshellarg($cmd)));
+            throw new \RuntimeException(sprintf("An error occurred when executing the \"%s\" command:\n\n%s\n\n%s.", escapeshellarg($cmd), $process->getOutput(), $process->getErrorOutput()));
         }
     }
 
     protected static function executeBuildBootstrap(CommandEvent $event, $bootstrapDir, $autoloadDir, $timeout = 300)
     {
-        $php = escapeshellarg(self::getPhp(false));
-        $phpArgs = implode(' ', array_map('escapeshellarg', self::getPhpArguments()));
+        $php = escapeshellarg(static::getPhp(false));
+        $phpArgs = implode(' ', array_map('escapeshellarg', static::getPhpArguments()));
         $cmd = escapeshellarg(__DIR__.'/../Resources/bin/build_bootstrap.php');
         $bootstrapDir = escapeshellarg($bootstrapDir);
         $autoloadDir = escapeshellarg($autoloadDir);
         $useNewDirectoryStructure = '';
-        if (self::useNewDirectoryStructure(self::getOptions($event))) {
+        if (static::useNewDirectoryStructure(static::getOptions($event))) {
             $useNewDirectoryStructure = escapeshellarg('--use-new-directory-structure');
         }
 
@@ -490,7 +522,7 @@ EOF;
 
     protected static function getOptions(CommandEvent $event)
     {
-        $options = array_merge(self::$options, $event->getComposer()->getPackage()->getExtra());
+        $options = array_merge(static::$options, $event->getComposer()->getPackage()->getExtra());
 
         $options['symfony-assets-install'] = getenv('SYMFONY_ASSETS_INSTALL') ?: $options['symfony-assets-install'];
 
@@ -511,9 +543,18 @@ EOF;
 
     protected static function getPhpArguments()
     {
-        $phpFinder = new PhpExecutableFinder();
+        $arguments = array();
 
-        return method_exists($phpFinder, 'findArguments') ? $phpFinder->findArguments() : array();
+        $phpFinder = new PhpExecutableFinder();
+        if (method_exists($phpFinder, 'findArguments')) {
+            $arguments = $phpFinder->findArguments();
+        }
+
+        if (false !== $ini = php_ini_loaded_file()) {
+            $arguments[] = '--php-ini='.$ini;
+        }
+
+        return $arguments;
     }
 
     /**
@@ -526,17 +567,17 @@ EOF;
      */
     protected static function getConsoleDir(CommandEvent $event, $actionName)
     {
-        $options = self::getOptions($event);
+        $options = static::getOptions($event);
 
-        if (self::useNewDirectoryStructure($options)) {
-            if (!self::hasDirectory($event, 'symfony-bin-dir', $options['symfony-bin-dir'], $actionName)) {
+        if (static::useNewDirectoryStructure($options)) {
+            if (!static::hasDirectory($event, 'symfony-bin-dir', $options['symfony-bin-dir'], $actionName)) {
                 return;
             }
 
             return $options['symfony-bin-dir'];
         }
 
-        if (!self::hasDirectory($event, 'symfony-app-dir', $options['symfony-app-dir'], 'execute command')) {
+        if (!static::hasDirectory($event, 'symfony-app-dir', $options['symfony-app-dir'], 'execute command')) {
             return;
         }
 

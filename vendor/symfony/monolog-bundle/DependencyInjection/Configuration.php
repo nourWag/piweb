@@ -58,6 +58,9 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
  *   - [max_files]: files to keep, defaults to zero (infinite)
  *   - [level]: level name or int value, defaults to DEBUG
  *   - [bubble]: bool, defaults to true
+ *   - [file_permission]: string|null, defaults to null
+ *   - [filename_format]: string, defaults to '{filename}-{date}'
+ *   - [date_format]: string, defaults to 'Y-m-d'
  *
  * - mongo:
  *   - mongo:
@@ -68,6 +71,16 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
  *      - pass: mandatory only if user is present
  *      - [database]: defaults to monolog
  *      - [collection]: defaults to logs
+ *   - [level]: level name or int value, defaults to DEBUG
+ *   - [bubble]: bool, defaults to true
+ *
+ * - elasticsearch:
+ *   - elasticsearch:
+ *      - id: optional if host is given
+ *      - host: elastic search host name
+ *      - [port]: defaults to 9200
+ *   - [index]: index name, defaults to monolog
+ *   - [document_type]: document_type, defaults to logs
  *   - [level]: level name or int value, defaults to DEBUG
  *   - [bubble]: bool, defaults to true
  *
@@ -92,14 +105,19 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
  *   - [buffer_size]: defaults to 0 (unlimited)
  *   - [level]: level name or int value, defaults to DEBUG
  *   - [bubble]: bool, defaults to true
+ *   - [flush_on_overflow]: bool, defaults to false
  *
  * - group:
  *   - members: the wrapped handlers by name
  *   - [bubble]: bool, defaults to true
  *
+ * - whatfailuregroup:
+ *   - members: the wrapped handlers by name
+ *   - [bubble]: bool, defaults to true
+ *
  * - syslog:
  *   - ident: string
- *   - [facility]: defaults to LOG_USER
+ *   - [facility]: defaults to 'user', use any of the LOG_* facility constant but without LOG_ prefix, e.g. user for LOG_USER
  *   - [logopts]: defaults to LOG_PID
  *   - [level]: level name or int value, defaults to DEBUG
  *   - [bubble]: bool, defaults to true
@@ -107,7 +125,7 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
  * - syslogudp:
  *   - host: syslogd host name
  *   - [port]: defaults to 514
- *   - [facility]: defaults to LOG_USER
+ *   - [facility]: defaults to 'user', use any of the LOG_* facility constant but without LOG_ prefix, e.g. user for LOG_USER
  *   - [logopts]: defaults to LOG_PID
  *   - [level]: level name or int value, defaults to DEBUG
  *   - [bubble]: bool, defaults to true
@@ -117,9 +135,11 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
  *   - to_email: optional if email_prototype is given
  *   - subject: optional if email_prototype is given
  *   - [email_prototype]: service id of a message, defaults to a default message with the three fields above
+ *   - [content_type]: optional if email_prototype is given, defaults to text/plain
  *   - [mailer]: mailer service, defaults to mailer
  *   - [level]: level name or int value, defaults to DEBUG
  *   - [bubble]: bool, defaults to true
+ *   - [lazy]: use service lazy loading, bool, defaults to true
  *
  * - native_mailer:
  *   - from_email: string
@@ -148,16 +168,33 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
  *   - client_id: Raven client custom service id (optional)
  *   - [level]: level name or int value, defaults to DEBUG
  *   - [bubble]: bool, defaults to true
+ *   - [auto_stack_logs]: bool, defaults to false
  *
  * - newrelic:
  *   - [level]: level name or int value, defaults to DEBUG
  *   - [bubble]: bool, defaults to true
+ *   - [app_name]: new relic app name, default null
  *
  * - hipchat:
  *   - token: hipchat api token
  *   - room: room id or name
  *   - [notify]: defaults to false
  *   - [nickname]: defaults to Monolog
+ *   - [level]: level name or int value, defaults to DEBUG
+ *   - [bubble]: bool, defaults to true
+ *   - [use_ssl]: bool, defaults to true
+ *   - [message_format]: text or html, defaults to text
+ *   - [host]: defaults to "api.hipchat.com"
+ *   - [api_version]: defaults to "v1"
+ *
+ * - slack:
+ *   - token: slack api token
+ *   - channel: channel name (with starting #)
+ *   - [bot_name]: defaults to Monolog
+ *   - [icon_emoji]: defaults to null
+ *   - [use_attachment]: bool, defaults to true
+ *   - [use_short_attachment]: bool, defaults to false
+ *   - [include_extra]: bool, defaults to false
  *   - [level]: level name or int value, defaults to DEBUG
  *   - [bubble]: bool, defaults to true
  *
@@ -200,6 +237,8 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
  *   - [use_ssl]: whether or not SSL encryption should be used, defaults to true
  *   - [level]: level name or int value, defaults to DEBUG
  *   - [bubble]: bool, defaults to true
+ *   - [timeout]: float
+ *   - [connection_timeout]: float
  *
  * - flowdock:
  *   - token: flowdock api token
@@ -260,7 +299,24 @@ class Configuration implements ConfigurationInterface
                             ->scalarNode('priority')->defaultValue(0)->end()
                             ->scalarNode('level')->defaultValue('DEBUG')->end()
                             ->booleanNode('bubble')->defaultTrue()->end()
+                            ->scalarNode('app_name')->defaultNull()->end()
+                            ->booleanNode('include_stacktraces')->defaultFalse()->end()
                             ->scalarNode('path')->defaultValue('%kernel.logs_dir%/%kernel.environment%.log')->end() // stream and rotating
+                            ->scalarNode('file_permission')  // stream and rotating
+                                ->defaultNull()
+                                ->beforeNormalization()
+                                    ->ifString()
+                                    ->then(function ($v) {
+                                        if (substr($v, 0, 1) === '0') {
+                                            return octdec($v);
+                                        }
+
+                                        return (int) $v;
+                                    })
+                                ->end()
+                            ->end()
+                            ->scalarNode('filename_format')->defaultValue('{filename}-{date}')->end() //rotating
+                            ->scalarNode('date_format')->defaultValue('Y-m-d')->end() //rotating
                             ->scalarNode('ident')->defaultFalse()->end() // syslog
                             ->scalarNode('logopts')->defaultValue(LOG_PID)->end() // syslog
                             ->scalarNode('facility')->defaultValue('user')->end() // syslog
@@ -280,16 +336,25 @@ class Configuration implements ConfigurationInterface
                             ->scalarNode('min_level')->defaultValue('DEBUG')->end() // filter
                             ->scalarNode('max_level')->defaultValue('EMERGENCY')->end() //filter
                             ->scalarNode('buffer_size')->defaultValue(0)->end() // fingers_crossed and buffer
+                            ->booleanNode('flush_on_overflow')->defaultFalse()->end() // buffer
                             ->scalarNode('handler')->end() // fingers_crossed and buffer
                             ->scalarNode('url')->end() // cube
                             ->scalarNode('exchange')->end() // amqp
                             ->scalarNode('exchange_name')->defaultValue('log')->end() // amqp
                             ->scalarNode('room')->end() // hipchat
+                            ->scalarNode('message_format')->defaultValue('text')->end() // hipchat
+                            ->scalarNode('api_version')->defaultNull()->end() // hipchat
+                            ->scalarNode('channel')->end() // slack
+                            ->scalarNode('bot_name')->defaultValue('Monolog')->end() // slack
+                            ->scalarNode('use_attachment')->defaultTrue()->end() // slack
+                            ->scalarNode('use_short_attachment')->defaultFalse()->end() // slack
+                            ->scalarNode('include_extra')->defaultFalse()->end() // slack
+                            ->scalarNode('icon_emoji')->defaultNull()->end() // slack
                             ->scalarNode('notify')->defaultFalse()->end() // hipchat
                             ->scalarNode('nickname')->defaultValue('Monolog')->end() // hipchat
-                            ->scalarNode('token')->end() // pushover & hipchat & loggly & logentries & flowdock & rollbar
+                            ->scalarNode('token')->end() // pushover & hipchat & loggly & logentries & flowdock & rollbar & slack
                             ->scalarNode('source')->end() // flowdock
-                            ->booleanNode('use_ssl')->defaultTrue()->end() // logentries
+                            ->booleanNode('use_ssl')->defaultTrue()->end() // logentries & hipchat
                             ->variableNode('user') // pushover
                                 ->validate()
                                     ->ifTrue(function ($v) {
@@ -299,7 +364,7 @@ class Configuration implements ConfigurationInterface
                                 ->end()
                             ->end()
                             ->scalarNode('title')->defaultNull()->end() // pushover
-                            ->scalarNode('host')->end() // syslogudp
+                            ->scalarNode('host')->defaultNull()->end() // syslogudp & hipchat
                             ->scalarNode('port')->defaultValue(514)->end() // syslogudp
                             ->arrayNode('publisher')
                                 ->canBeUnset()
@@ -348,11 +413,35 @@ class Configuration implements ConfigurationInterface
                                     ->thenInvalid('If you set user, you must provide a password.')
                                 ->end()
                             ->end() // mongo
+                            ->arrayNode('elasticsearch')
+                                ->canBeUnset()
+                                ->beforeNormalization()
+                                    ->ifString()
+                                    ->then(function ($v) { return array('id'=> $v); })
+                                ->end()
+                                ->children()
+                                    ->scalarNode('id')->end()
+                                    ->scalarNode('host')->end()
+                                    ->scalarNode('port')->defaultValue(9200)->end()
+                                    ->scalarNode('transport')->defaultValue('Http')->end()
+                                    ->scalarNode('user')->defaultNull()->end()
+                                    ->scalarNode('password')->defaultNull()->end()
+                                ->end()
+                                ->validate()
+                                    ->ifTrue(function ($v) {
+                                        return !isset($v['id']) && !isset($v['host']);
+                                    })
+                                    ->thenInvalid('What must be set is either the host or the id.')
+                                ->end()
+                            ->end() // elasticsearch
+                            ->scalarNode('index')->defaultValue('monolog')->end() // elasticsearch
+                            ->scalarNode('document_type')->defaultValue('logs')->end() // elasticsearch
+                            ->scalarNode('ignore_error')->defaultValue(false)->end() // elasticsearch
                             ->arrayNode('config')
                                 ->canBeUnset()
                                 ->prototype('scalar')->end()
                             ->end() // rollbar
-                            ->arrayNode('members') // group
+                            ->arrayNode('members') // group, whatfailuregroup
                                 ->canBeUnset()
                                 ->performNoDeepMerging()
                                 ->prototype('scalar')->end()
@@ -379,12 +468,14 @@ class Configuration implements ConfigurationInterface
                                     ->scalarNode('method')->defaultNull()->end()
                                 ->end()
                             ->end()
+                            ->booleanNode('lazy')->defaultValue(true)->end() // swift_mailer
                             ->scalarNode('connection_string')->end() // socket_handler
-                            ->scalarNode('timeout')->end() // socket_handler
-                            ->scalarNode('connection_timeout')->end() // socket_handler
+                            ->scalarNode('timeout')->end() // socket_handler & logentries
+                            ->scalarNode('connection_timeout')->end() // socket_handler & logentries
                             ->booleanNode('persistent')->end() // socket_handler
                             ->scalarNode('dsn')->end() // raven_handler
                             ->scalarNode('client_id')->defaultNull()->end() // raven_handler
+                            ->scalarNode('auto_log_stacks')->defaultFalse()->end() // raven_handler
                             ->scalarNode('message_type')->defaultValue(0)->end() // error_log
                             ->arrayNode('tags') // loggly
                                 ->beforeNormalization()
@@ -512,6 +603,7 @@ class Configuration implements ConfigurationInterface
                                 ->end()
                             ->end()
                             ->scalarNode('formatter')->end()
+                            ->booleanNode('nested')->defaultFalse()->end()
                         ->end()
                         ->validate()
                             ->ifTrue(function ($v) { return 'service' === $v['type'] && !empty($v['formatter']); })
@@ -570,12 +662,24 @@ class Configuration implements ConfigurationInterface
                             ->thenInvalid('The token and user have to be specified to use a PushoverHandler')
                         ->end()
                         ->validate()
-                            ->ifTrue(function ($v) { return 'raven' === $v['type'] && !array_key_exists('dsn', $v); })
+                            ->ifTrue(function ($v) { return 'raven' === $v['type'] && !array_key_exists('dsn', $v) && null === $v['client_id']; })
                             ->thenInvalid('The DSN has to be specified to use a RavenHandler')
                         ->end()
                         ->validate()
                             ->ifTrue(function ($v) { return 'hipchat' === $v['type'] && (empty($v['token']) || empty($v['room'])); })
                             ->thenInvalid('The token and room have to be specified to use a HipChatHandler')
+                        ->end()
+                        ->validate()
+                            ->ifTrue(function ($v) { return 'hipchat' === $v['type'] && !in_array($v['message_format'], array('text', 'html')); })
+                            ->thenInvalid('The message_format has to be "text" or "html" in a HipChatHandler')
+                        ->end()
+                        ->validate()
+                            ->ifTrue(function ($v) { return 'hipchat' === $v['type'] && null !== $v['api_version'] && !in_array($v['api_version'], array('v1', 'v2'), true); })
+                            ->thenInvalid('The api_version has to be "v1" or "v2" in a HipChatHandler')
+                        ->end()
+                        ->validate()
+                            ->ifTrue(function ($v) { return 'slack' === $v['type'] && (empty($v['token']) || empty($v['channel'])); })
+                            ->thenInvalid('The token and channel have to be specified to use a SlackHandler')
                         ->end()
                         ->validate()
                             ->ifTrue(function ($v) { return 'cube' === $v['type'] && empty($v['url']); })
