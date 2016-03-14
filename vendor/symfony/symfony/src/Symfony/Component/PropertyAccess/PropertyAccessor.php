@@ -213,7 +213,7 @@ class PropertyAccessor implements PropertyAccessorInterface
      * @return array The values read in the path.
      *
      * @throws UnexpectedTypeException If a value within the path is neither object nor array.
-     * @throws NoSuchIndexException If a non-existing index is accessed
+     * @throws NoSuchIndexException    If a non-existing index is accessed
      */
     private function &readPropertiesUntil(&$objectOrArray, PropertyPathInterface $propertyPath, $lastIndex, $ignoreInvalidIndices = true)
     {
@@ -226,10 +226,14 @@ class PropertyAccessor implements PropertyAccessorInterface
 
             $property = $propertyPath->getElement($i);
             $isIndex = $propertyPath->isIndex($i);
-            $isArrayAccess = is_array($objectOrArray) || $objectOrArray instanceof \ArrayAccess;
 
             // Create missing nested arrays on demand
-            if ($isIndex && $isArrayAccess && !isset($objectOrArray[$property])) {
+            if ($isIndex &&
+                (
+                    ($objectOrArray instanceof \ArrayAccess && !isset($objectOrArray[$property])) ||
+                    (is_array($objectOrArray) && !array_key_exists($property, $objectOrArray))
+                )
+            ) {
                 if (!$ignoreInvalidIndices) {
                     if (!is_array($objectOrArray)) {
                         if (!$objectOrArray instanceof \Traversable) {
@@ -400,7 +404,7 @@ class PropertyAccessor implements PropertyAccessorInterface
     }
 
     /**
-     * Sets the value of a property in the given object
+     * Sets the value of a property in the given object.
      *
      * @param object $object   The object to write to
      * @param string $property The property to write
@@ -505,11 +509,11 @@ class PropertyAccessor implements PropertyAccessorInterface
         }
 
         foreach ($itemToRemove as $item) {
-            call_user_func(array($object, $removeMethod), $item);
+            $object->{$removeMethod}($item);
         }
 
         foreach ($itemsToAdd as $item) {
-            call_user_func(array($object, $addMethod), $item);
+            $object->{$addMethod}($item);
         }
     }
 
@@ -519,7 +523,7 @@ class PropertyAccessor implements PropertyAccessorInterface
      * @param object $object   The object to write to
      * @param string $property The property to write
      *
-     * @return bool    Whether the property is writable
+     * @return bool Whether the property is writable
      */
     private function isPropertyWritable($object, $property)
     {
@@ -556,7 +560,7 @@ class PropertyAccessor implements PropertyAccessorInterface
     /**
      * Camelizes a given string.
      *
-     * @param  string $string Some string
+     * @param string $string Some string
      *
      * @return string The camelized version of the string
      */
@@ -593,12 +597,12 @@ class PropertyAccessor implements PropertyAccessorInterface
     /**
      * Returns whether a method is public and has the number of required parameters.
      *
-     * @param  \ReflectionClass $class      The class of the method
-     * @param  string           $methodName The method name
-     * @param  int              $parameters The number of parameters
+     * @param \ReflectionClass $class      The class of the method
+     * @param string           $methodName The method name
+     * @param int              $parameters The number of parameters
      *
-     * @return bool    Whether the method is public and has $parameters
-     *                                      required parameters
+     * @return bool Whether the method is public and has $parameters
+     *              required parameters
      */
     private function isMethodAccessible(\ReflectionClass $class, $methodName, $parameters)
     {

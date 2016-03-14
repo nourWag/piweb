@@ -18,6 +18,8 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new piweb\appBundle\piwebappBundle(),
             new Myapp\adminBundle\MyappadminBundle(),
+            new Myapp\ResponsableBundle\MyappResponsableBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
