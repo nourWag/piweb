@@ -1,0 +1,19 @@
+
+<h1>Modifier un modele </h1>
+<form action="" method="post" >
+    <table> 
+    <tr>
+        <td>Libelle: </td>
+        <td>{{ form_widget(form.libelle)}}</td>
+        
+    </tr>
+    <tr>  
+    <td>   Pays:</td>
+    <td>{{ form_widget(form.pays)}}</td>
+    </tr>
+      
+</table>
+    <br>
+  
+{{form_rest(form)}}
+</form>

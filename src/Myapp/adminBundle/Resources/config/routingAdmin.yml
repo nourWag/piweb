@@ -1,0 +1,56 @@
+adminPages:
+    pattern:  /
+    defaults: { _controller: "MyappadminBundle:PagesAdmin:index" }
+
+adminPages_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MyappadminBundle:PagesAdmin:show" }
+
+adminPages_new:
+    pattern:  /new
+    defaults: { _controller: "MyappadminBundle:PagesAdmin:new" }
+
+adminPages_create:
+    pattern:  /create
+    defaults: { _controller: "MyappadminBundle:PagesAdmin:create" }
+    requirements: { _method: post }
+
+adminPages_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MyappadminBundle:PagesAdmin:edit" }
+
+adminPages_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MyappadminBundle:PagesAdmin:update" }
+    requirements: { _method: post|put }
+
+adminPages_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MyappadminBundle:PagesAdmin:delete" }
+    requirements: { _method: post|delete }
+
+affich:
+    pattern:  /affichage
+    defaults: { _controller: "MyappadminBundle:client:list" }
+    
+aaa:
+    path:     /supprimer/{id}
+    defaults: { _controller: "MyappadminBundle:client:supprimer" }     
+rech:
+    path:     /rech
+    defaults: { _controller: "MyappadminBundle:client:Recherche" } 
+profile:
+    path:     /profile
+    defaults: { _controller: "MyappadminBundle:Profile2:show" }
+edit:
+    path:     /edit
+    defaults: { _controller: "MyappadminBundle:Profile2:edit" }  
+changePassword:
+    path:     /changePassword
+    defaults: { _controller: "MyappadminBundle:ChangePassword:changePassword" }    
+logout:
+    path:     /logout
+    defaults: { _controller: "MyappadminBundle:Security:logout" }    
+upload_pack: 
+    path: /upload 
+    defaults: { _controller: MyappadminBundle:Image:upload }    

@@ -1,0 +1,43 @@
+
+{% extends 'testMyapppagesBundle::layoutAd.html.twig' %} 
+ 	  
+ {% block contenu %}
+     
+              <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">liste de client</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+
+
+<div class="box-body">
+                  <div class="table-responsive"/>
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th> ID</th>
+                          <th>username</th>
+                          <th>supprimer</th>
+                    
+                          
+                        </tr>
+                      </thead>
+					  <h1>Liste des clients </h1>
+
+                      <body>
+					  {% for i in mod %}
+                        <tr>
+                          <td><a href="">{{i.id}}</a></td>
+                         
+                          <td><span class="label label-success">{{i.username}}</span></td>
+						   <td><span class="label label-success">
+                             <a href="{{path("aaa",{'id':i.id})}} ">supprimer </a></td>
+                        
+                        </tr>
+                         {% endfor %}
+                      </body>
+                    </table>
+       {% endblock contenu %} 
+        

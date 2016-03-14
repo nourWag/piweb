@@ -1,0 +1,25 @@
+
+{% extends "testMyapppagesBundle::layoutAd.html.twig" %} 
+ 	  
+ {% block contenu %}
+<h1>Recherche Liste des modeles </h1>
+<form method="POST"  action="">
+    rechercher : <input type="text" name="search"/>
+    <input type="submit" value="chercher"/>
+</form>
+<table border="1">
+    <tr>
+        <td>Id</td>
+         <td>libelle</td>
+          <td>pays</td>
+    </tr>
+    
+    {% for i in modeles %}
+    <tr>
+        <th>{{i.id}}</th>
+        <th>{{i.libelle}}</th>
+        <th>{{i.pays}}</th>
+       
+          </tr>
+    {% endfor %}
+    {% endblock %}

@@ -5,8 +5,8 @@ namespace Myapp\adminBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use  test\Myapp\pagesBundle\Entity\Pages;
-use  test\Myapp\pagesBundle\Form\PagesType;
+use  Myapp\adminBundle\Entity\Pages;
+use  Myapp\adminBundle\Form\PagesType;
 
 /**
  * Pages controller.
@@ -20,9 +20,9 @@ class PagesAdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('testMyapppagesBundle:Pages')->findAll();
+        $entities = $em->getRepository('MyappadminBundle:Pages')->findAll();
 
-        return $this->render('testMyapppagesBundle:Administration:pages/layout/index.html.twig', array(
+        return $this->render('MyappadminBundle:Administration:pages/layout/index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -44,7 +44,7 @@ class PagesAdminController extends Controller
             return $this->redirect($this->generateUrl('adminPages_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('testMyapppagesBundle:Administration:pages/layout/new.html.twig', array(
+        return $this->render('MyappadminBundle:Administration:pages/layout/new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -78,7 +78,7 @@ class PagesAdminController extends Controller
         $entity = new Pages();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('testMyapppagesBundle:Administration:pages/layout/new.html.twig', array(
+        return $this->render('MyappadminBundle:Administration:pages/layout/new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -92,7 +92,7 @@ class PagesAdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('testMyapppagesBundle:Pages')->find($id);
+        $entity = $em->getRepository('MyappadminBundle:Pages')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Pages entity.');
@@ -100,7 +100,7 @@ class PagesAdminController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('testMyapppagesBundle:Administration:pages/layout/show.html.twig', array(
+        return $this->render('MyappadminBundle:Administration:pages/layout/show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),        ));
     }
@@ -113,7 +113,7 @@ class PagesAdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('testMyapppagesBundle:Pages')->find($id);
+        $entity = $em->getRepository('MyappadminBundle:Pages')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Pages entity.');
@@ -122,7 +122,7 @@ class PagesAdminController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('testMyapppagesBundle:Administration:pages/layout/edit.html.twig', array(
+        return $this->render('MyappadminBundle:Administration:pages/layout/edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -171,7 +171,7 @@ class PagesAdminController extends Controller
             return $this->redirect($this->generateUrl('adminPages_edit', array('id' => $id)));
         }
 
-        return $this->render('testMyapppagesBundle:Administration:pages/layout/edit.html.twig', array(
+        return $this->render('MyappadminBundle:Administration:pages/layout/edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

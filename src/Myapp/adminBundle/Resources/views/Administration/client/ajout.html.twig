@@ -1,0 +1,9 @@
+{% extends 'MyAppParcBundle::layout.html.twig' %}
+{% block dynamique %}
+<h1>Interface d'ajout</h1>
+<form method='post' action=''>
+    libelle:<input type='text' name='libelle'><br>
+    pays:<input type='text' name='pays'><br>
+    <input type='submit' value='ajouter'>
+</form>
+{% endblock %}

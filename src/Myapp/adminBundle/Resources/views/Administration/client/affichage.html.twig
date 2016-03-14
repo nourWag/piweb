@@ -1,0 +1,25 @@
+
+{% extends 'testMyapppagesBundle::layoutAd.html.twig' %} 
+ 	  
+ {% block contenu %}
+     
+<h1>affichage des modeles</h1>
+<table border='1'>
+    <tr><td>Id</td><td>Libelle</td><td>pays</td>
+     <td>supprimer</td>
+            <td>Modifier</td>
+    </tr>
+    {% for i in mod %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.libelle}}</td>
+            <td>{{i.pays}}</td>
+           
+       <td>
+ <a href="{{path("aaa",{'id':i.id})}} ">supprimer </a></td>
+<td><a href="{{path("modifier",{'id':i.id})}}">Modifier</a></td>           
+        </tr>
+        {% endfor %}
+</table>
+       {% endblock contenu %} 
+  

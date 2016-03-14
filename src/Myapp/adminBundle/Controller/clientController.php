@@ -23,27 +23,27 @@ class clientController extends Controller {
 {
    $em=$this->getDoctrine()->getManager();
    $model=$em->getRepository
-    ('testMyappuseBundle:User')->findAll();
+    ('MyappadminBundle:User')->findAll();
     return $this->render
- ('testMyapppagesBundle:Administration:pages/layout/affichage.html.twig',array('mod'=>$model));
+ ('MyappadminBundle:Administration:pages/layout/affichage.html.twig',array('mod'=>$model));
 }
     
     public function RechercheAction()
     {
         $em = $this->getDoctrine()->getManager();
 $modeles = $em->getRepository
-        ('testMyappuseBundle:User')->findAll();
+        ('MyappadminBundle:User')->findAll();
         $request = $this->get('request');
         if ($request->getMethod()=="POST")
         {
 $search=$request->get('search');
 $modeles=$em->getRepository
-        ('testMyappuseBundle:User')->
+        ('MyappadminBundle:User')->
                 findBy(array("username"=>$search));        
         }
         
         return $this->render
-('testMyapppagesBundle:Administration:pages/layout/recherche.html.twig'
+('MyappadminBundle:Administration:pages/layout/recherche.html.twig'
                 ,array("modeles"=>$modeles));
     }
     
@@ -52,7 +52,7 @@ $modeles=$em->getRepository
     { $em = $this->getDoctrine()->getManager();
 $modeles =
   $em->getRepository
-     ('testMyappuseBundle:User')->find($id);
+     ('MyappadminBundle:User')->find($id);
                  $em->remove($modeles);
                  $em->flush();
 return $this->redirect($this->generateUrl("affich"));
