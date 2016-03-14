@@ -122,17 +122,70 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/hello')) {
-            // myappuser_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'myappuser_homepage')), array (  '_controller' => 'Myapp\\userBundle\\Controller\\DefaultController::indexAction',));
+        if (0 === strpos($pathinfo, '/user/pages')) {
+            // profile_user
+            if (rtrim($pathinfo, '/') === '/user/pages') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'profile_user');
+                }
+
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\AccueilController::affAction',  '_route' => 'profile_user',);
             }
 
-            // myapp_responsable_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'myapp_responsable_homepage')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\DefaultController::indexAction',));
+            // error403
+            if ($pathinfo === '/user/pages/error403') {
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\AccueilController::errorAction',  '_route' => 'error403',);
             }
 
+            // my_app_esprit_list
+            if ($pathinfo === '/user/pages/list') {
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\ImageController::listAction',  '_route' => 'my_app_esprit_list',);
+            }
+
+            // my_app_esprit_aff_article
+            if (0 === strpos($pathinfo, '/user/pages/pack') && preg_match('#^/user/pages/pack/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'my_app_esprit_aff_article')), array (  '_controller' => 'Myapp\\userBundle\\Controller\\ImageController::afficheAction',));
+            }
+
+            // my_image_route
+            if (0 === strpos($pathinfo, '/user/pages/images') && preg_match('#^/user/pages/images/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'my_image_route')), array (  '_controller' => 'Myapp\\userBundle\\Controller\\ImageController::photoAction',));
+            }
+
+            // catalogue
+            if ($pathinfo === '/user/pages/catalogue') {
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\packetController::listAction',  '_route' => 'catalogue',);
+            }
+
+            // profile12
+            if ($pathinfo === '/user/pages/profile') {
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\Profile2Controller::showAction',  '_route' => 'profile12',);
+            }
+
+            // edit12
+            if ($pathinfo === '/user/pages/edit') {
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\Profile2Controller::editAction',  '_route' => 'edit12',);
+            }
+
+            // changePassword12
+            if ($pathinfo === '/user/pages/changePassword') {
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\ChangePasswordController::changePasswordAction',  '_route' => 'changePassword12',);
+            }
+
+        }
+
+        // homme
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'homme');
+            }
+
+            return array (  '_controller' => 'Myapp\\userBundle\\Controller\\AccueilController::indexAction',  '_route' => 'homme',);
+        }
+
+        // myapp_responsable_homepage
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'myapp_responsable_homepage')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\DefaultController::indexAction',));
         }
 
         if (0 === strpos($pathinfo, '/respensable/pages')) {

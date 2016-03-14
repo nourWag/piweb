@@ -1839,7 +1839,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>56e6e593c3dae</argument>
+            <argument>56e6ffd1bd711</argument>
           </service>
         </argument>
       </argument>
@@ -2123,7 +2123,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>56e6e593c3dae</argument>
+            <argument>56e6ffd1bd711</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2625,6 +2625,7 @@
             <argument type="collection">
               <argument key="MyappadminBundle">Myapp\adminBundle\Entity</argument>
               <argument key="MyappResponsableBundle">Myapp\ResponsableBundle\Entity</argument>
+              <argument key="MyappuserBundle">Myapp\userBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -2646,6 +2647,7 @@
                       <argument type="collection">
                         <argument>C:\wamp\www\piweb\src\Myapp\adminBundle\Entity</argument>
                         <argument>C:\wamp\www\piweb\src\Myapp\ResponsableBundle\Entity</argument>
+                        <argument>C:\wamp\www\piweb\src\Myapp\userBundle\Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -2658,10 +2660,24 @@
                       <argument type="collection">
                         <argument>C:\wamp\www\piweb\src\Myapp\adminBundle\Entity</argument>
                         <argument>C:\wamp\www\piweb\src\Myapp\ResponsableBundle\Entity</argument>
+                        <argument>C:\wamp\www\piweb\src\Myapp\userBundle\Entity</argument>
                       </argument>
                     </service>
                   </argument>
                   <argument>Myapp\ResponsableBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>C:\wamp\www\piweb\src\Myapp\adminBundle\Entity</argument>
+                        <argument>C:\wamp\www\piweb\src\Myapp\ResponsableBundle\Entity</argument>
+                        <argument>C:\wamp\www\piweb\src\Myapp\userBundle\Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>Myapp\userBundle\Entity</argument>
                 </call>
                 <call method="addDriver">
                   <argument type="service">

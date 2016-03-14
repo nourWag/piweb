@@ -1,6 +1,6 @@
 <?php
 
-/* MyappadminBundle:Administration/pages/layout:index.html.twig */
+/* MyappadminBundle:Administration:pages/layout/index.html.twig */
 class __TwigTemplate_03c4c892478857d5449ed99ea22b962bd8e0a61c1a532d43c532679ce6990218 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -8,7 +8,7 @@ class __TwigTemplate_03c4c892478857d5449ed99ea22b962bd8e0a61c1a532d43c532679ce69
         parent::__construct($env);
 
         // line 2
-        $this->parent = $this->loadTemplate("MyappadminBundle::layoutAd.html.twig", "MyappadminBundle:Administration/pages/layout:index.html.twig", 2);
+        $this->parent = $this->loadTemplate("MyappadminBundle::layoutAd.html.twig", "MyappadminBundle:Administration:pages/layout/index.html.twig", 2);
         $this->blocks = array(
             'body' => array($this, 'block_body'),
         );
@@ -85,7 +85,7 @@ class __TwigTemplate_03c4c892478857d5449ed99ea22b962bd8e0a61c1a532d43c532679ce69
 
     public function getTemplateName()
     {
-        return "MyappadminBundle:Administration/pages/layout:index.html.twig";
+        return "MyappadminBundle:Administration:pages/layout/index.html.twig";
     }
 
     public function isTraitable()

@@ -1,3 +1,9 @@
-myappuser_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: MyappuserBundle:Default:index }
+userBundle_Pages:
+    resource: "@MyappuserBundle/Resources/config/routinguser.yml"
+    prefix:   /user/pages
+
+
+
+homme:
+    path:     /
+    defaults: { _controller: MyappuserBundle:Accueil:index }

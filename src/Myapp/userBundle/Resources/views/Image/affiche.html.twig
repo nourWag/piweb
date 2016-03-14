@@ -1,0 +1,10 @@
+{# empty Twig template #}
+{% extends "MyappuserBundle::layout.html.twig" %}
+
+{% block pack %}
+   <div> 
+<img src="{{ asset(path('my_image_route', {'id': images.id})) }}"/> 
+</div> 
+
+
+{% endblock  %}

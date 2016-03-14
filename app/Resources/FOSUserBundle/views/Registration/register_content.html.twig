@@ -1,0 +1,150 @@
+
+{% extends "MyappuserBundle::layout.html.twig" %}
+{% block produit %}
+{% trans_default_domain 'FOSUserBundle' %}
+<head>
+<title>Lighting A Ecommerce Category Flat Bootstarp Resposive Website Template | Login :: w3layouts</title>
+<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<!--theme style-->
+<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />	
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+
+<!--//theme style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- start menu -->
+<script src="{{ asset('js/simpleCart.min.js') }}"> </script>
+<!-- start menu -->
+<link href="{{ asset('css/memenu.css') }}" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="{{ asset('js/memenu.js') }}"></script>
+<script>$(document).ready(function(){$(".memenu").memenu();});</script>	
+<!-- /start menu -->
+</head>
+<script src="{{ asset('js/responsiveslides.min.js') }}"></script>
+<script>  
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: false,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: false,
+      });
+    });
+  </script>
+  
+<div class="header-top">
+	 <div class="header-bottom">			
+				
+<ol class="breadcrumb">
+		  <li><a href="index.html">Home</a></li>
+		  <li class="active">Account</li>
+		 </ol>
+	 <div class="registration">
+		 <div class="registration_left">
+			 <h2>new user? <span> create an account </span></h2>
+			 <!-- [if IE] 
+				< link rel='stylesheet' type='text/css' href='{{ asset('ie.css') }}/>  
+			 [endif] -->  
+			  
+			 <!-- [if lt IE 7]>  
+				< link rel='stylesheet' type='text/css' href='{{ asset('ie6.css') }}/>  
+			 <! [endif] -->  
+			 <script>
+				(function() {
+			
+				// Create input element for testing
+				var inputs = document.createElement('input');
+				
+				// Create the supports object
+				var supports = {};
+				
+				supports.autofocus   = 'autofocus' in inputs;
+				supports.required    = 'required' in inputs;
+				supports.placeholder = 'placeholder' in inputs;
+			
+				// Fallback for autofocus attribute
+				if(!supports.autofocus) {
+					
+				}
+				
+				// Fallback for required attribute
+				if(!supports.required) {
+					
+				}
+			
+				// Fallback for placeholder attribute
+				if(!supports.placeholder) {
+					
+				}
+				
+				// Change text inside send button on submit
+				var send = document.getElementById('register-submit');
+				if(send) {
+					send.onclick = function () {
+						this.innerHTML = '...Sending';
+					}
+				}
+			
+			 })();
+			 </script>
+			 <div class="registration_form">
+			 <!-- Form -->
+                         <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+                        {{ form_widget(form) }}
+                        <br />
+                        <input class="btn btn-primary" type="submit" value="{{ 'registration.submit'|trans }}" />
+                    </form>
+				
+					<div class="sky-form">
+						<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree Terms & conditions &nbsp;<a class="terms" href="#"> terms of service</a> </label>
+					</div>
+				
+				<!-- /Form -->
+			 </div>
+		 </div>
+		 <div class="registration_left">
+			 <h2>existing user</h2>
+			 <div class="registration_form">
+			 <!-- Form -->
+				  <form action="{{ path("fos_user_security_check") }}" method="post">
+    <input type="hidden" name="_csrf_token" value="csrf_token" />
+
+    <label for="username">username</label>
+    <input type="text" id="username" name="_username" value=" " required="required" />
+
+    <label for="password">password </label>
+    <input type="password" id="password" name="_password" required="required" />
+<input class="acount-btn" type="submit" id="_submit" name="_submit"  value="log in">	
+
+</form>
+			 <!-- /Form -->
+			 </div>
+		 </div>
+		 <div class="clearfix"></div>
+	 </div>
+</div>
+<!---->
+<div class="subscribe">
+	 <div class="container">
+		 <h3>Newsletter</h3>
+		 <form>
+			 <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+			 <input type="submit" value="Subscribe">
+		 </form>
+	 </div>
+</div>
+
+
+    <div>
+        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+        
+    </div>
+{% endblock produit %}
+{% block body %}
+    {% endblock body %}
+

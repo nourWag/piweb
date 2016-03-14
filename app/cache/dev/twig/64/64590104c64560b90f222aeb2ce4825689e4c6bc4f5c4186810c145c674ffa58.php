@@ -1,6 +1,6 @@
 <?php
 
-/* MyappadminBundle:Administration/pages/layout:recherche.html.twig */
+/* MyappadminBundle:Administration:pages/layout/recherche.html.twig */
 class __TwigTemplate_a4a4e260927038f809d9209491ebac9e5484827fc86d0338c2626a5851143503 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -8,7 +8,7 @@ class __TwigTemplate_a4a4e260927038f809d9209491ebac9e5484827fc86d0338c2626a58511
         parent::__construct($env);
 
         // line 2
-        $this->parent = $this->loadTemplate("testMyapppagesBundle::layoutAd.html.twig", "MyappadminBundle:Administration/pages/layout:recherche.html.twig", 2);
+        $this->parent = $this->loadTemplate("MyappadminBundle::layoutAd.html.twig", "MyappadminBundle:Administration:pages/layout/recherche.html.twig", 2);
         $this->blocks = array(
             'contenu' => array($this, 'block_contenu'),
         );
@@ -16,7 +16,7 @@ class __TwigTemplate_a4a4e260927038f809d9209491ebac9e5484827fc86d0338c2626a58511
 
     protected function doGetParent(array $context)
     {
-        return "testMyapppagesBundle::layoutAd.html.twig";
+        return "MyappadminBundle::layoutAd.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -93,7 +93,7 @@ class __TwigTemplate_a4a4e260927038f809d9209491ebac9e5484827fc86d0338c2626a58511
 
     public function getTemplateName()
     {
-        return "MyappadminBundle:Administration/pages/layout:recherche.html.twig";
+        return "MyappadminBundle:Administration:pages/layout/recherche.html.twig";
     }
 
     public function isTraitable()
@@ -107,7 +107,7 @@ class __TwigTemplate_a4a4e260927038f809d9209491ebac9e5484827fc86d0338c2626a58511
     }
 }
 /* */
-/* {% extends "testMyapppagesBundle::layoutAd.html.twig" %} */
+/* {% extends "MyappadminBundle::layoutAd.html.twig" %} */
 /*  	  */
 /*  {% block contenu %}*/
 /* <h1>Recherche Liste des client </h1>*/

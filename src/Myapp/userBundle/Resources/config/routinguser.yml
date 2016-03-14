@@ -1,0 +1,38 @@
+
+
+#pi2tst_homepage:
+#    path:     /hello/{name}
+#    defaults: { _controller: testMyappuseBundle:Default:index }
+profile_user:
+    path:     /
+    defaults: { _controller: MyappuserBundle:Accueil:aff }
+error403:
+    path:     /error403
+    defaults: { _controller: MyappuserBundle:Accueil:error }    
+
+upload_pack: 
+    path: /upload 
+    defaults: { _controller: MyappuserBundle:Image:upload }
+my_app_esprit_list: 
+    path: /list 
+    defaults: { _controller: MyappuserBundle:Image:list } 
+my_app_esprit_aff_article: 
+    path: /pack/{id}
+    defaults: { _controller: MyappuserBundle:Image:affiche } 
+my_image_route: 
+    pattern: /images/{id} 
+    defaults: {_controller: MyappuserBundle:Image:photo}
+catalogue: 
+    pattern: /catalogue
+    defaults: {_controller: MyappuserBundle:packet:list}     
+profile12:
+    path:     /profile
+    defaults: { _controller: "MyappuserBundle:Profile2:show" }
+edit12:
+    path:     /edit
+    defaults: { _controller: "MyappuserBundle:Profile2:edit" }  
+changePassword12:
+    path:     /changePassword
+    defaults: { _controller: "MyappuserBundle:ChangePassword:changePassword" }      
+
+
