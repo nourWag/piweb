@@ -1,0 +1,4 @@
+services:
+#    myappvisiteur.example:
+#        class: Myapp\visiteurBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

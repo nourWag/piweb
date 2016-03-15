@@ -1,0 +1,3 @@
+myappvisiteur_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MyappvisiteurBundle:Default:index }
