@@ -6,6 +6,8 @@ class AccueilController extends Controller{
     {
         return $this->render('MyappResponsableBundle:View1:acc.html.twig', array());
     }
+    
+    
 
      public function BoutiqueAction()
     {
