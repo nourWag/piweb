@@ -46,6 +46,8 @@ public function photoAction($id)
         $response = new StreamedResponse(function () use ($photo) { echo stream_get_contents($photo); 
         }
         );
+        
+        
         $response->headers->set('Content-Type', 'image/jpeg'); return $response; }
 
     }
