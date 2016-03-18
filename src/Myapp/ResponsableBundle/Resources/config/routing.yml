@@ -4,5 +4,3 @@ myapp_responsable_homepage:
 PagesBundle_adminPages:
     resource: "@MyappResponsableBundle/Resources/config/rout/routingresponsable.yml"
     prefix:   /respensable/pages/
-
-

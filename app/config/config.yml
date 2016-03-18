@@ -64,12 +64,22 @@ doctrine:
         auto_mapping: true
 
 # Swiftmailer Configuration
+#swiftmailer:
+#    transport: "%mailer_transport%"
+#    host:      "%mailer_host%"
+#    username:  "%mailer_user%"
+#    password:  "%mailer_password%"
+#    spool:     { type: memory }
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+    transport: smtp
+    encryption: ssl
+    auth_mode: login
+    port: 465
+    host: smtp.gmail.com
+    username: swiftmailersymfony@gmail.com
+    password: swiftmailersymfony2
+    delivery_address: salma.chhoud@esprit.tn
+    disable_delivery: false
 services:
     fos_user.doctrine_registry:
         alias: doctrine

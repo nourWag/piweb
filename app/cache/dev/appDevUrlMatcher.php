@@ -142,21 +142,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Myapp\\userBundle\\Controller\\AccueilController::errorAction',  '_route' => 'error403',);
             }
 
-            // my_app_esprit_list
-            if ($pathinfo === '/user/pages/list') {
-                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\ImageController::listAction',  '_route' => 'my_app_esprit_list',);
-            }
-
-            // my_app_esprit_aff_article
-            if (0 === strpos($pathinfo, '/user/pages/pack') && preg_match('#^/user/pages/pack/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'my_app_esprit_aff_article')), array (  '_controller' => 'Myapp\\userBundle\\Controller\\ImageController::afficheAction',));
-            }
-
-            // my_image_route
-            if (0 === strpos($pathinfo, '/user/pages/images') && preg_match('#^/user/pages/images/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'my_image_route')), array (  '_controller' => 'Myapp\\userBundle\\Controller\\ImageController::photoAction',));
-            }
-
             // catalogue
             if ($pathinfo === '/user/pages/catalogue') {
                 return array (  '_controller' => 'Myapp\\userBundle\\Controller\\packetController::listAction',  '_route' => 'catalogue',);
@@ -221,6 +206,76 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // respensablePagespack
             if ($pathinfo === '/respensable/pages/aff') {
                 return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ImageController::uploadAction',  '_route' => 'respensablePagespack',);
+            }
+
+            // pi2tst_homepage1
+            if ($pathinfo === '/respensable/pages/homme') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\AccueilController::indexAction',  '_route' => 'pi2tst_homepage1',);
+            }
+
+            // pi2tst_homepage2
+            if ($pathinfo === '/respensable/pages/boutique') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\AccueilController::BoutiqueAction',  '_route' => 'pi2tst_homepage2',);
+            }
+
+            // pi2tst_home
+            if ($pathinfo === '/respensable/pages/ajout') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\boutiqueController::ajout2Action',  '_route' => 'pi2tst_home',);
+            }
+
+            // pi2tst_homepage5
+            if ($pathinfo === '/respensable/pages/listboutique') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\boutiqueController::listAction',  '_route' => 'pi2tst_homepage5',);
+            }
+
+            // pi2tst_homepage6
+            if ($pathinfo === '/respensable/pages/find') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\boutiqueController::rechercheAction',  '_route' => 'pi2tst_homepage6',);
+            }
+
+            // delete
+            if (0 === strpos($pathinfo, '/respensable/pages/del') && preg_match('#^/respensable/pages/del/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'delete')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\boutiqueController::supprimerAction',));
+            }
+
+            // update_boutique
+            if (0 === strpos($pathinfo, '/respensable/pages/maj') && preg_match('#^/respensable/pages/maj/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'update_boutique')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\boutiqueController::modifierAction',));
+            }
+
+            // my_app_mail_succ
+            if ($pathinfo === '/respensable/pages/succ') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\MailController::indexAction',  '_route' => 'my_app_mail_succ',);
+            }
+
+            // my_app_mail_form
+            if ($pathinfo === '/respensable/pages/mail') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\MailController::newAction',  '_route' => 'my_app_mail_form',);
+            }
+
+            // my_app_mail_sendpage
+            if ($pathinfo === '/respensable/pages/sendmail') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\MailController::sendMailAction',  '_route' => 'my_app_mail_sendpage',);
+            }
+
+            // my_app_esprit_upload
+            if ($pathinfo === '/respensable/pages/uploadd') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ImgController::uploadAction',  '_route' => 'my_app_esprit_upload',);
+            }
+
+            // my_app_esprit_list
+            if ($pathinfo === '/respensable/pages/listImage') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ImgController::listAction',  '_route' => 'my_app_esprit_list',);
+            }
+
+            // my_app_esprit_aff_article
+            if (0 === strpos($pathinfo, '/respensable/pages/aff') && preg_match('#^/respensable/pages/aff/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'my_app_esprit_aff_article')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ImgController::afficheAction',));
+            }
+
+            // my_image_route
+            if (0 === strpos($pathinfo, '/respensable/pages/images') && preg_match('#^/respensable/pages/images/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'my_image_route')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ImgController::photoAction',));
             }
 
         }
