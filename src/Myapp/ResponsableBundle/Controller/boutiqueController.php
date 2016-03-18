@@ -6,6 +6,7 @@ use Myapp\ResponsableBundle\Entity\Image;
 use Myapp\ResponsableBundle\Form\boutiqueType;
 use Myapp\ResponsableBundle\Form\ImageForm;
 class boutiqueController extends Controller {
+    
 //    function ajout2Action(){
 //        $model=new boutique(); 
 //        $modelForm=new boutiqueType(); 
