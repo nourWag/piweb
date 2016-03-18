@@ -4,7 +4,7 @@
     <parameter key="kernel.root_dir">/Users/nour/Sites/monsite.com/piweb/app</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.name">ap_</parameter>
+    <parameter key="kernel.name">app</parameter>
     <parameter key="kernel.cache_dir">/Users/nour/Sites/monsite.com/piweb/app/cache/dev</parameter>
     <parameter key="kernel.logs_dir">/Users/nour/Sites/monsite.com/piweb/app/logs</parameter>
     <parameter key="kernel.bundles" type="collection">
@@ -21,6 +21,7 @@
       <parameter key="MyappResponsableBundle">Myapp\ResponsableBundle\MyappResponsableBundle</parameter>
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
       <parameter key="MyappuserBundle">Myapp\userBundle\MyappuserBundle</parameter>
+      <parameter key="MyappvisiteurBundle">Myapp\visiteurBundle\MyappvisiteurBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -1839,7 +1840,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>56e818b671d2d</argument>
+            <argument>56ec0ae3a5df6</argument>
           </service>
         </argument>
       </argument>
@@ -2123,7 +2124,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>56e818b671d2d</argument>
+            <argument>56ec0ae3a5df6</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -3254,6 +3255,10 @@
       <call method="addPath">
         <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/userBundle/Resources/views</argument>
         <argument>Myappuser</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/visiteurBundle/Resources/views</argument>
+        <argument>Myappvisiteur</argument>
       </call>
       <call method="addPath">
         <argument>/Users/nour/Sites/monsite.com/piweb/src/Acme/DemoBundle/Resources/views</argument>
