@@ -1,0 +1,14 @@
+{#{% extends 'pi2tstBundle::Boutique.html.twig'%}
+{% block contents %}#}
+   <hr>
+   <div class="row">    	 
+{% for image in images %} 
+    
+       <li class="col-sm-3  first-in-line last_line"><h3>{{image.boutiquecle.nom}}</h3>
+	<div class="image"><img src="{{ asset(path('my_image_route', {'id': image.id})) }}" alt="" height="300px" width="300px"/></div>	
+	</li>
+                               							
+{% endfor %}
+   </div>
+{#{% endblock %}#}
+
