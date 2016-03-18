@@ -1,5 +1,5 @@
 <?php
-namespace pi2\tstBundle\Form;
+namespace Myapp\ResponsableBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -23,7 +23,7 @@ class MailType extends AbstractType{
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'pi2\tstBundle\Entity\Mail'
+            'data_class' => 'Myapp\ResponsableBundle\Entity\Mail'
         ));
     }
 

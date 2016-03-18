@@ -1,7 +1,6 @@
 respensablePages:
     path:  /
-    defaults: { _controller: "MyappResponsableBundle:resp:aff" }
-     
+    defaults: { _controller: "MyappResponsableBundle:resp:aff" }     
 profile1:
     path:     /profile
     defaults: { _controller: "MyappResponsableBundle:Profile2:show" }
@@ -14,6 +13,48 @@ changePassword1:
 respensablePagespack:
    path:  /aff
    defaults: { _controller: "MyappResponsableBundle:Image:upload" }  
+pi2tst_homepage1:
+    path:     /homme
+    defaults: { _controller: MyappResponsableBundle:Accueil:index }
+pi2tst_homepage2:
+    path:     /boutique
+    defaults: { _controller: MyappResponsableBundle:Accueil:Boutique }
+pi2tst_home:
+    path:     /ajout
+    defaults: { _controller: MyappResponsableBundle:boutique:ajout2 }
+pi2tst_homepage5:
+    path:     /listboutique
+    defaults: { _controller: MyappResponsableBundle:boutique:list }
+pi2tst_homepage6:
+    path:     /find
+    defaults: { _controller: MyappResponsableBundle:boutique:recherche }
+delete:
+    path:     /del/{id}
+    defaults: { _controller: MyappResponsableBundle:boutique:supprimer }
+update_boutique:
+    path:     /maj/{id}
+    defaults: { _controller: MyappResponsableBundle:boutique:modifier }
+my_app_mail_succ:
+    path: /succ
+    defaults: { _controller: MyappResponsableBundle:Mail:index }
+my_app_mail_form:
+    path: /mail
+    defaults: { _controller: MyappResponsableBundle:Mail:new }
+my_app_mail_sendpage:
+    path: /sendmail
+    defaults: { _controller: MyappResponsableBundle:Mail:sendMail }
+my_app_esprit_upload: 
+    path: /uploadd 
+    defaults: { _controller: MyappResponsableBundle:Img:upload }
+my_app_esprit_list: 
+    path: /listImage
+    defaults: { _controller: MyappResponsableBundle:Img:list } 
+my_app_esprit_aff_article: 
+    path: /aff/{id} 
+    defaults: { _controller: MyappResponsableBundle:Img:affiche } 
+my_image_route: 
+    pattern: /images/{id} 
+    defaults: {_controller: MyappResponsableBundle:Img:photo}
 
      
   
