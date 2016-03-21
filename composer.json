@@ -19,7 +19,10 @@
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "blackknight467/star-rating-bundle": "^1.0"
+        "blackknight467/star-rating-bundle": "^1.0",
+        "knplabs/knp-paginator-bundle": "^2.5",
+        "nomaya/social-bundle": "dev-master"
+
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

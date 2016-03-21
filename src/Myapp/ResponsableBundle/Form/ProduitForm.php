@@ -25,8 +25,8 @@ class ProduitForm extends AbstractType
         'stars' => 5,
         //...
     ))
-          ->add('couleur','entity',array('class'=>'pidev2MyappBundle:couleur','property'=>'id',"multiple" => true,"expanded"=>true))
-          ->add('size','entity',array('class'=>'pidev2MyappBundle:Size','property'=>'id',"multiple" => true,"expanded"=>true))
+          ->add('couleur','entity',array('class'=>'MyappResponsableBundle:couleur','property'=>'id',"multiple" => true,"expanded"=>true))
+          ->add('size','entity',array('class'=>'MyappResponsableBundle:Size','property'=>'id',"multiple" => true,"expanded"=>true))
                 ->add('description')
                 ->add('reference')
                 ->add('taille')

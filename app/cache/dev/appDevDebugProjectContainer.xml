@@ -4,7 +4,7 @@
     <parameter key="kernel.root_dir">/Users/nour/Sites/monsite.com/piweb/app</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.name">app</parameter>
+    <parameter key="kernel.name">ap_</parameter>
     <parameter key="kernel.cache_dir">/Users/nour/Sites/monsite.com/piweb/app/cache/dev</parameter>
     <parameter key="kernel.logs_dir">/Users/nour/Sites/monsite.com/piweb/app/logs</parameter>
     <parameter key="kernel.bundles" type="collection">
@@ -22,7 +22,9 @@
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
       <parameter key="MyappuserBundle">Myapp\userBundle\MyappuserBundle</parameter>
       <parameter key="MyappvisiteurBundle">Myapp\visiteurBundle\MyappvisiteurBundle</parameter>
+      <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
       <parameter key="StarRatingBundle">blackknight467\StarRatingBundle\StarRatingBundle</parameter>
+      <parameter key="NomayaSocialBundle">Nomaya\SocialBundle\NomayaSocialBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -632,7 +634,33 @@
       <parameter>ResetPassword</parameter>
       <parameter>Default</parameter>
     </parameter>
+    <parameter key="knp_paginator.class">Knp\Component\Pager\Paginator</parameter>
+    <parameter key="knp_paginator.helper.processor.class">Knp\Bundle\PaginatorBundle\Helper\Processor</parameter>
+    <parameter key="knp_paginator.template.pagination">KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig</parameter>
+    <parameter key="knp_paginator.template.filtration">KnpPaginatorBundle:Pagination:filtration.html.twig</parameter>
+    <parameter key="knp_paginator.template.sortable">KnpPaginatorBundle:Pagination:sortable_link.html.twig</parameter>
+    <parameter key="knp_paginator.page_range">5</parameter>
     <parameter key="star_rating.config" type="collection"/>
+    <parameter key="buttons.facebook" type="collection">
+      <parameter key="url">https://www.facebook.com/Tunisia.Malll/</parameter>
+      <parameter key="locale">fr_FR</parameter>
+      <parameter key="send">false</parameter>
+      <parameter key="width">300</parameter>
+      <parameter key="showFaces">false</parameter>
+      <parameter key="layout">button_count</parameter>
+      <parameter key="share">true</parameter>
+    </parameter>
+    <parameter key="links.facebook" type="collection">
+      <parameter key="network">facebook</parameter>
+      <parameter key="url">http://www.facebook.com/yann.chauvel</parameter>
+      <parameter key="theme">default</parameter>
+    </parameter>
+    <parameter key="links.googleplus" type="collection">
+      <parameter key="network">googleplus</parameter>
+      <parameter key="url">https://plus.google.com/105931415830389032796</parameter>
+      <parameter key="theme">default</parameter>
+    </parameter>
+    <parameter key="social.theme">default</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -1077,6 +1105,14 @@
         <argument>0</argument>
       </call>
       <call method="addListenerService">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.sliding_pagination</argument>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
         <argument>kernel.controller</argument>
         <argument type="collection">
           <argument>acme.demo.listener</argument>
@@ -1195,6 +1231,46 @@
       <call method="addSubscriberService">
         <argument>web_profiler.debug_toolbar</argument>
         <argument>Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.paginate</argument>
+          <argument>before</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.paginate</argument>
+          <argument>pagination</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.sortable</argument>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.filtration</argument>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.sliding_pagination</argument>
+          <argument>pagination</argument>
+        </argument>
+        <argument>1</argument>
       </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver">
@@ -1849,7 +1925,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>56ef394f91c05</argument>
+            <argument>56ef4c575c54e</argument>
           </service>
         </argument>
       </argument>
@@ -2133,7 +2209,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>56ef394f91c05</argument>
+            <argument>56ef4c575c54e</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2393,7 +2469,16 @@
         </argument>
       </call>
       <call method="addExtension">
+        <argument type="service" id="knp_paginator.twig.extension.pagination"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="star_rating.twig"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.nomaya_social_bar"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.nomaya_social_links"/>
       </call>
       <call method="addExtension">
         <argument type="service" id="twig.extension.acme.demo"/>
@@ -2944,10 +3029,71 @@
       <argument type="service" id="router"/>
       <argument>86400</argument>
     </service>
+    <service id="knp_paginator" class="Knp\Component\Pager\Paginator">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <call method="setDefaultPaginatorOptions">
+        <argument type="collection">
+          <argument key="pageParameterName">page</argument>
+          <argument key="sortFieldParameterName">sort</argument>
+          <argument key="sortDirectionParameterName">direction</argument>
+          <argument key="filterFieldParameterName">filterField</argument>
+          <argument key="filterValueParameterName">filterValue</argument>
+          <argument key="distinct">true</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <argument type="collection">
+        <argument key="defaultPaginationTemplate">KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig</argument>
+        <argument key="defaultSortableTemplate">KnpPaginatorBundle:Pagination:sortable_link.html.twig</argument>
+        <argument key="defaultFiltrationTemplate">KnpPaginatorBundle:Pagination:filtration.html.twig</argument>
+        <argument key="defaultPageRange">5</argument>
+      </argument>
+    </service>
+    <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+      <argument type="service" id="router"/>
+      <argument type="service" id="translator"/>
+    </service>
+    <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
+    </service>
     <service id="star_rating.type" class="blackknight467\StarRatingBundle\Form\RatingType">
       <tag name="form.type" alias="rating"/>
     </service>
     <service id="star_rating.twig" class="blackknight467\StarRatingBundle\Extensions\StarRatingExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="nomaya.socialbarhelper" class="Nomaya\SocialBundle\Helpers\SocialBarHelper">
+      <tag name="templating.helper" alias="social-buttons"/>
+      <argument type="service" id="templating"/>
+    </service>
+    <service id="twig.extension.nomaya_social_bar" class="Nomaya\SocialBundle\Twig\Extension\NomayaTwigSocialBar">
+      <tag name="twig.extension"/>
+      <argument type="service" id="service_container"/>
+      <call method="setNetworks">
+        <argument type="collection">
+          <argument>facebook</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="nomaya.sociallinkshelper" class="Nomaya\SocialBundle\Helpers\SocialLinksHelper">
+      <tag name="templating.helper" alias="social-links"/>
+      <argument type="service" id="templating"/>
+    </service>
+    <service id="twig.extension.nomaya_social_links" class="Nomaya\SocialBundle\Twig\Extension\NomayaTwigSocialLinks">
       <tag name="twig.extension"/>
       <argument type="service" id="service_container"/>
     </service>
@@ -3225,6 +3371,8 @@
           <argument key="logout_url">templating.helper.logout_url</argument>
           <argument key="security">templating.helper.security</argument>
           <argument key="assetic">assetic.helper.dynamic</argument>
+          <argument key="social-buttons">nomaya.socialbarhelper</argument>
+          <argument key="social-links">nomaya.sociallinkshelper</argument>
         </argument>
       </call>
     </service>
@@ -3327,8 +3475,16 @@
         <argument>Myappvisiteur</argument>
       </call>
       <call method="addPath">
+        <argument>/Users/nour/Sites/monsite.com/piweb/vendor/knplabs/knp-paginator-bundle/Resources/views</argument>
+        <argument>KnpPaginator</argument>
+      </call>
+      <call method="addPath">
         <argument>/Users/nour/Sites/monsite.com/piweb/vendor/blackknight467/star-rating-bundle/blackknight467/StarRatingBundle/Resources/views</argument>
         <argument>StarRating</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/nour/Sites/monsite.com/piweb/vendor/nomaya/social-bundle/Nomaya/SocialBundle/Resources/views</argument>
+        <argument>NomayaSocial</argument>
       </call>
       <call method="addPath">
         <argument>/Users/nour/Sites/monsite.com/piweb/src/Acme/DemoBundle/Resources/views</argument>

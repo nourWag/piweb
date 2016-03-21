@@ -2,7 +2,7 @@
 namespace Myapp\ResponsableBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use pidev2\MyappBundle\Entity\Produit;
+use Myapp\ResponsableBundle\Entity\Produit;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Myapp\ResponsableBundle\Form\ProduitForm;
 use Myapp\ResponsableBundle\Entity\Image;
@@ -21,7 +21,7 @@ class ProduitController extends Controller{
      
       $modele  = $this->get('knp_paginator')->paginate($modelefind,$this->get('request')->query->get('page', 1)/*page number*/,1/*limit per page*/);
      
-        return $this->render('MyappResponsableBundle:View1:afficherProduit.html.twig', array('modele'=>$modele,'f'=>$form->createView()));
+        return $this->render('MyappResponsableBundle:View1nour:afficherProduit.html.twig', array('modele'=>$modele,'f'=>$form->createView()));
     }
     
     public function afficherPDetailleAction($id)
@@ -40,7 +40,7 @@ class ProduitController extends Controller{
         return ($this->redirectToRoute("afficher_produits"));    
         }
      
-      return $this->render('pidev2MyappBundle:View1nour:afficherdetailleProduit.html.twig', array('modele'=>$modelefind,'f'=>$form->createView(),'images'=>$imagefind));
+      return $this->render('MyappResponsableBundle:View1nour:afficherdetailleProduit.html.twig', array('modele'=>$modelefind,'f'=>$form->createView(),'images'=>$imagefind));
     }
     
    
@@ -83,7 +83,7 @@ class ProduitController extends Controller{
         $modelform =new ProduitForm();
         $imagefind=$em->getRepository("MyappResponsableBundle:Image")->findBy(array('produit'=>$id));
         $emImage=new Image(); 
-        $formImage =    $this->createForm(new ImageForm(), $emImage);
+        $formImage =    $this->createForm(new Image1Form(), $emImage);
          
         $form=$this->createForm($modelform, $modele);//il faut i entite et le model form
         
@@ -128,7 +128,7 @@ class ProduitController extends Controller{
             $em->flush();
             
             $emImage=new Image(); 
-            $formImage = $this->createForm(new ImageForm(), $emImage);    
+            $formImage = $this->createForm(new Image1Form(), $emImage);    
             return ($this->redirect($this->generateUrl("uploadAjoutProduit")));
             
         }

@@ -33,7 +33,7 @@ class Image1Controller extends Controller
     $im=new Image();
      $em = $this->getDoctrine()->getManager();
      $im=$em->getRepository('MyappResponsableBundle:Image')->find($id);
-    $form =    $this->createForm(new ImageForm(), $im);
+    $form =    $this->createForm(new Image1Form(), $im);
     $request = $this->get('request_stack')->getCurrentRequest();
         $form->handleRequest($request);
         if ($form->isValid())
@@ -53,7 +53,7 @@ public function uploadAjoutAction($id)
     $im=new Image();
      $em = $this->getDoctrine()->getManager();
       $im->setProduit($id);
-    $form = $this->createForm(new ImageForm(), $im);
+    $form = $this->createForm(new Image1Form(), $im);
     $request = $this->get('request_stack')->getCurrentRequest();
         $form->handleRequest($request);
         if ($form->isValid())
@@ -112,7 +112,7 @@ public function afficheAction($id)
     $im=new Image();
      $em = $this->getDoctrine()->getManager();
     
-    $form = $this->createForm(new ImageForm(), $im);
+    $form = $this->createForm(new Image1Form(), $im);
     $request = $this->get('request_stack')->getCurrentRequest();
         $form->handleRequest($request);
         if ($form->isValid())
