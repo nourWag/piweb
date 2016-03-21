@@ -37,7 +37,7 @@ private $titre;
 private $file;
  /**
  *
- * @ORM\ManyToOne(targetEntity="boutique") 
+ * @ORM\ManyToOne(targetEntity="Myapp\ResponsableBundle\Entity\boutique") 
  */
 private $boutiquecle;
 function getBoutiquecle() {

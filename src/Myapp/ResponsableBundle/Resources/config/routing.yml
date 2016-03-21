@@ -4,3 +4,66 @@ myapp_responsable_homepage:
 PagesBundle_adminPages:
     resource: "@MyappResponsableBundle/Resources/config/rout/routingresponsable.yml"
     prefix:   /respensable/pages/
+
+
+
+my_app_esprit_upload:
+    path:     /upload/{id}
+    defaults: { _controller: MyappResponsableBundle:Image1:upload }
+my_app_esprit_list:
+    path:     /list
+    defaults: { _controller: MyappResponsableBundle:Image1:list }
+my_app_esprit_aff_img:
+   path:     /aff/{id}
+   defaults: { _controller: MyappResponsableBundle:Image1:photo2 }
+my_image_route:
+    pattern: /images/{id}
+    defaults: {_controller: MyappResponsableBundle:Image1:photo}
+pi2tst_homepage1:
+    path:     /homme
+    defaults: { _controller: MyappResponsableBundle:Accueill:index }
+registerAccount:
+    path:     /register
+    defaults: { _controller: MyappResponsableBundle:Accueill:register }
+afficher_produits:
+    path:     /afficherP
+    defaults: { _controller: MyappResponsableBundle:Produit:afficherP }
+paginationpa:
+    path:     /hello
+    defaults: { _controller: MyappResponsableBundle:Produit:afficherP2 }
+afficherdetailleProduit :
+    path:     /produit/{id}
+    defaults: { _controller: MyappResponsableBundle:Produit:afficherPDetaille }
+my_image_route2:
+    pattern: /image/{id}
+    defaults: {_controller: MyappResponsableBundle:Image1:photo2}
+modifierProduit :
+    pattern: /modifierProduit/{id}
+    defaults: {_controller: MyappResponsableBundle:Produit:modifierProduit}
+uploadAjout:
+    pattern: /uploadAjout/{id}
+    defaults: {_controller: MyappResponsableBundle:Image1:uploadAjout}
+SupprimerProduit:
+    pattern: /SupprimerProduit/{id}
+    defaults: {_controller: MyappResponsableBundle:Produit:SupprimerProduit}
+AjouterProduit:
+    pattern: /AjouterProduit
+    defaults: {_controller: MyappResponsableBundle:Produit:AjouterProduit}
+uploadAjoutProduit:
+    pattern: /AjouterProduitImage
+    defaults: {_controller: MyappResponsableBundle:Image1:uploadAjoutProduit}
+order_produit_prix_achat:
+    pattern: /order_produit
+    defaults: {_controller: MyappResponsableBundle:Produit:order_produit}
+order_produit_prixvendre:
+    pattern: /order_produit_prixvendre
+    defaults: {_controller: MyappResponsableBundle:Produit:order_produit_prixvendre}
+fixer_nmb_produits:
+    pattern: /fixer_nmb_produits/{id}
+    defaults: {_controller: MyappResponsableBundle:Produit:fixer_nmb_produits}
+produit_rechercher:
+    pattern: /produit_rechercher
+    defaults: {_controller: MyappResponsableBundle:Produit:produit_rechercher}
+afficherPClient:
+    pattern: /afficherPClient
+    defaults: {_controller: MyappResponsableBundle:Produit:afficherPClient}

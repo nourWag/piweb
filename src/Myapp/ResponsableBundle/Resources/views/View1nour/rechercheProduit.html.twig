@@ -1,0 +1,153 @@
+{% extends "MyappResponsableBundle::layout.html.twig" %}
+
+{% block rechercherProduit %}
+    
+  <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    {% javascripts
+      '@StarRatingBundle/Resources/public/js/rating.js' %}
+      <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    
+  <link href="{{ asset('css/produit/styleproduit.css') }}" rel="stylesheet" type="text/css" />  
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>liste de produits</title>
+
+<meta name="description" content="Example of category description" >
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+			
+                                
+
+<p id="back-top"> <a href="#top"><span></span></a> </p>
+<div class="classpP">
+  <ul class="breadcrumb">
+		<li><a href="{{ path('pi2tst_homepage1') }}"><i class="fa fa-home"></i></a></li>
+		<li><a  href="{{ path('afficher_produits') }}">Liste des produits</a></li>
+	  </ul>
+</div>
+  <div class="rowp">
+      
+				<div id="contentproduit"class="col-pr-2" >	  <h2 class="classpP2">liste de produits</h2>
+	  	  
+						
+                                    <hr>
+	  	  	  		<div class="product-filter clearfix">
+			<div class="row">
+				<div class="col-md-2">
+					<label class="control-label" for="input-sort">Sort By:</label>
+				</div>
+				<div class="col-md-3">
+                                    <a href="{{ path('order_produit_prix_achat') }}">order by prix d'achat</a><br>
+			            <a href="{{ path('order_produit_prixvendre') }}">order by prix de vendre </a>									
+		                </div>
+                                        
+				<div class="col-md-2">
+					<label class="control-label" for="input-limit">Show:</label>
+				</div>
+				<div class="col-md-2">
+                                    <a href="{{ path('fixer_nmb_produits',{'id': 3 }) }}">3</a> ou <a href="{{ path('fixer_nmb_produits',{'id': 2 }) }}">2</a>
+															</select>
+				</div>
+				
+				<div class="col-md-3 text-right">
+					<div class="button-view">
+						<button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="List"><i class="fa fa-th-list"></i></button>
+						<button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="Grid"><i class="fa fa-th"></i></button>
+					</div>
+				</div>
+                                                                                   
+			</div>
+		</div>
+                                 
+<div class="navigation">
+                    
+    {{ knp_pagination_render(modele) }}
+    
+    
+</div>    
+    <p class="pull-left nam-page">Showing  {{ modele.getTotalItemCount }} (2 Pages)</p> 
+                                   
+			
+			
+		</div>
+	 
+         
+ {% for m in modele %}
+            <div id="afficheP">
+                 
+             
+				<div class="product-layout product-list col-xs-12">
+		  <div class="product-thumb">
+			<div class="image">
+                          <p style="margin-bottom:60px;">  <a href="{{ path('afficherdetailleProduit', {'id': m.id})}}">
+                                <img src="{{ asset(path('my_image_route', {'id': m.id})) }}" alt="{{ m.designation }}" title="{{ m.designation }}" class="img-responsive" /></a>
+                          </p>
+                        </div>
+			<div>
+			  <div class="caption">
+				<div class="name name-product"><a href="{{ path('afficherdetailleProduit', {'id': m.id})}}">{{ m.designation }} : {{ m.marque }}</a></div>
+				<div class="description">
+Traditions are the cornerstone description {{ m.description }}</div>
+                                <div class="description">
+                                    etat de produit  : {{ m.etat }}<br>
+                                les taile disponible : {{ m.taille }}
+                                <br>quantite  : {{ m.quantite }}<br>
+                                reference : {{ m.reference }}
+                                </div>
+			<div id="rating">
+
+     
+         {{ m.note|rating }}
+				  				  				  </div>
+												<div class="price price-product">
+                                                                                                    <span class="price-new">prix d'achat : ${{ m.prixdachat }}</span> <br><span class="price-new">prix de vente : ${{ m.prixvente }}</span>
+				  				  				</div>
+								</div>
+				<div class="cart-button">
+                                    <a href="{{ path('modifierProduit', {'id': m.id})}}">
+                                        <button class="btn btn-add" type="button" onclick="cart.add('42');">
+                                            <i class="fa fa-shopping-cart hidden-lg"></i>
+                                            <span class="hidden-xs hidden-sm hidden-md">modifer produit</span>
+                                        </button>
+                                    </a>
+                                    <a href="{{ path('SupprimerProduit', {'id': m.id})}}">
+                                        <button class="btn btn-add" type="button" onclick="cart.add('42');"><i class="fa fa-shopping-cart hidden-lg"></i> <span class="hidden-xs hidden-sm hidden-md">supprimer produit  </span>
+                                        </button>
+                                    </a>    
+					<button class="btn btn-icon" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
+					
+				</div>
+			</div>
+				
+		  </div>
+		</div>
+				
+</div>
+                                                                                                <hr>                                                                                   <br>
+            {%endfor %} 
+                                    
+                   <div class="cart-button">
+                                   
+                                    <a href="{{ path('AjouterProduit')}}">
+                                        <button class="btn btn-add" type="button" onclick="cart.add('42');"><i class="fa fa-shopping-cart hidden-lg"></i> <span class="hidden-xs hidden-sm hidden-md">ajouter produit  </span>
+                                        </button>
+                                    </a>    
+					
+					
+				</div>        
+                                    
+                                    
+                  <p> socail </p>
+                
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+                                </div>
+  
+ 
+    {%endblock %}
+    
+       

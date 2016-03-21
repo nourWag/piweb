@@ -40,6 +40,18 @@ private $file;
  * @ORM\ManyToOne(targetEntity="boutique") 
  */
 private $boutiquecle;
+/** 
+ * 
+ * @ORM\ManyToOne(targetEntity="Produit") 
+ */ 
+private $produit;function getProduit() {
+    return $this->produit;
+}
+
+function setProduit($produit) {
+    $this->produit = $produit;
+}
+
 function getBoutiquecle() {
     return $this->boutiquecle;
 }

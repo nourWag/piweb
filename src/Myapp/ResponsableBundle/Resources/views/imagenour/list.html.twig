@@ -1,0 +1,26 @@
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    {% javascripts
+      '@StarRatingBundle/Resources/public/js/rating.js' %}
+      <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {{ 2|rating }}
+
+<table border="2">
+    <tr>
+        <th> Id </th>
+        <th> Title</th>
+        <th> Show picture </th>
+</tr>
+    {% for image in images %}
+    <tr>
+        <th>{{image.id}}</th>
+        <th><img src="{{ asset(path('my_image_route2', {'id': image.id})) }}"/></th>
+        <th>
+           <a href="{{path("my_app_esprit_aff_img", {'id':image.id })}}">
+                  Show picture
+</a> </th>
+</tr>
+    {% endfor %}
+</table>
+ 

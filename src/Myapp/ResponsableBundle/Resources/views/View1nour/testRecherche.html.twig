@@ -1,0 +1,21 @@
+<form action="#" method="post" >
+       <input type="text" name="search1" value="" placeholder="Search"  />   
+       <a href="{{ path('produit_rechercher') }}"> 
+           <button type="submit"  class="button-search">
+                
+                <i class="fa fa-search"></i>
+        
+        
+           </button>
+       </a>
+           <button type="submit"  class="button-search">
+                
+                <i class="fa fa-search"></i>
+        
+        
+           </button>
+           <input type="submit"  class="button-search"/>
+           </form>
+{%for item in modele %}
+    {{ item.id}}
+    {%endfor %}

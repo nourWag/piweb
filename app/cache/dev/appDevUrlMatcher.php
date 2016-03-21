@@ -27,6 +27,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $context = $this->context;
         $request = $this->request;
 
+        if (0 === strpos($pathinfo, '/js/8bb605b')) {
+            // _assetic_8bb605b
+            if ($pathinfo === '/js/8bb605b.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '8bb605b',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_8bb605b',);
+            }
+
+            // _assetic_8bb605b_0
+            if ($pathinfo === '/js/8bb605b_rating_1.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '8bb605b',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_8bb605b_0',);
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/_')) {
             // _wdt
             if (0 === strpos($pathinfo, '/_wdt') && preg_match('#^/_wdt/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {
@@ -208,11 +221,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ImageController::uploadAction',  '_route' => 'respensablePagespack',);
             }
 
-            // pi2tst_homepage1
-            if ($pathinfo === '/respensable/pages/homme') {
-                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\AccueilController::indexAction',  '_route' => 'pi2tst_homepage1',);
-            }
-
             // pi2tst_homepage2
             if ($pathinfo === '/respensable/pages/boutique') {
                 return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\AccueilController::BoutiqueAction',  '_route' => 'pi2tst_homepage2',);
@@ -258,26 +266,117 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\MailController::sendMailAction',  '_route' => 'my_app_mail_sendpage',);
             }
 
-            // my_app_esprit_upload
-            if ($pathinfo === '/respensable/pages/uploadd') {
-                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ImgController::uploadAction',  '_route' => 'my_app_esprit_upload',);
-            }
-
-            // my_app_esprit_list
-            if ($pathinfo === '/respensable/pages/listImage') {
-                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ImgController::listAction',  '_route' => 'my_app_esprit_list',);
-            }
-
             // my_app_esprit_aff_article
             if (0 === strpos($pathinfo, '/respensable/pages/aff') && preg_match('#^/respensable/pages/aff/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'my_app_esprit_aff_article')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ImgController::afficheAction',));
             }
 
-            // my_image_route
-            if (0 === strpos($pathinfo, '/respensable/pages/images') && preg_match('#^/respensable/pages/images/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'my_image_route')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ImgController::photoAction',));
+        }
+
+        // my_app_esprit_upload
+        if (0 === strpos($pathinfo, '/upload') && preg_match('#^/upload/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'my_app_esprit_upload')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\Image1Controller::uploadAction',));
+        }
+
+        // my_app_esprit_list
+        if ($pathinfo === '/list') {
+            return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\Image1Controller::listAction',  '_route' => 'my_app_esprit_list',);
+        }
+
+        // my_app_esprit_aff_img
+        if (0 === strpos($pathinfo, '/aff') && preg_match('#^/aff/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'my_app_esprit_aff_img')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\Image1Controller::photo2Action',));
+        }
+
+        // my_image_route
+        if (0 === strpos($pathinfo, '/images') && preg_match('#^/images/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'my_image_route')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\Image1Controller::photoAction',));
+        }
+
+        // pi2tst_homepage1
+        if ($pathinfo === '/homme') {
+            return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\AccueillController::indexAction',  '_route' => 'pi2tst_homepage1',);
+        }
+
+        // registerAccount
+        if ($pathinfo === '/register') {
+            return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\AccueillController::registerAction',  '_route' => 'registerAccount',);
+        }
+
+        // afficher_produits
+        if ($pathinfo === '/afficherP') {
+            return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ProduitController::afficherPAction',  '_route' => 'afficher_produits',);
+        }
+
+        // paginationpa
+        if ($pathinfo === '/hello') {
+            return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ProduitController::afficherP2Action',  '_route' => 'paginationpa',);
+        }
+
+        // afficherdetailleProduit
+        if (0 === strpos($pathinfo, '/produit') && preg_match('#^/produit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'afficherdetailleProduit')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ProduitController::afficherPDetailleAction',));
+        }
+
+        // my_image_route2
+        if (0 === strpos($pathinfo, '/image') && preg_match('#^/image/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'my_image_route2')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\Image1Controller::photo2Action',));
+        }
+
+        // modifierProduit
+        if (0 === strpos($pathinfo, '/modifierProduit') && preg_match('#^/modifierProduit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'modifierProduit')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ProduitController::modifierProduitAction',));
+        }
+
+        // uploadAjout
+        if (0 === strpos($pathinfo, '/uploadAjout') && preg_match('#^/uploadAjout/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'uploadAjout')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\Image1Controller::uploadAjoutAction',));
+        }
+
+        // SupprimerProduit
+        if (0 === strpos($pathinfo, '/SupprimerProduit') && preg_match('#^/SupprimerProduit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'SupprimerProduit')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ProduitController::SupprimerProduitAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/AjouterProduit')) {
+            // AjouterProduit
+            if ($pathinfo === '/AjouterProduit') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ProduitController::AjouterProduitAction',  '_route' => 'AjouterProduit',);
             }
 
+            // uploadAjoutProduit
+            if ($pathinfo === '/AjouterProduitImage') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\Image1Controller::uploadAjoutProduitAction',  '_route' => 'uploadAjoutProduit',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/order_produit')) {
+            // order_produit_prix_achat
+            if ($pathinfo === '/order_produit') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ProduitController::order_produitAction',  '_route' => 'order_produit_prix_achat',);
+            }
+
+            // order_produit_prixvendre
+            if ($pathinfo === '/order_produit_prixvendre') {
+                return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ProduitController::order_produit_prixvendreAction',  '_route' => 'order_produit_prixvendre',);
+            }
+
+        }
+
+        // fixer_nmb_produits
+        if (0 === strpos($pathinfo, '/fixer_nmb_produits') && preg_match('#^/fixer_nmb_produits/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'fixer_nmb_produits')), array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ProduitController::fixer_nmb_produitsAction',));
+        }
+
+        // produit_rechercher
+        if ($pathinfo === '/produit_rechercher') {
+            return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ProduitController::produit_rechercherAction',  '_route' => 'produit_rechercher',);
+        }
+
+        // afficherPClient
+        if ($pathinfo === '/afficherPClient') {
+            return array (  '_controller' => 'Myapp\\ResponsableBundle\\Controller\\ProduitController::afficherPClientAction',  '_route' => 'afficherPClient',);
         }
 
         // myappadmin_homepage

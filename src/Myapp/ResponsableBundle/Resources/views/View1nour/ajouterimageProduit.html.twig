@@ -1,0 +1,11 @@
+{% extends "MyappResponsableBundle::layout.html.twig" %}
+{% block ajouterImage %}
+             
+<h1>Upload File</h1>
+<form action="#" method="post" {{ form_enctype(Form) }}>
+    Produit : {{ form_widget(Form.produit) }}
+    {{ form_widget(Form) }}
+    <input type="submit" value="Upload Document" /> 
+    
+</form>
+    {% endblock %}

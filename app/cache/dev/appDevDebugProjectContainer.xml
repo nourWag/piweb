@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.root_dir">C:\wamp\www\piweb\app</parameter>
+    <parameter key="kernel.root_dir">/Users/nour/Sites/monsite.com/piweb/app</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">app</parameter>
@@ -22,6 +22,7 @@
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
       <parameter key="MyappuserBundle">Myapp\userBundle\MyappuserBundle</parameter>
       <parameter key="MyappvisiteurBundle">Myapp\visiteurBundle\MyappvisiteurBundle</parameter>
+      <parameter key="StarRatingBundle">blackknight467\StarRatingBundle\StarRatingBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -30,13 +31,13 @@
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
     <parameter key="database_driver">pdo_mysql</parameter>
-    <parameter key="database_host">127.0.0.1</parameter>
+    <parameter key="database_host">localhost</parameter>
     <parameter key="database_port">null</parameter>
     <parameter key="database_name">BDTunisiaMall</parameter>
     <parameter key="database_user">root</parameter>
-    <parameter key="database_password">null</parameter>
+    <parameter key="database_password">root</parameter>
     <parameter key="mailer_transport">null</parameter>
-    <parameter key="mailer_host">127.0.0.1</parameter>
+    <parameter key="mailer_host">localhost</parameter>
     <parameter key="mailer_user">swiftmailersymfony@gmail.com</parameter>
     <parameter key="mailer_password">swiftmailersymfony2</parameter>
     <parameter key="locale">en</parameter>
@@ -95,7 +96,7 @@
     <parameter key="debug.errors_logger_listener.class">Symfony\Component\HttpKernel\EventListener\ErrorsLoggerListener</parameter>
     <parameter key="debug.event_dispatcher.class">Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher</parameter>
     <parameter key="debug.stopwatch.class">Symfony\Component\Stopwatch\Stopwatch</parameter>
-    <parameter key="debug.container.dump">C:\wamp\www\piweb\app\cache\dev/appDevDebugProjectContainer.xml</parameter>
+    <parameter key="debug.container.dump">/Users/nour/Sites/monsite.com/piweb/app/cache/dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="debug.controller_resolver.class">Symfony\Component\HttpKernel\Controller\TraceableControllerResolver</parameter>
     <parameter key="debug.debug_handlers_listener.class">Symfony\Component\HttpKernel\EventListener\DebugHandlersListener</parameter>
     <parameter key="kernel.secret">ThisTokenIsNotSoSecretChangeIt</parameter>
@@ -117,7 +118,7 @@
     <parameter key="session.storage.options" type="collection">
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">C:\wamp\www\piweb\app\cache\dev/sessions</parameter>
+    <parameter key="session.save_path">/Users/nour/Sites/monsite.com/piweb/app/cache/dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="security.secure_random.class">Symfony\Component\Security\Core\Util\SecureRandom</parameter>
     <parameter key="form.resolved_type_factory.class">Symfony\Component\Form\ResolvedFormTypeFactory</parameter>
@@ -193,7 +194,7 @@
     <parameter key="data_collector.router.class">Symfony\Bundle\FrameworkBundle\DataCollector\RouterDataCollector</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:\wamp\www\piweb\app\cache\dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:/Users/nour/Sites/monsite.com/piweb/app/cache/dev/profiler</parameter>
     <parameter key="profiler.storage.username"></parameter>
     <parameter key="profiler.storage.password"></parameter>
     <parameter key="profiler.storage.lifetime">86400</parameter>
@@ -217,7 +218,7 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">C:\wamp\www\piweb\app\cache\dev/assetic/routing.yml</parameter>
+    <parameter key="router.resource">/Users/nour/Sites/monsite.com/piweb/app/cache/dev/assetic/routing.yml</parameter>
     <parameter key="router.cache_class_prefix">appDev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
@@ -330,6 +331,7 @@
     <parameter key="twig.controller.exception.class">Symfony\Bundle\TwigBundle\Controller\ExceptionController</parameter>
     <parameter key="twig.exception_listener.controller">twig.controller.exception:showAction</parameter>
     <parameter key="twig.form.resources" type="collection">
+      <parameter>StarRatingBundle::rating.html.twig</parameter>
       <parameter>form_div_layout.html.twig</parameter>
     </parameter>
     <parameter key="debug.templating.engine.twig.class">Symfony\Bundle\TwigBundle\Debug\TimedTwigEngine</parameter>
@@ -341,7 +343,7 @@
         <parameter>Symfony\Bundle\TwigBundle\TwigDefaultEscapingStrategy</parameter>
         <parameter>guess</parameter>
       </parameter>
-      <parameter key="cache">C:\wamp\www\piweb\app\cache\dev/twig</parameter>
+      <parameter key="cache">/Users/nour/Sites/monsite.com/piweb/app/cache/dev/twig</parameter>
       <parameter key="charset">UTF-8</parameter>
       <parameter key="paths" type="collection"/>
     </parameter>
@@ -443,8 +445,10 @@
     <parameter key="assetic.worker.cache_busting.class">Assetic\Factory\Worker\CacheBustingWorker</parameter>
     <parameter key="assetic.value_supplier.class">Symfony\Bundle\AsseticBundle\DefaultValueSupplier</parameter>
     <parameter key="assetic.node.paths" type="collection"/>
-    <parameter key="assetic.cache_dir">C:\wamp\www\piweb\app\cache\dev/assetic</parameter>
-    <parameter key="assetic.bundles" type="collection"/>
+    <parameter key="assetic.cache_dir">/Users/nour/Sites/monsite.com/piweb/app/cache/dev/assetic</parameter>
+    <parameter key="assetic.bundles" type="collection">
+      <parameter>MyappResponsableBundle</parameter>
+    </parameter>
     <parameter key="assetic.twig_extension.class">Symfony\Bundle\AsseticBundle\Twig\AsseticExtension</parameter>
     <parameter key="assetic.twig_formula_loader.class">Assetic\Extension\Twig\TwigFormulaLoader</parameter>
     <parameter key="assetic.helper.dynamic.class">Symfony\Bundle\AsseticBundle\Templating\DynamicAsseticHelper</parameter>
@@ -453,10 +457,10 @@
     <parameter key="assetic.debug">true</parameter>
     <parameter key="assetic.use_controller">true</parameter>
     <parameter key="assetic.enable_profiler">false</parameter>
-    <parameter key="assetic.read_from">C:\wamp\www\piweb\app/../web</parameter>
-    <parameter key="assetic.write_to">C:\wamp\www\piweb\app/../web</parameter>
+    <parameter key="assetic.read_from">/Users/nour/Sites/monsite.com/piweb/app/../web</parameter>
+    <parameter key="assetic.write_to">/Users/nour/Sites/monsite.com/piweb/app/../web</parameter>
     <parameter key="assetic.variables" type="collection"/>
-    <parameter key="assetic.java.bin">C:\ProgramData\Oracle\Java\javapath\java.EXE</parameter>
+    <parameter key="assetic.java.bin">/usr/bin/java</parameter>
     <parameter key="assetic.node.bin">/usr/bin/node</parameter>
     <parameter key="assetic.ruby.bin">/usr/bin/ruby</parameter>
     <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>
@@ -575,7 +579,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:\wamp\www\piweb\app\cache\dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">/Users/nour/Sites/monsite.com/piweb/app/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="sensio_framework_extra.view.guesser.class">Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser</parameter>
     <parameter key="sensio_framework_extra.controller.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener</parameter>
@@ -628,6 +632,7 @@
       <parameter>ResetPassword</parameter>
       <parameter>Default</parameter>
     </parameter>
+    <parameter key="star_rating.config" type="collection"/>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -729,7 +734,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>C:\wamp\www\piweb\app/Resources</argument>
+                <argument>/Users/nour/Sites/monsite.com/piweb/app/Resources</argument>
               </service>
             </argument>
             <argument type="service" id="templating.locator"/>
@@ -755,7 +760,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>C:\wamp\www\piweb\app/Resources</argument>
+                <argument>/Users/nour/Sites/monsite.com/piweb/app/Resources</argument>
               </service>
             </argument>
           </service>
@@ -777,7 +782,7 @@
     <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem"/>
     <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator">
       <argument type="service" id="kernel"/>
-      <argument>C:\wamp\www\piweb\app/Resources</argument>
+      <argument>/Users/nour/Sites/monsite.com/piweb/app/Resources</argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
       <argument>ThisTokenIsNotSoSecretChangeIt</argument>
@@ -862,7 +867,7 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">C:\wamp\www\piweb\app\cache\dev/translations</argument>
+        <argument key="cache_dir">/Users/nour/Sites/monsite.com/piweb/app/cache/dev/translations</argument>
         <argument key="debug">true</argument>
       </argument>
     </service>
@@ -1255,7 +1260,7 @@
     </service>
     <service id="security.secure_random" class="Symfony\Component\Security\Core\Util\SecureRandom">
       <tag name="monolog.logger" channel="security"/>
-      <argument>C:\wamp\www\piweb\app\cache\dev/secure_random.seed</argument>
+      <argument>/Users/nour/Sites/monsite.com/piweb/app/cache/dev/secure_random.seed</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="ignore"/>
     </service>
     <service id="form.resolved_type_factory" class="Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy">
@@ -1307,6 +1312,7 @@
               <argument key="fos_user_registration">fos_user.registration.form.type</argument>
               <argument key="fos_user_change_password">fos_user.change_password.form.type</argument>
               <argument key="fos_user_resetting">fos_user.resetting.form.type</argument>
+              <argument key="rating">star_rating.type</argument>
             </argument>
             <argument type="collection">
               <argument key="form" type="collection">
@@ -1475,7 +1481,7 @@
     <service id="templating.filename_parser" class="Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser"/>
     <service id="templating.locator" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator" public="false">
       <argument type="service" id="file_locator"/>
-      <argument>C:\wamp\www\piweb\app\cache\dev</argument>
+      <argument>/Users/nour/Sites/monsite.com/piweb/app/cache/dev</argument>
     </service>
     <service id="templating.helper.slots" class="Symfony\Component\Templating\Helper\SlotsHelper">
       <tag name="templating.helper" alias="slots"/>
@@ -1513,7 +1519,7 @@
     <service id="templating.helper.code" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper">
       <tag name="templating.helper" alias="code"/>
       <argument>null</argument>
-      <argument>C:\wamp\www\piweb\app</argument>
+      <argument>/Users/nour/Sites/monsite.com/piweb/app</argument>
       <argument>UTF-8</argument>
     </service>
     <service id="templating.helper.translator" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\TranslatorHelper">
@@ -1566,8 +1572,8 @@
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
-          <argument>C:\wamp\www\piweb\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/config/validation.xml</argument>
-          <argument>C:\wamp\www\piweb\vendor\friendsofsymfony\user-bundle\Resources\config\validation.xml</argument>
+          <argument>/Users/nour/Sites/monsite.com/piweb/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</argument>
+          <argument>/Users/nour/Sites/monsite.com/piweb/vendor/friendsofsymfony/user-bundle/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -1591,7 +1597,7 @@
         </argument>
       </call>
       <call method="addXmlMapping">
-        <argument>C:\wamp\www\piweb\vendor\friendsofsymfony\user-bundle\DependencyInjection\Compiler/../../Resources/config/storage-validation/orm.xml</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/vendor/friendsofsymfony/user-bundle/DependencyInjection/Compiler/../../Resources/config/storage-validation/orm.xml</argument>
       </call>
     </service>
     <service id="validator.expression" class="Symfony\Component\Validator\Constraints\ExpressionValidator">
@@ -1620,7 +1626,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service">
         <service class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-          <argument>file:C:\wamp\www\piweb\app\cache\dev/profiler</argument>
+          <argument>file:/Users/nour/Sites/monsite.com/piweb/app/cache/dev/profiler</argument>
           <argument></argument>
           <argument></argument>
           <argument>86400</argument>
@@ -1843,7 +1849,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>56ec0ae3a5df6</argument>
+            <argument>56ef394f91c05</argument>
           </service>
         </argument>
       </argument>
@@ -2127,7 +2133,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>56ebfafa36078</argument>
+            <argument>56ef394f91c05</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2239,7 +2245,7 @@
           <argument>Symfony\Bundle\TwigBundle\TwigDefaultEscapingStrategy</argument>
           <argument>guess</argument>
         </argument>
-        <argument key="cache">C:\wamp\www\piweb\app\cache\dev/twig</argument>
+        <argument key="cache">/Users/nour/Sites/monsite.com/piweb/app/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="paths" type="collection"/>
       </argument>
@@ -2289,7 +2295,7 @@
           <service class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
             <tag name="twig.extension"/>
             <argument>null</argument>
-            <argument>C:\wamp\www\piweb\app</argument>
+            <argument>/Users/nour/Sites/monsite.com/piweb/app</argument>
             <argument>UTF-8</argument>
           </service>
         </argument>
@@ -2341,6 +2347,7 @@
                 <argument type="service">
                   <service class="Symfony\Bridge\Twig\Form\TwigRendererEngine" public="false">
                     <argument type="collection">
+                      <argument>StarRatingBundle::rating.html.twig</argument>
                       <argument>form_div_layout.html.twig</argument>
                     </argument>
                   </service>
@@ -2367,7 +2374,9 @@
             <argument type="service" id="templating.name_parser"/>
             <argument>true</argument>
             <argument type="collection"/>
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument>MyappResponsableBundle</argument>
+            </argument>
             <argument type="service">
               <service class="Symfony\Bundle\AsseticBundle\DefaultValueSupplier" public="false">
                 <argument type="service" id="service_container"/>
@@ -2382,6 +2391,9 @@
             <tag name="twig.extension"/>
           </service>
         </argument>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="star_rating.twig"/>
       </call>
       <call method="addExtension">
         <argument type="service" id="twig.extension.acme.demo"/>
@@ -2413,7 +2425,7 @@
       <argument>true</argument>
     </service>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
-      <argument>C:\wamp\www\piweb\app\logs/dev.log</argument>
+      <argument>/Users/nour/Sites/monsite.com/piweb/app/logs/dev.log</argument>
       <argument>100</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -2458,7 +2470,7 @@
             </argument>
             <argument type="service">
               <service class="Assetic\Cache\ConfigCache" public="false">
-                <argument>C:\wamp\www\piweb\app\cache\dev/assetic/config</argument>
+                <argument>/Users/nour/Sites/monsite.com/piweb/app/cache/dev/assetic/config</argument>
               </service>
             </argument>
             <argument>true</argument>
@@ -2467,12 +2479,39 @@
       </argument>
       <call method="addResource">
         <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>MyappResponsableBundle</argument>
+                  <argument>/Users/nour/Sites/monsite.com/piweb/app/Resources/MyappResponsableBundle/views</argument>
+                  <argument>/\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>MyappResponsableBundle</argument>
+                  <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/ResponsableBundle/Resources/views</argument>
+                  <argument>/\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
           <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
             <tag name="assetic.templating.twig"/>
             <tag name="assetic.formula_resource" loader="twig"/>
             <argument type="service" id="templating.loader"/>
             <argument></argument>
-            <argument>C:\wamp\www\piweb\app/Resources/views</argument>
+            <argument>/Users/nour/Sites/monsite.com/piweb/app/Resources/views</argument>
             <argument>/\.[^.]+\.twig$/</argument>
           </service>
         </argument>
@@ -2485,7 +2524,7 @@
       <argument type="service">
         <service class="Symfony\Component\DependencyInjection\ParameterBag\ParameterBag" factory-method="getParameterBag" factory-service="service_container" public="false"/>
       </argument>
-      <argument>C:\wamp\www\piweb\app/../web</argument>
+      <argument>/Users/nour/Sites/monsite.com/piweb/app/../web</argument>
       <argument>true</argument>
       <call method="addWorker">
         <argument type="service">
@@ -2502,7 +2541,7 @@
       <argument type="service" id="assetic.asset_manager"/>
       <argument type="service">
         <service class="Assetic\Cache\FilesystemCache" public="false">
-          <argument>C:\wamp\www\piweb\app\cache\dev/assetic/assets</argument>
+          <argument>/Users/nour/Sites/monsite.com/piweb/app/cache/dev/assetic/assets</argument>
         </service>
       </argument>
       <argument>false</argument>
@@ -2529,11 +2568,11 @@
     <service id="doctrine.dbal.default_connection" class="Doctrine\DBAL\Connection" factory-method="createConnection" factory-service="doctrine.dbal.connection_factory">
       <argument type="collection">
         <argument key="driver">pdo_mysql</argument>
-        <argument key="host">127.0.0.1</argument>
+        <argument key="host">localhost</argument>
         <argument key="port">null</argument>
         <argument key="dbname">BDTunisiaMall</argument>
         <argument key="user">root</argument>
-        <argument key="password">null</argument>
+        <argument key="password">root</argument>
         <argument key="charset">UTF8</argument>
         <argument key="driverOptions" type="collection"/>
         <argument key="defaultTableOptions" type="collection"/>
@@ -2599,17 +2638,17 @@
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_e1db39129d01f519e040381db1694082f4a42339662dfb735829df0dc9511cdd</argument>
+        <argument>sf2orm_default_54e08960c8e20403edcd938ea99922c63c261dc25d80784aa57a9b734023a83a</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_result_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_e1db39129d01f519e040381db1694082f4a42339662dfb735829df0dc9511cdd</argument>
+        <argument>sf2orm_default_54e08960c8e20403edcd938ea99922c63c261dc25d80784aa57a9b734023a83a</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_query_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_e1db39129d01f519e040381db1694082f4a42339662dfb735829df0dc9511cdd</argument>
+        <argument>sf2orm_default_54e08960c8e20403edcd938ea99922c63c261dc25d80784aa57a9b734023a83a</argument>
       </call>
     </service>
     <service id="doctrine.orm.default_entity_listener_resolver" class="Doctrine\ORM\Mapping\DefaultEntityListenerResolver"/>
@@ -2629,6 +2668,7 @@
               <argument key="MyappadminBundle">Myapp\adminBundle\Entity</argument>
               <argument key="MyappResponsableBundle">Myapp\ResponsableBundle\Entity</argument>
               <argument key="MyappuserBundle">Myapp\userBundle\Entity</argument>
+              <argument key="MyappvisiteurBundle">Myapp\visiteurBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -2648,9 +2688,10 @@
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
-                        <argument>C:\wamp\www\piweb\src\Myapp\adminBundle\Entity</argument>
-                        <argument>C:\wamp\www\piweb\src\Myapp\ResponsableBundle\Entity</argument>
-                        <argument>C:\wamp\www\piweb\src\Myapp\userBundle\Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/adminBundle/Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/ResponsableBundle/Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/userBundle/Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/visiteurBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -2661,9 +2702,10 @@
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
-                        <argument>C:\wamp\www\piweb\src\Myapp\adminBundle\Entity</argument>
-                        <argument>C:\wamp\www\piweb\src\Myapp\ResponsableBundle\Entity</argument>
-                        <argument>C:\wamp\www\piweb\src\Myapp\userBundle\Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/adminBundle/Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/ResponsableBundle/Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/userBundle/Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/visiteurBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -2674,9 +2716,10 @@
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
-                        <argument>C:\wamp\www\piweb\src\Myapp\adminBundle\Entity</argument>
-                        <argument>C:\wamp\www\piweb\src\Myapp\ResponsableBundle\Entity</argument>
-                        <argument>C:\wamp\www\piweb\src\Myapp\userBundle\Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/adminBundle/Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/ResponsableBundle/Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/userBundle/Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/visiteurBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -2684,11 +2727,25 @@
                 </call>
                 <call method="addDriver">
                   <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/adminBundle/Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/ResponsableBundle/Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/userBundle/Entity</argument>
+                        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/visiteurBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>Myapp\visiteurBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
                     <service class="Doctrine\ORM\Mapping\Driver\XmlDriver">
                       <argument type="service">
                         <service class="Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator">
                           <argument type="collection">
-                            <argument key="C:\wamp\www\piweb\vendor\friendsofsymfony\user-bundle\Resources\config\doctrine-mapping">FOS\UserBundle\Model</argument>
+                            <argument key="/Users/nour/Sites/monsite.com/piweb/vendor/friendsofsymfony/user-bundle/Resources/config/doctrine-mapping">FOS\UserBundle\Model</argument>
                           </argument>
                           <argument>.orm.xml</argument>
                         </service>
@@ -2701,7 +2758,7 @@
             </argument>
           </call>
           <call method="setProxyDir">
-            <argument>C:\wamp\www\piweb\app\cache\dev/doctrine/orm/Proxies</argument>
+            <argument>/Users/nour/Sites/monsite.com/piweb/app/cache/dev/doctrine/orm/Proxies</argument>
           </call>
           <call method="setProxyNamespace">
             <argument>Proxies</argument>
@@ -2887,6 +2944,13 @@
       <argument type="service" id="router"/>
       <argument>86400</argument>
     </service>
+    <service id="star_rating.type" class="blackknight467\StarRatingBundle\Form\RatingType">
+      <tag name="form.type" alias="rating"/>
+    </service>
+    <service id="star_rating.twig" class="blackknight467\StarRatingBundle\Extensions\StarRatingExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="service_container"/>
+    </service>
     <service id="twig.extension.acme.demo" class="Acme\DemoBundle\Twig\Extension\DemoExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="twig.loader"/>
@@ -2970,7 +3034,7 @@
       <argument type="service" id="router" on-invalid="ignore"/>
     </service>
     <service id="sensio_distribution.webconfigurator" class="Sensio\Bundle\DistributionBundle\Configurator\Configurator">
-      <argument>C:\wamp\www\piweb\app</argument>
+      <argument>/Users/nour/Sites/monsite.com/piweb/app</argument>
       <call method="addStep">
         <argument type="service">
           <service class="Sensio\Bundle\DistributionBundle\Configurator\Step\DoctrineStep" public="false">
@@ -3130,7 +3194,7 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.filesystem" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage">
-      <argument>C:\wamp\www\piweb\app\cache\dev/sessions</argument>
+      <argument>/Users/nour/Sites/monsite.com/piweb/app/cache/dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
@@ -3173,9 +3237,9 @@
     <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
-      <argument>C:\wamp\www\piweb\app\cache\dev/assetic/routing.yml</argument>
+      <argument>/Users/nour/Sites/monsite.com/piweb/app/cache/dev/assetic/routing.yml</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:\wamp\www\piweb\app\cache\dev</argument>
+        <argument key="cache_dir">/Users/nour/Sites/monsite.com/piweb/app/cache/dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -3195,7 +3259,7 @@
       <argument type="service">
         <service class="Doctrine\Common\Annotations\AnnotationReader" public="false"/>
       </argument>
-      <argument>C:\wamp\www\piweb\app\cache\dev/annotations</argument>
+      <argument>/Users/nour/Sites/monsite.com/piweb/app/cache/dev/annotations</argument>
       <argument>true</argument>
     </service>
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
@@ -3215,47 +3279,47 @@
       <argument type="service" id="templating.locator"/>
       <argument type="service" id="templating.name_parser"/>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/views</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/views</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/views</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
         <argument>Swiftmailer</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\src\piweb\appBundle/Resources/views</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/src/piweb/appBundle/Resources/views</argument>
         <argument>piwebapp</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\src\Myapp\adminBundle/Resources/views</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/adminBundle/Resources/views</argument>
         <argument>Myappadmin</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\src\Myapp\ResponsableBundle/Resources/views</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/ResponsableBundle/Resources/views</argument>
         <argument>MyappResponsable</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\app/Resources/FOSUserBundle/views</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/app/Resources/FOSUserBundle/views</argument>
         <argument>FOSUser</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\friendsofsymfony\user-bundle/Resources/views</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/vendor/friendsofsymfony/user-bundle/Resources/views</argument>
         <argument>FOSUser</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\src\Myapp\userBundle/Resources/views</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/src/Myapp/userBundle/Resources/views</argument>
         <argument>Myappuser</argument>
       </call>
       <call method="addPath">
@@ -3263,22 +3327,26 @@
         <argument>Myappvisiteur</argument>
       </call>
       <call method="addPath">
+        <argument>/Users/nour/Sites/monsite.com/piweb/vendor/blackknight467/star-rating-bundle/blackknight467/StarRatingBundle/Resources/views</argument>
+        <argument>StarRating</argument>
+      </call>
+      <call method="addPath">
         <argument>/Users/nour/Sites/monsite.com/piweb/src/Acme/DemoBundle/Resources/views</argument>
         <argument>AcmeDemo</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/views</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views</argument>
         <argument>SensioDistribution</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\app/Resources/views</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/app/Resources/views</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\symfony\symfony\src\Symfony\Bridge\Twig/Resources/views/Form</argument>
+        <argument>/Users/nour/Sites/monsite.com/piweb/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
       </call>
     </service>
     <service id="logger" class="Symfony\Bridge\Monolog\Logger">
