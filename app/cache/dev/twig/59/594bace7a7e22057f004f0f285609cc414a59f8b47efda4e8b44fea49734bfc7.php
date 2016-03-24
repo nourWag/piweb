@@ -319,7 +319,7 @@ class __TwigTemplate_563cadd45027062021cf7094626f29386c5337c4cb4d9bd8738b5b1be90
 \t  \t  <li><a href=\"ru\"><img src=\"";
         // line 177
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/flags/ru.png"), "html", null, true);
-        echo "\" alt=\"Русский\" title=\"Русский\" /> Русский</a></li>
+        echo "\" alt=\"Р�?�?�?кий\" title=\"Р�?�?�?кий\" /> Р�?�?�?кий</a></li>
 \t  \t</ul>
   </div>
   <input type=\"hidden\" name=\"code\" value=\"\" />
@@ -332,7 +332,7 @@ class __TwigTemplate_563cadd45027062021cf7094626f29386c5337c4cb4d9bd8738b5b1be90
 \t\t\t<li class=\"first\"><a href=\"home\"><i class=\"fa fa-home\"></i><span class=\"hidden-xs hidden-sm hidden-md\">Home</span></a></li>
 \t\t\t<li class=\"dropdown\"><a href=\"account\" title=\"My Account\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i> <span class=\"hidden-xs hidden-sm hidden-md\">My Account</span> <span class=\"caret\"></span></a>
 \t\t\t<ul class=\"dropdown-menu dropdown-menu-left\">
-\t\t                 <li><a href=\"register\">Register</a></li>
+\t\t                 <li><a href=\"register/\">Register</a></li>
 \t\t\t\t <li><a href=\"login\">Login</a></li>
 \t\t\t\t\t\t\t</ul>
 \t\t\t</li>
@@ -1677,7 +1677,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 /* 	<ul class="dropdown-menu pull-right">*/
 /* 	  	  <li><a href="en"><img src="{{ asset('images/flags/gb.png') }}" alt="English" title="English" /> English</a></li>*/
 /* 	  	  <li><a href="de"><img src="{{ asset('images/flags/de.png') }}" alt="Deutsch" title="Deutsch" /> Deutsch</a></li>*/
-/* 	  	  <li><a href="ru"><img src="{{ asset('images/flags/ru.png') }}" alt="Русский" title="Русский" /> Русский</a></li>*/
+/* 	  	  <li><a href="ru"><img src="{{ asset('images/flags/ru.png') }}" alt="Р�?�?�?кий" title="Р�?�?�?кий" /> Р�?�?�?кий</a></li>*/
 /* 	  	</ul>*/
 /*   </div>*/
 /*   <input type="hidden" name="code" value="" />*/
@@ -1690,7 +1690,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 /* 			<li class="first"><a href="home"><i class="fa fa-home"></i><span class="hidden-xs hidden-sm hidden-md">Home</span></a></li>*/
 /* 			<li class="dropdown"><a href="account" title="My Account" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md">My Account</span> <span class="caret"></span></a>*/
 /* 			<ul class="dropdown-menu dropdown-menu-left">*/
-/* 		                 <li><a href="register">Register</a></li>*/
+/* 		                 <li><a href="register/">Register</a></li>*/
 /* 				 <li><a href="login">Login</a></li>*/
 /* 							</ul>*/
 /* 			</li>*/
