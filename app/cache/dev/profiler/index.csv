@@ -10,3 +10,7 @@ c520bb,::1,GET,http://localhost:8000/piweb/web/app_dev.php/afficherPClient,14585
 605c0d,::1,GET,http://localhost:8000/piweb/web/app_dev.php/afficherPClient,1458523712,
 7da835,::1,GET,http://localhost:8000/piweb/web/app_dev.php/afficherPClient,1458523770,
 161ce7,::1,GET,http://localhost:8000/piweb/web/app_dev.php/images/1,1458523772,
+ac5b9b,::1,GET,http://localhost:8000/piweb/web/app_dev.php/login,1458770489,
+7f12a2,::1,GET,http://localhost:8000/piweb/web/app_dev.php/,1458842200,34a07c
+34a07c,::1,GET,http://localhost:8000/piweb/web/app_dev.php/,1458842200,
+e5f9ae,::1,GET,http://localhost:8000/piweb/web/app_dev.php/,1458842417,
