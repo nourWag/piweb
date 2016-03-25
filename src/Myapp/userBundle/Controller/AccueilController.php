@@ -17,6 +17,8 @@ class AccueilController extends Controller{
          
          
          
+         
+         
          $em = $this->getDoctrine()->getManager(); 
 $image=$em->getRepository('MyappResponsableBundle:Image')->findall(); 
         return $this->render('MyappuserBundle:View1:index.html.twig', array('images'=>$image));
