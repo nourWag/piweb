@@ -34,5 +34,12 @@ edit12:
 changePassword12:
     path:     /changePassword
     defaults: { _controller: "MyappuserBundle:ChangePassword:changePassword" }      
-
-
+ajouter_Au_panier:
+    path:     /ajou
+    defaults: { _controller: MyappuserBundle:Panier:ajouter }
+tunisia_supprimer_du panier:
+    path:     /supp
+    defaults: { _controller: MyappuserBundle:Panier:supprimer }
+afficher_panier:
+    path:     /panier
+    defaults: { _controller: MyappuserBundle:Panier:affichage }

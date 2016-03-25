@@ -19,4 +19,9 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
+    function getId() {
+        return $this->id;
+    }
+
+
 } ?>
