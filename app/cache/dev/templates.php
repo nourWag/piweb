@@ -178,7 +178,6 @@
   'MyappuserBundle:packet:index.html.twig' => '/Users/nour/Sites/monsite.com/piweb/src/Myapp/userBundle/Resources/views/packet/index.html.twig',
   'MyappuserBundle:packet:new.html.twig' => '/Users/nour/Sites/monsite.com/piweb/src/Myapp/userBundle/Resources/views/packet/new.html.twig',
   'MyappuserBundle:packet:show.html.twig' => '/Users/nour/Sites/monsite.com/piweb/src/Myapp/userBundle/Resources/views/packet/show.html.twig',
-  'MyappuserBundle:Panier:PanierView.html.twig' => '/Users/nour/Sites/monsite.com/piweb/src/Myapp/userBundle/Resources/views/Panier/PanierView.html.twig',
   'MyappuserBundle:View1:index.html.twig' => '/Users/nour/Sites/monsite.com/piweb/src/Myapp/userBundle/Resources/views/View1/index.html.twig',
   'MyappuserBundle:View1:login.html.twig' => '/Users/nour/Sites/monsite.com/piweb/src/Myapp/userBundle/Resources/views/View1/login.html.twig',
   'MyappuserBundle:View1:register.html.twig' => '/Users/nour/Sites/monsite.com/piweb/src/Myapp/userBundle/Resources/views/View1/register.html.twig',

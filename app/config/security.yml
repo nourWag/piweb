@@ -30,4 +30,4 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/respensable/, role: ROLE_RESPENSABLE }
-        - { path: ^/user/, role: ROLE_USER }
+        
