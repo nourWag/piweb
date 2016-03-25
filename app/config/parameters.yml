@@ -6,10 +6,10 @@ parameters:
     database_name: BDTunisiaMall
     database_user: root
     database_password: root
-    mailer_transport: null
+    mailer_transport: smtp
     mailer_host: localhost
-    mailer_user: swiftmailersymfony@gmail.com
-    mailer_password: swiftmailersymfony2
+    mailer_user: null
+    mailer_password: null
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
     debug_toolbar: true

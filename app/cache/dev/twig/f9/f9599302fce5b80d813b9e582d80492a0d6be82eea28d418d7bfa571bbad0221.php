@@ -261,12 +261,13 @@ class __TwigTemplate_bea2e6e7878536b66fca36bd6d7114d5423d9c0d5e462cf36b0a40b98f1
         // line 155
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("afficher_produits", array("id" => $this->getAttribute((isset($context["modele"]) ? $context["modele"] : $this->getContext($context, "modele")), "id", array()))), "html", null, true);
         echo "\">
+                             
                              <button type=\"button\" id=\"button-cart\" data-loading-text=\"Loading...\" class=\"btn btn-add\" >Add to Cart</button>
                          </a>
 </div>
 
 \t\t\t\t\t<a href=\"";
-        // line 160
+        // line 161
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("afficher_produits", array("id" => $this->getAttribute((isset($context["modele"]) ? $context["modele"] : $this->getContext($context, "modele")), "id", array()))), "html", null, true);
         echo "\"><ul class=\"product-buttons\">
 \t\t\t\t\t\t<li><button class=\"btn btn-icon\" onclick=\"wishlist.add('35');\"><i class=\"fa fa-heart\"></i> <span class=\"hidden-xs hidden-sm\">Add to Wish List</span></button></li>
@@ -304,7 +305,7 @@ class __TwigTemplate_bea2e6e7878536b66fca36bd6d7114d5423d9c0d5e462cf36b0a40b98f1
 
     public function getDebugInfo()
     {
-        return array (  270 => 160,  262 => 155,  240 => 136,  228 => 127,  195 => 97,  191 => 96,  185 => 95,  176 => 89,  166 => 82,  162 => 80,  148 => 78,  144 => 76,  139 => 74,  132 => 70,  102 => 45,  96 => 41,  79 => 35,  74 => 32,  70 => 31,  52 => 16,  48 => 15,  44 => 14,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  271 => 161,  262 => 155,  240 => 136,  228 => 127,  195 => 97,  191 => 96,  185 => 95,  176 => 89,  166 => 82,  162 => 80,  148 => 78,  144 => 76,  139 => 74,  132 => 70,  102 => 45,  96 => 41,  79 => 35,  74 => 32,  70 => 31,  52 => 16,  48 => 15,  44 => 14,  31 => 3,  28 => 2,  11 => 1,);
     }
 }
 /* {% extends "MyappResponsableBundle::layout.html.twig" %}*/
@@ -462,6 +463,7 @@ class __TwigTemplate_bea2e6e7878536b66fca36bd6d7114d5423d9c0d5e462cf36b0a40b98f1
 /* 						*/
 /* */
 /*                          <a href="{{ path('afficher_produits', {'id': modele.id})}}">*/
+/*                              */
 /*                              <button type="button" id="button-cart" data-loading-text="Loading..." class="btn btn-add" >Add to Cart</button>*/
 /*                          </a>*/
 /* </div>*/

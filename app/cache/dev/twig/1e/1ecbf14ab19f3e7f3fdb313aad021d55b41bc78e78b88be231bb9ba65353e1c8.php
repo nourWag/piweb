@@ -11,6 +11,7 @@ class __TwigTemplate_298b957ba881847ebdd40aa4d3dd0239488edca2920283d771a7b8a933d
 
         $this->blocks = array(
             'produit' => array($this, 'block_produit'),
+            'panier' => array($this, 'block_panier'),
             'body' => array($this, 'block_body'),
             'pack' => array($this, 'block_pack'),
         );
@@ -322,7 +323,7 @@ class __TwigTemplate_298b957ba881847ebdd40aa4d3dd0239488edca2920283d771a7b8a933d
 \t  \t  <li><a href=\"ru\"><img src=\"";
         // line 178
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/flags/ru.png"), "html", null, true);
-        echo "\" alt=\"Русский\" title=\"Русский\" /> Русский</a></li>
+        echo "\" alt=\"Р�?�?�?кий\" title=\"Р�?�?�?кий\" /> Р�?�?�?кий</a></li>
 \t  \t</ul>
   </div>
   <input type=\"hidden\" name=\"code\" value=\"\" />
@@ -380,8 +381,20 @@ class __TwigTemplate_298b957ba881847ebdd40aa4d3dd0239488edca2920283d771a7b8a933d
         // line 229
         $this->displayBlock('produit', $context, $blocks);
         // line 231
+        echo " 
+<div class=\"container\">
+        ";
+        // line 233
+        $this->displayBlock('panier', $context, $blocks);
+        // line 235
+        echo "</div>
+    
+        
+        
+";
+        // line 239
         $this->displayBlock('body', $context, $blocks);
-        // line 1103
+        // line 1111
         echo "<footer>
   <div class=\"container\">
 \t<div class=\"row\">
@@ -483,7 +496,7 @@ class __TwigTemplate_298b957ba881847ebdd40aa4d3dd0239488edca2920283d771a7b8a933d
 \t</div>
 </footer>
 <script src=\"";
-        // line 1203
+        // line 1211
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("css/catalog/view/theme/theme509/js/livesearch.js"), "html", null, true);
         echo "\" type=\"text/javascript\"></script>
 
@@ -501,10 +514,17 @@ class __TwigTemplate_298b957ba881847ebdd40aa4d3dd0239488edca2920283d771a7b8a933d
         echo "        ";
     }
 
-    // line 231
+    // line 233
+    public function block_panier($context, array $blocks = array())
+    {
+        // line 234
+        echo "        ";
+    }
+
+    // line 239
     public function block_body($context, array $blocks = array())
     {
-        // line 232
+        // line 240
         echo "<div class=\"container\">
 \t<div id=\"menu-gadget\">
 \t\t<div id=\"menu-icon\">Categories</div>
@@ -627,7 +647,7 @@ class __TwigTemplate_298b957ba881847ebdd40aa4d3dd0239488edca2920283d771a7b8a933d
 
 <p id=\"back-top\"> <a href=\"#top\"><span></span></a> </p>
 \t\t\t";
-        // line 373
+        // line 381
         echo "<script>
 \tjQuery(document).ready(function() {
 \tjQuery(\"#parallax_2>div\").cherryFixedParallax({
@@ -643,7 +663,7 @@ class __TwigTemplate_298b957ba881847ebdd40aa4d3dd0239488edca2920283d771a7b8a933d
 \t\t<div class=\"banner-box\">
 \t\t\t<a class=\"clearfix\" href=\"index.php?route=product/product&amp;product_id=43\">
 \t\t\t\t<img src=\"";
-        // line 387
+        // line 395
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/banner-1-370x370.jpg"), "html", null, true);
         echo "\" alt=\"banner-1\" class=\"img-responsive\" />
 \t\t\t\t\t\t\t\t<div class=\"s-desc\"><h2>Beauty</h2>
@@ -655,9 +675,9 @@ class __TwigTemplate_298b957ba881847ebdd40aa4d3dd0239488edca2920283d771a7b8a933d
 \t\t<div class=\"banner-box\">
 \t\t\t<a class=\"clearfix\" href=\"index.php?route=product/product&amp;product_id=42\">
 \t\t\t\t";
-        // line 396
+        // line 404
         $this->displayBlock('pack', $context, $blocks);
-        // line 399
+        // line 407
         echo "\t\t\t\t\t\t\t</a>
 \t\t</div>
 \t</div>
@@ -665,7 +685,7 @@ class __TwigTemplate_298b957ba881847ebdd40aa4d3dd0239488edca2920283d771a7b8a933d
 \t\t<div class=\"banner-box\">
 \t\t\t<a class=\"clearfix\" href=\"index.php?route=product/product&amp;product_id=28\">
 \t\t\t\t<img src=\"";
-        // line 405
+        // line 413
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/banner-3-370x370.jpg"), "html", null, true);
         echo "\" alt=\"banner-3\" class=\"img-responsive\" />
 \t\t\t\t\t\t\t\t<div class=\"s-desc\"><h2>Perfume</h2>
@@ -678,7 +698,7 @@ class __TwigTemplate_298b957ba881847ebdd40aa4d3dd0239488edca2920283d771a7b8a933d
   
 \t\t\t
 \t\t\t<div data-source-url=";
-        // line 415
+        // line 423
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/parallax-2-jdida.jpg"), "html", null, true);
         echo " class=\"parallax-2\" style=\"width: 1278px; margin-left: -639px; left: 50%; background-image: url(";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/parallax-2-jdida.jpg"), "html", null, true);
@@ -712,7 +732,7 @@ class __TwigTemplate_298b957ba881847ebdd40aa4d3dd0239488edca2920283d771a7b8a933d
   
 \t\t\t
 \t\t\t<div data-source-url=";
-        // line 444
+        // line 452
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/parallax-3-jdida.jpg"), "html", null, true);
         echo " class=\"parallax-3\" style=\"width: 1278px; margin-left: -639px; left: 50%; background-image: url(";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/parallax-3-jdida.jpg"), "html", null, true);
@@ -769,7 +789,7 @@ class __TwigTemplate_298b957ba881847ebdd40aa4d3dd0239488edca2920283d771a7b8a933d
 \t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t<div class=\"left col-sm-4\">
 \t\t\t\t\t\t\t\t\t<div class=\"quickview_image image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=43\"><img alt=\"Quisque eget\" title=\"Quisque eget\" class=\"img-responsive\" src=\"";
-        // line 496
+        // line 504
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-31-270x420.png"), "html", null, true);
         echo "\" /></a></div>
 \t\t\t\t\t\t\t\t</div>
@@ -814,7 +834,7 @@ class __TwigTemplate_298b957ba881847ebdd40aa4d3dd0239488edca2920283d771a7b8a933d
 \t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"sale\">Sale</div>
 \t\t\t\t\t\t<div class=\"image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=43\"><img alt=\"Quisque eget\" title=\"Quisque eget\" class=\"img-responsive lazy\" data-src=\"";
-        // line 538
+        // line 546
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-31-270x420.png"), "html", null, true);
         echo "\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/catalog/preload.gif"), "html", null, true);
@@ -850,7 +870,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 \t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t<div class=\"left col-sm-4\">
 \t\t\t\t\t\t\t\t\t<div class=\"quickview_image image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=40\"><img alt=\"Vehicula libero sed\" title=\"Vehicula libero sed\" class=\"img-responsive\" src=\"";
-        // line 569
+        // line 577
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-16-270x420.png"), "html", null, true);
         echo "\" /></a></div>
 \t\t\t\t\t\t\t\t</div>
@@ -893,7 +913,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t\t\t\t<div class=\"image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=40\"><img alt=\"Vehicula libero sed\" title=\"Vehicula libero sed\" class=\"img-responsive lazy\" data-src=\"";
-        // line 609
+        // line 617
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-16-270x420.png"), "html", null, true);
         echo "\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/catalog/preload.gif"), "html", null, true);
@@ -928,7 +948,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 \t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t<div class=\"left col-sm-4\">
 \t\t\t\t\t\t\t\t\t<div class=\"quickview_image image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=30\"><img alt=\"Dolor sit amet\" title=\"Dolor sit amet\" class=\"img-responsive\" src=\"";
-        // line 639
+        // line 647
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-04-270x420.png"), "html", null, true);
         echo "\" /></a></div>
 \t\t\t\t\t\t\t\t</div>
@@ -973,7 +993,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 \t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"sale\">Sale</div>
 \t\t\t\t\t\t<div class=\"image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=30\"><img alt=\"Dolor sit amet\" title=\"Dolor sit amet\" class=\"img-responsive lazy\" data-src=\"";
-        // line 681
+        // line 689
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-04-270x420.png"), "html", null, true);
         echo "\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/catalog/preload.gif"), "html", null, true);
@@ -1009,7 +1029,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 \t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t<div class=\"left col-sm-4\">
 \t\t\t\t\t\t\t\t\t<div class=\"quickview_image image\"><a href=\"";
-        // line 712
+        // line 720
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-01-270x420.png"), "html", null, true);
         echo "\" /></a></div>
 \t\t\t\t\t\t\t\t</div>
@@ -1054,7 +1074,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 \t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"sale\">Sale</div>
 \t\t\t\t\t\t<div class=\"image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=42\"><img alt=\"Lorem ipsum\" title=\"Lorem ipsum\" class=\"img-responsive lazy\" data-src=\"";
-        // line 754
+        // line 762
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-01-270x420.png"), "html", null, true);
         echo "\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/catalog/preload.gif"), "html", null, true);
@@ -1090,7 +1110,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 \t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t<div class=\"left col-sm-4\">
 \t\t\t\t\t\t\t\t\t<div class=\"quickview_image image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=33\"><img alt=\"Aliquam dolor tellus\" title=\"Aliquam dolor tellus\" class=\"img-responsive\" src=\"";
-        // line 785
+        // line 793
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-52-270x420.png"), "html", null, true);
         echo "\" /></a></div>
 \t\t\t\t\t\t\t\t</div>
@@ -1135,7 +1155,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 \t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"sale\">Sale</div>
 \t\t\t\t\t\t<div class=\"image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=33\"><img alt=\"Aliquam dolor tellus\" title=\"Aliquam dolor tellus\" class=\"img-responsive lazy\" data-src=\"";
-        // line 827
+        // line 835
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-52-270x420.png"), "html", null, true);
         echo "\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/catalog/preload.gif"), "html", null, true);
@@ -1172,7 +1192,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 \t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t<div class=\"left col-sm-4\">
 \t\t\t\t\t\t\t\t\t<div class=\"quickview_image image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=46\"><img alt=\"Suspendisse imperdiet\" title=\"Suspendisse imperdiet\" class=\"img-responsive\" src=\"";
-        // line 859
+        // line 867
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-55-270x420.png"), "html", null, true);
         echo "\" /></a></div>
 \t\t\t\t\t\t\t\t</div>
@@ -1215,7 +1235,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t\t\t\t<div class=\"image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=46\"><img alt=\"Suspendisse imperdiet\" title=\"Suspendisse imperdiet\" class=\"img-responsive lazy\" data-src=\"";
-        // line 899
+        // line 907
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-55-270x420.png"), "html", null, true);
         echo "\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/catalog/preload.gif"), "html", null, true);
@@ -1250,7 +1270,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 \t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t<div class=\"left col-sm-4\">
 \t\t\t\t\t\t\t\t\t<div class=\"quickview_image image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=32\"><img alt=\"Nulla vitae eleifend\" title=\"Nulla vitae eleifend\" class=\"img-responsive\" src=\"";
-        // line 929
+        // line 937
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-28-270x420.png"), "html", null, true);
         echo "\" /></a></div>
 \t\t\t\t\t\t\t\t</div>
@@ -1295,7 +1315,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 \t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"sale\">Sale</div>
 \t\t\t\t\t\t<div class=\"image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=32\"><img alt=\"Nulla vitae eleifend\" title=\"Nulla vitae eleifend\" class=\"img-responsive lazy\" data-src=\"";
-        // line 971
+        // line 979
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-28-270x420.png"), "html", null, true);
         echo "\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/catalog/preload.gif"), "html", null, true);
@@ -1331,7 +1351,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 \t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t<div class=\"left col-sm-4\">
 \t\t\t\t\t\t\t\t\t<div class=\"quickview_image image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=28\"><img alt=\"Aliquam eget\" title=\"Aliquam eget\" class=\"img-responsive\" src=\"";
-        // line 1002
+        // line 1010
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-10-270x420.png"), "html", null, true);
         echo "\" /></a></div>
 \t\t\t\t\t\t\t\t</div>
@@ -1376,7 +1396,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 \t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"sale\">Sale</div>
 \t\t\t\t\t\t<div class=\"image\"><a href=\"http://localhost/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/index.php?route=product/product&amp;product_id=28\"><img alt=\"Aliquam eget\" title=\"Aliquam eget\" class=\"img-responsive lazy\" data-src=\" ";
-        // line 1044
+        // line 1052
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/cache/catalog/product-10-270x420.png"), "html", null, true);
         echo "\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/catalog/preload.gif"), "html", null, true);
@@ -1414,7 +1434,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 <div class=\"content_bottom\">
 \t\t\t<div class=\"box_html video_block\">
                             <div style=\"position: absolute; z-index: -1; top: 0px; left: 0px; bottom: 0px; right: 0px; overflow: hidden; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;\"><video autoplay=\"\" loop=\"\" style=\"visibility: visible; margin: auto; position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 2002px; height: auto;\"><source src=\"";
-        // line 1077
+        // line 1085
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("video/TunisiaMall.mp4"), "html", null, true);
         echo "\" type=\"video/mp4\"><source src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("video/video_1.webm"), "html", null, true);
@@ -1422,7 +1442,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("video/video_1.ogv"), "html", null, true);
         echo "\" type=\"video/ogg\"></video>
                             <video autoplay=\"\" loop=\"\" style=\"visibility: visible; margin: auto; position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 2002px; height: auto;\"><source src=\"";
-        // line 1078
+        // line 1086
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("video/TunisiaMall.mp4"), "html", null, true);
         echo "\" type=\"video/mp4\"><source src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("video/video_1.webm"), "html", null, true);
@@ -1430,19 +1450,19 @@ Traditions are the cornerstone of our noble business and we know how to observe 
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("video/video_1.ogv"), "html", null, true);
         echo "\" type=\"video/ogg\"></video>
 \t<source src=\"";
-        // line 1079
+        // line 1087
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("video/TunisiaMall.mp4"), "html", null, true);
         echo "\" type=\"video/mp4\">
         <source src=\"";
-        // line 1080
+        // line 1088
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("video/video_1.webm"), "html", null, true);
         echo "\" type=\"video/webm\">
         <source src=\"";
-        // line 1081
+        // line 1089
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("video/video_1.ogv"), "html", null, true);
         echo "\" type=\"video/ogg\">
         <video autoplay=\"\" loop=\"\" style=\"visibility: visible; margin: auto; position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 2002px; height: auto;\"><source src=\"";
-        // line 1082
+        // line 1090
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("video/TunisiaMall.mp4"), "html", null, true);
         echo "\" type=\"video/mp4\"><source src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("video/video_1.webm"), "html", null, true);
@@ -1471,7 +1491,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
         ";
     }
 
-    // line 396
+    // line 404
     public function block_pack($context, array $blocks = array())
     {
         echo "<img src=\"";
@@ -1493,7 +1513,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 
     public function getDebugInfo()
     {
-        return array (  1475 => 396,  1446 => 1082,  1442 => 1081,  1438 => 1080,  1434 => 1079,  1426 => 1078,  1418 => 1077,  1380 => 1044,  1335 => 1002,  1299 => 971,  1254 => 929,  1219 => 899,  1176 => 859,  1139 => 827,  1094 => 785,  1058 => 754,  1013 => 712,  977 => 681,  932 => 639,  897 => 609,  854 => 569,  818 => 538,  773 => 496,  716 => 444,  682 => 415,  669 => 405,  661 => 399,  659 => 396,  647 => 387,  631 => 373,  508 => 232,  505 => 231,  501 => 230,  498 => 229,  487 => 1203,  385 => 1103,  383 => 231,  381 => 229,  354 => 205,  324 => 178,  320 => 177,  316 => 176,  310 => 173,  241 => 107,  237 => 106,  233 => 105,  227 => 102,  222 => 100,  218 => 99,  211 => 95,  207 => 94,  203 => 93,  196 => 89,  192 => 88,  188 => 87,  184 => 86,  179 => 84,  175 => 83,  170 => 81,  166 => 80,  162 => 79,  158 => 78,  154 => 77,  150 => 76,  144 => 73,  139 => 71,  135 => 70,  131 => 69,  127 => 68,  123 => 67,  119 => 66,  115 => 65,  111 => 64,  107 => 63,  102 => 61,  98 => 60,  94 => 59,  90 => 58,  86 => 57,  82 => 56,  78 => 55,  22 => 1,);
+        return array (  1495 => 404,  1466 => 1090,  1462 => 1089,  1458 => 1088,  1454 => 1087,  1446 => 1086,  1438 => 1085,  1400 => 1052,  1355 => 1010,  1319 => 979,  1274 => 937,  1239 => 907,  1196 => 867,  1159 => 835,  1114 => 793,  1078 => 762,  1033 => 720,  997 => 689,  952 => 647,  917 => 617,  874 => 577,  838 => 546,  793 => 504,  736 => 452,  702 => 423,  689 => 413,  681 => 407,  679 => 404,  667 => 395,  651 => 381,  528 => 240,  525 => 239,  521 => 234,  518 => 233,  514 => 230,  511 => 229,  500 => 1211,  398 => 1111,  396 => 239,  390 => 235,  388 => 233,  384 => 231,  382 => 229,  355 => 205,  325 => 178,  321 => 177,  317 => 176,  311 => 173,  242 => 107,  238 => 106,  234 => 105,  228 => 102,  223 => 100,  219 => 99,  212 => 95,  208 => 94,  204 => 93,  197 => 89,  193 => 88,  189 => 87,  185 => 86,  180 => 84,  176 => 83,  171 => 81,  167 => 80,  163 => 79,  159 => 78,  155 => 77,  151 => 76,  145 => 73,  140 => 71,  136 => 70,  132 => 69,  128 => 68,  124 => 67,  120 => 66,  116 => 65,  112 => 64,  108 => 63,  103 => 61,  99 => 60,  95 => 59,  91 => 58,  87 => 57,  83 => 56,  79 => 55,  23 => 1,);
     }
 }
 /* */
@@ -1673,7 +1693,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 /* 	<ul class="dropdown-menu pull-right">*/
 /* 	  	  <li><a href="en"><img src="{{ asset('images/flags/gb.png') }}" alt="English" title="English" /> English</a></li>*/
 /* 	  	  <li><a href="de"><img src="{{ asset('images/flags/de.png') }}" alt="Deutsch" title="Deutsch" /> Deutsch</a></li>*/
-/* 	  	  <li><a href="ru"><img src="{{ asset('images/flags/ru.png') }}" alt="Русский" title="Русский" /> Русский</a></li>*/
+/* 	  	  <li><a href="ru"><img src="{{ asset('images/flags/ru.png') }}" alt="Р�?�?�?кий" title="Р�?�?�?кий" /> Р�?�?�?кий</a></li>*/
 /* 	  	</ul>*/
 /*   </div>*/
 /*   <input type="hidden" name="code" value="" />*/
@@ -1726,6 +1746,14 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 /* </header>*/
 /*                                         {% block produit %}*/
 /*         {% endblock %}*/
+/*  */
+/* <div class="container">*/
+/*         {% block panier %}*/
+/*         {% endblock %}*/
+/* </div>*/
+/*     */
+/*         */
+/*         */
 /* {% block body %}*/
 /* <div class="container">*/
 /* 	<div id="menu-gadget">*/

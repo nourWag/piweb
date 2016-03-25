@@ -13,6 +13,8 @@ class AccueilController extends Controller{
          
          
          
+
+         
          
          
          $em = $this->getDoctrine()->getManager(); 

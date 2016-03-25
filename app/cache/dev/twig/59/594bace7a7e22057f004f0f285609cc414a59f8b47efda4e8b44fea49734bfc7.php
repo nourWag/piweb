@@ -352,7 +352,7 @@ class __TwigTemplate_563cadd45027062021cf7094626f29386c5337c4cb4d9bd8738b5b1be90
         echo "\" title=\"Tunisia Mall\" alt=\"Tunisia Mall\" class=\"img-responsive\" /></a>
 \t\t\t\t\t</div>
 \t\t<div class=\"checkout_button\">
-\t\t\t<a href=\"checkout\" title=\"Checkout\">
+\t\t\t<a href=\"checkout \" title=\"Checkout\">
 \t\t\t\tCheckout\t\t\t</a>
 \t\t</div>
 \t\t<div class=\"box-cart\">
@@ -1707,7 +1707,7 @@ Traditions are the cornerstone of our noble business and we know how to observe 
 /* 						<a href="pi2tst_homepage1"><img src="{{ asset('images/catalog/logo1.png') }}" title="Tunisia Mall" alt="Tunisia Mall" class="img-responsive" /></a>*/
 /* 					</div>*/
 /* 		<div class="checkout_button">*/
-/* 			<a href="checkout" title="Checkout">*/
+/* 			<a href="checkout " title="Checkout">*/
 /* 				Checkout			</a>*/
 /* 		</div>*/
 /* 		<div class="box-cart">*/

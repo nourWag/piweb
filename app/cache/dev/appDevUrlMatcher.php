@@ -175,6 +175,21 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Myapp\\userBundle\\Controller\\ChangePasswordController::changePasswordAction',  '_route' => 'changePassword12',);
             }
 
+            // ajouter_Au_panier
+            if ($pathinfo === '/user/pages/ajou') {
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\PanierController::ajouterAction',  '_route' => 'ajouter_Au_panier',);
+            }
+
+            // tunisia_supprimer_du panier
+            if ($pathinfo === '/user/pages/supp') {
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\PanierController::supprimerAction',  '_route' => 'tunisia_supprimer_du panier',);
+            }
+
+            // afficher_panier
+            if ($pathinfo === '/user/pages/panier') {
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\PanierController::affichageAction',  '_route' => 'afficher_panier',);
+            }
+
         }
 
         // homme
