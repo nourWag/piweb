@@ -43,3 +43,43 @@ tunisia_supprimer_du panier:
 afficher_panier:
     path:     /panier
     defaults: { _controller: MyappuserBundle:Panier:affichage }
+
+
+
+liraisonf:
+    path:     /liste
+    defaults: { _controller: "MyappuserBundle:Liraisonf:index" }
+
+liraisonf_show:
+    path:     /{id}/show
+    defaults: { _controller: "MyappuserBundle:Liraisonf:show" }
+
+liraisonf_new:
+    path:     /new
+    defaults: { _controller: "MyappuserBundle:Liraisonf:new" }
+
+liraisonf_create:
+    path:     /create
+    defaults: { _controller: "MyappuserBundle:Liraisonf:create" }
+    requirements: { _method: post }
+
+liraisonf_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MyappuserBundle:Liraisonf:edit" }
+
+liraisonf_update:
+    path:     /{id}/update
+    defaults: { _controller: "MyappuserBundle:Liraisonf:update" }
+    requirements: { _method: post|put }
+
+liraisonf_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MyappuserBundle:Liraisonf:delete" }
+    requirements: { _method: post|delete }
+liraisonf_recherche:
+    path:     /recherche
+    defaults: { _controller: "MyappuserBundle:Liraisonf:recherche" }
+#    requirements: { _method: post|put }
+liraisonf_ajout:
+    path:     /ajout
+    defaults: { _controller: "MyappuserBundle:Liraisonf:ajout" }

@@ -53,4 +53,18 @@ logout:
     defaults: { _controller: "MyappadminBundle:Security:logout" }    
 upload_pack: 
     path: /upload 
-    defaults: { _controller: MyappadminBundle:Image:upload }    
+    defaults: { _controller: MyappadminBundle:Image:upload } 
+    
+graphe_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MyappadminBundle:Default:index }
+_grapheChartLine:
+    path:     /ChartLine
+    defaults: { _controller: MyappadminBundle:Graphe:ChartLine }  
+_grapheHistogramme:
+    path:     /histogramme
+    defaults: { _controller: MyappadminBundle:Graphe:chartHistogramme }
+_graphePie:
+    path:     /pie
+    defaults: { _controller: MyappadminBundle:Graphe:Pie }    
+    

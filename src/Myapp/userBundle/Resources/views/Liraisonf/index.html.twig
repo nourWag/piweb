@@ -1,0 +1,49 @@
+{% extends "MyappuserBundle::layoutlogin.html.twig" %}
+{% block livraison %}
+
+    <h1> liste des livraisons</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+               {# <th>Id</th>#}
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+               {# <td><a href="{{ path('liraisonf_show', { 'id': entity.id }) }}">#}
+                   {# {{ entity.id }}</a></td>#}
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.prenom }}</td>
+                <td>{{ entity.adresse }}</td>
+                <td>{{ entity.telephone }}</td>
+        
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('liraisonf_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('liraisonf_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('liraisonf_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
