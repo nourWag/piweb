@@ -1,0 +1,33 @@
+{% extends "MyappuserBundle::layoutlogin.html.twig" %}
+{% block livraison %}
+<h1>chercher Liste des livraisons </h1>
+<form method="POST"  action="">
+    <input type="text" name="search"/>
+    <input type="submit" value="rechercher"/>
+</form>
+
+<table border="1">
+    <br>
+    <tr>
+       {# <td>id</td>#}
+         <td>nom</td>
+          <td>prenom</td>
+          <td>adresse</td>
+          <td>telephone</td>
+    </tr>
+    {% for i in modeles %}
+    <tr>
+       {# <th>{{i.id}}</th>#}
+        <th>{{i.nom}}</th>
+        <th>{{i.prenom}}</th>
+        <th>{{i.adresse}}</th>
+        <th>{{i.telephone}}</th>
+       
+          </tr>
+         {% endfor %}
+</table>
+   
+    
+         
+
+{% endblock %}

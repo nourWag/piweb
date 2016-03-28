@@ -190,6 +190,69 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Myapp\\userBundle\\Controller\\PanierController::affichageAction',  '_route' => 'afficher_panier',);
             }
 
+            // liraisonf
+            if ($pathinfo === '/user/pages/liste') {
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\LiraisonfController::indexAction',  '_route' => 'liraisonf',);
+            }
+
+            // liraisonf_show
+            if (preg_match('#^/user/pages/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'liraisonf_show')), array (  '_controller' => 'Myapp\\userBundle\\Controller\\LiraisonfController::showAction',));
+            }
+
+            // liraisonf_new
+            if ($pathinfo === '/user/pages/new') {
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\LiraisonfController::newAction',  '_route' => 'liraisonf_new',);
+            }
+
+            // liraisonf_create
+            if ($pathinfo === '/user/pages/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_liraisonf_create;
+                }
+
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\LiraisonfController::createAction',  '_route' => 'liraisonf_create',);
+            }
+            not_liraisonf_create:
+
+            // liraisonf_edit
+            if (preg_match('#^/user/pages/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'liraisonf_edit')), array (  '_controller' => 'Myapp\\userBundle\\Controller\\LiraisonfController::editAction',));
+            }
+
+            // liraisonf_update
+            if (preg_match('#^/user/pages/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_liraisonf_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'liraisonf_update')), array (  '_controller' => 'Myapp\\userBundle\\Controller\\LiraisonfController::updateAction',));
+            }
+            not_liraisonf_update:
+
+            // liraisonf_delete
+            if (preg_match('#^/user/pages/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_liraisonf_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'liraisonf_delete')), array (  '_controller' => 'Myapp\\userBundle\\Controller\\LiraisonfController::deleteAction',));
+            }
+            not_liraisonf_delete:
+
+            // liraisonf_recherche
+            if ($pathinfo === '/user/pages/recherche') {
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\LiraisonfController::rechercheAction',  '_route' => 'liraisonf_recherche',);
+            }
+
+            // liraisonf_ajout
+            if ($pathinfo === '/user/pages/ajout') {
+                return array (  '_controller' => 'Myapp\\userBundle\\Controller\\LiraisonfController::ajoutAction',  '_route' => 'liraisonf_ajout',);
+            }
+
         }
 
         // homme
@@ -497,11 +560,31 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'MyappadminBundle:Image:upload',  '_route' => 'upload_pack',);
             }
 
+            // graphe_homepage
+            if (0 === strpos($pathinfo, '/admin/pages/hello') && preg_match('#^/admin/pages/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'graphe_homepage')), array (  '_controller' => 'Myapp\\adminBundle\\Controller\\DefaultController::indexAction',));
+            }
+
+            // _grapheChartLine
+            if ($pathinfo === '/admin/pages/ChartLine') {
+                return array (  '_controller' => 'Myapp\\adminBundle\\Controller\\GrapheController::ChartLineAction',  '_route' => '_grapheChartLine',);
+            }
+
+            // _grapheHistogramme
+            if ($pathinfo === '/admin/pages/histogramme') {
+                return array (  '_controller' => 'Myapp\\adminBundle\\Controller\\GrapheController::chartHistogrammeAction',  '_route' => '_grapheHistogramme',);
+            }
+
+            // _graphePie
+            if ($pathinfo === '/admin/pages/pie') {
+                return array (  '_controller' => 'Myapp\\adminBundle\\Controller\\GrapheController::PieAction',  '_route' => '_graphePie',);
+            }
+
         }
 
         // page
         if (0 === strpos($pathinfo, '/page') && preg_match('#^/page/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'page')), array (  '_controller' => 'Myapp\\adminBundle\\Controller\\PagesController::pageAction',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'page')), array (  '_controller' => 'MyappadminBundle:Pages:page',));
         }
 
         // piwebapp_homepage

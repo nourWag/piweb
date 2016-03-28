@@ -55,6 +55,7 @@ my_app_esprit_aff_article:
 my_image_route: 
     pattern: /images/{id} 
     defaults: {_controller: MyappResponsableBundle:Img:photo}
+  
 
      
   

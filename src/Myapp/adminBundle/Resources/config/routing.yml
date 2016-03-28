@@ -8,4 +8,5 @@ PagesBundle_adminPages:
 page:
     pattern:  /page/{id}
     defaults: { _controller: MyappadminBundle:Pages:page }
+    
 
