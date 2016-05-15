@@ -52,19 +52,6 @@ Pretty simple with [Composer](http://packagist.org), run:
 composer require knplabs/knp-paginator-bundle
 ```
 
-### Add PaginatorBundle to your application kernel
-
-```php
-// app/AppKernel.php
-public function registerBundles()
-{
-    return array(
-        // ...
-        new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-        // ...
-    );
-}
-```
 
 <a name="configuration"></a>
 
@@ -90,8 +77,20 @@ There are a few additional pagination templates, that could be used out of the b
 * `KnpPaginatorBundle:Pagination:sliding.html.twig` (by default)
 * `KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig`
 * `KnpPaginatorBundle:Pagination:twitter_bootstrap_pagination.html.twig`
-* `KnpPaginatorBundle:Pagination:foundation_v5_pagination.html.twig`
 
+### Add PaginatorBundle to your application kernel
+
+```php
+// app/AppKernel.php
+public function registerBundles()
+{
+    return array(
+        // ...
+        new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+        // ...
+    );
+}
+```
 
 ## Usage examples:
 
@@ -119,7 +118,7 @@ public function listAction(Request $request)
 
     $paginator  = $this->get('knp_paginator');
     $pagination = $paginator->paginate(
-        $query, /* query NOT result */
+        $query,
         $request->query->getInt('page', 1)/*page number*/,
         10/*limit per page*/
     );
@@ -141,7 +140,6 @@ public function listAction(Request $request)
 {# sorting of properties based on query components #}
     <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>
     <th{% if pagination.isSorted('a.Title') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Title', 'a.title') }}</th>
-    <th>{{ knp_pagination_sortable(pagination, 'Release', ['a.date', 'a.time']) }}</th>
 </tr>
 
 {# table body #}
@@ -149,7 +147,6 @@ public function listAction(Request $request)
 <tr {% if loop.index is odd %}class="color"{% endif %}>
     <td>{{ article.id }}</td>
     <td>{{ article.title }}</td>
-    <td>{{ article.date | date('Y-m-d') }}, {{ article.time | date('H:i:s') }}</td>
 </tr>
 {% endfor %}
 </table>

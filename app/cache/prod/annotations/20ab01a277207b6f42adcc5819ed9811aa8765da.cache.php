@@ -1,0 +1,1 @@
+<?php return unserialize('a:3:{i:0;O:27:"Doctrine\\ORM\\Mapping\\Entity":2:{s:15:"repositoryClass";N;s:8:"readOnly";b:0;}i:1;O:49:"Vich\\UploaderBundle\\Mapping\\Annotation\\Uploadable":0:{}i:2;O:27:"Doctrine\\ORM\\Mapping\\Entity":2:{s:15:"repositoryClass";s:47:"Myapp\\ResponsableBundle\\Entity\\ModeleRepository";s:8:"readOnly";b:0;}}');

@@ -1,0 +1,44 @@
+{% extends 'MyappResponsableBundle::New.html.twig'%}
+{% block contents %}
+
+<div class="heading">
+    
+   
+</div>
+    	
+<div class="heading">
+    
+
+    {% for m in modele %} 
+
+    <p>  Nom : <b>{{m.nom}}</b>
+    
+    
+    <div class="col-sm-10">
+        <p><h3><b>Categorie :  {{m.categorie}}</h3></b> 
+            <p>  {{m.description}}</b>  </p>
+            <label class="control-label" for="input-sort"><a href="{{ path('afficherG', {'id': m.id,'catB': m.categorie} ) }}">Besoin d'autres infomations</a></label>
+             
+ <p><b></b> 
+   <p>  Email : <b>{{m.Email}}</b>  
+    <p>  Fax : <b>{{m.Fax}}</b>
+     <p>  Appeler : <b>{{m.numero_telephone}}</b>
+         
+    
+    
+  
+                                                </div>
+                                                
+                                                
+			  </div>
+    
+    
+    
+    </li>
+   {% endfor %}
+</div>	
+    
+    
+   
+    
+{% endblock %}

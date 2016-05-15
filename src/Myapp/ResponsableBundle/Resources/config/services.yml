@@ -1,21 +1,8 @@
-#services:
-##    test_myappresponsable.example:
-##        class: test\Myapp\responsableBundle\Example
-##        arguments: [@service_id, "plain_value", %parameter%]
 services:
-  # [...] Vos autres services
-  redirect.after.login:
-    class: test\Myapp\responsableBundle\Redirection\AfterLoginRedirection
-    arguments: [@router]
-  redirect.after.logout:
-    class:  test\Myapp\responsableBundle\Redirection\AfterLogoutRedirection
-    arguments: [@router, @security.context]
-  redirect.after.denied :
-    class: test\Myapp\responsableBundle\Redirection\AfterDeniedRedirection
-    arguments: [@router ,@security.context]
+     redirect.after.login:
+         class: MyApp\adminBundle\Redirection\AfterLoginRedirection
+         arguments: [@router]
 
-  User.registration.form:
-        class:  test\Myapp\responsableBundle\Form\RegistrationFormType
-        arguments: [%fos_user.model.user.class%]
-        tags:
-            - { name: form.type, alias: user_registration }
+#  redirect.after.logout:
+#    class: Myapp\adminBundle\Redirection\AfterLogoutRedirection
+#    arguments: [@router, @security.context]

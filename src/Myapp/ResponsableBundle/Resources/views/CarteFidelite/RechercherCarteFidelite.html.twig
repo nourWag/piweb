@@ -1,0 +1,33 @@
+{# empty Twig template #}
+{% extends "MyappResponsableBundle::layoutAdd.html.twig" %}
+{% block content2 %}
+    <center>
+<form method="POST">
+    idCarteFidelite <input type="text" name="search"/>
+    <input type="submit" value="rechercher"/>
+</form>
+<table border="1">
+    <tr> <td> idCarteFidelite </td> 
+        <td> NombreDePoint </td>
+        <td> DateDeCreation </td>
+      
+    </tr>
+    
+     {% for m in mds %}
+         <tr> <td>
+                {{m.idCarteFidelite}}
+            </td>
+            <td>
+              {{m.nombrePointFidele}}  
+            </td>
+            <td>
+                {{m.dateCreationCarteFidelite|date('yyyy-mm-jj')}}
+            </td>
+
+            </tr>
+         
+      {% endfor %}
+    
+</table>
+    </center>
+      {% endblock %}

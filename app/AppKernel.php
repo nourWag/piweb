@@ -26,6 +26,14 @@ class AppKernel extends Kernel
             new blackknight467\StarRatingBundle\StarRatingBundle(),
             new Nomaya\SocialBundle\NomayaSocialBundle(),
             new Ob\HighchartsBundle\ObHighchartsBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
+          new Obtao\Bundle\Html2PdfBundle\ObtaoHtml2PdfBundle(),
+            new Kitpages\DataGridBundle\KitpagesDataGridBundle(),
+            new FOS\RestBundle\FOSRestBundle(), 
+            new FOS\CommentBundle\FOSCommentBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
+            
+           
           
         );
 

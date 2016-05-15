@@ -15,7 +15,8 @@ namespace Myapp\userBundle\Controller;
 use \Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use \Symfony\Component\HttpFoundation\Response;
 use \Symfony\Component\HttpFoundation\Request;
-use piweb\MyappuserBundle\Entity\Panierproduit;
+use Myapp\userBundle\Entity\Panierproduit;
+//use Myapp\userBundle\Entity\Panierproduit;
 use piweb\MyappuserBundle\Entity\Panier;
 use piweb\MyappResponsableBundle\Entity\Produit;
 use piweb\MyappuserBundle\Entity\ProduitPan;
@@ -34,9 +35,11 @@ class PanierController extends Controller{
                $repository = $this->getDoctrine()
         ->getRepository('MyappuserBundle:Panier');
         $userId = $this->get('security.context')->getToken()->getUser()->getId();
-
-        $panier = $repository->findOneBy(array('idUser' => $userId));
+ //echo $userId;
        
+        $panier = $repository->findOneBy(array('idUser' => $userId));
+        //echo "        ";
+        //echo $panier->getIdpan();
 //        return $response;    
               
                $em=$this->getDoctrine()->getManager();
@@ -46,13 +49,13 @@ class PanierController extends Controller{
                $rsm->addEntityResult('MyappuserBundle:ProduitPan', 'p');
                 $rsm->addFieldResult('p', 'idPr', 'idpr');
                 $rsm->addFieldResult('p', 'reference', 'reference');
-                $rsm->addFieldResult('p', 'prix', 'prix');
+                $rsm->addFieldResult('p', 'prixvente', 'prix');
                 $rsm->addFieldResult('p', 'idPan', 'idpan');
                 $rsm->addFieldResult('p', 'quantite', 'quantite');
-                $rsm->addFieldResult('p', 'id', 'img');
+                $rsm->addFieldResult('p', 'imageName', 'img');
 
-               $query = $em->createNativeQuery('SELECT pp.idPr,im.id,p.prixvente,p.reference,pp.quantite, pp.idPan FROM panierproduit pp,produit p, image im WHERE pp.idPr=p.id and p.id=im.produit_id and  pp.idPan =  ?', $rsm);
-               $query->setParameter(1, $panier->getIdPan());
+               $query = $em->createNativeQuery('SELECT pp.idPr,p.imageName,p.prixvente,p.reference,pp.quantite, pp.idPan FROM panierproduit pp,produit p WHERE pp.idPr=p.id  and  pp.idPan =  ?', $rsm);
+               $query->setParameter(1, $panier->getIdpan());
              
                 $produit = $query->getResult();
                
@@ -88,17 +91,29 @@ class PanierController extends Controller{
         //r�cuperer le rslt de la requette
         $data = $request->query->get('idprodui');//query propriété id du produitcommande
         $qt_commande=$request->query->get('quant');
-        echo $data;
-        echo $qt_commande;
-        //insestion dans l'objet
-        $model->setIdpan($panier);
-        $model->setIdpr($data);
-        $model->setQuantite($qt_commande);
+        //echo $data;
+        //echo $qt_commande;
         
-        //$em=$this->getDoctrine()->getManager(); 
-       $em->persist($model);//insert model into table(y7otha fl memoire kahaw)
-       $em->flush();//execute la persistance
-        
+        //on test si le prod existe deja dans le panier
+        $tempProd=$em->getRepository('MyappuserBundle:Panierproduit')->findOneBy(array('idpr' => $data,'idpan' => $panier->getIdPan()));
+        if($tempProd)
+        {
+            //le prod exist deja on additionne les qt
+            $tempProd->setQuantite($tempProd->getQuantite()+$qt_commande);
+            $em->persist($tempProd);//insert model into table(y7otha fl memoire kahaw)
+            $em->flush();//execute la persistance
+            
+        }
+        else{
+            //insestion dans l'objet
+            $model->setIdpan($panier->getIdpan());
+            $model->setIdpr($data);
+            $model->setQuantite($qt_commande);
+
+            //$em=$this->getDoctrine()->getManager(); 
+            $em->persist($model);//insert model into table(y7otha fl memoire kahaw)
+            $em->flush();//execute la persistance
+        }
    
     $response->setStatusCode(Response::HTTP_OK);//reponse serveur 200
     // prints the HTTP headers followed by the content
@@ -128,6 +143,7 @@ class PanierController extends Controller{
        
        
         //$model=new Panierproduit();
+        
         $data = $request->query->get('idprodui');//query propriété
         //echo $data;
         //suppression

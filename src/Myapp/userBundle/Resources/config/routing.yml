@@ -1,9 +1,19 @@
 userBundle_Pages:
     resource: "@MyappuserBundle/Resources/config/routinguser.yml"
-    prefix:   /user/pages
+    prefix:   /user
 
 
 
 homme:
-    path:     /
+    path:     /a
     defaults: { _controller: MyappuserBundle:Accueil:index }
+    
+    
+    
+
+#pi2tst_homepage:
+#    path:     /hello/{name}
+#    defaults: { _controller: testMyappuseBundle:Default:index }
+
+    
+    

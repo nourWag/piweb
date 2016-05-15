@@ -1,0 +1,71 @@
+{% extends 'MyappResponsableBundle::layoutAdd.html.twig' %} 
+ 	  
+ {% block contenu %}
+         
+    <form method="post" action=''>
+    <fieldset>
+    <h1>Ajout Boutique</h1>
+<table>
+    <tr>
+        <td>Nom:</td>
+        <td>{{ form_widget(f.nom) }}</td>
+    </tr>
+    <tr>
+        <td>Categorie</td>
+        <td>{{ form_widget(f.categorie) }}</td>
+    </tr>
+    <tr>
+        <td>Fax:</td>
+        <td>{{ form_widget(f.Fax) }}</td>
+    </tr>
+    <tr></tr>
+    <tr>
+        <td>Email:</td>
+        <td>{{ form_widget(f.Email)  }}</td>
+    </tr>
+    <tr>
+        <td>Numero Telephone</td>
+        <td>{{ form_widget(f.numero_telephone)  }}</td>
+    </tr>
+    <tr>
+        <td>Promotion</td>
+        <td>{{ form_widget(f.promotion)  }}</td>
+    </tr>
+    
+    <tr>
+        <td>Description</td>
+        <td>{{ form_widget(f.Description)  }}</td>
+    </tr>
+    
+    
+</table>
+    {{form_rest(f)}}</fieldset>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    {% endblock %}

@@ -1,0 +1,47 @@
+<page>
+    <style type="text/css">
+        .hello{
+            color: #002549;
+            font-family: Helvetica, sans-serif;
+            text-align:center;
+            font-size: 20px;
+            width: 600px ;
+        }
+    </style>
+    <img  src="{{ web_path~'/images/imagesFact/logoTunisiaMallFact.jpg' }}" alt="background" height="20px"  />
+    <div style="position:absolute;top:0;left:0;z-index:1;opacity:0.6;">
+    </div>
+        <br>
+        <br>
+        <br>
+        <br>
+       
+        <h3>Facture numero: {{facture.num_sequentiel}} </h3>
+        <h3>Cree le: {{facture.date_creation}}</h3>
+        <br>
+        <br>
+        <br>
+        <br>
+   <table  border="1px" class="hello">
+    
+ 
+<tr>
+    <th> Reference </th>
+    <th> prix unitaire </th>
+    <th> Quantite </th>
+    <th>Prix total</th>
+</tr>
+{% for pr in produits %}
+  <tr name="produit" id="{{pr.idPr}}">
+    <td> {{pr.reference}} </td>
+    <td> {{pr.prix}} TND </td>
+    <td> {{pr.quantite}} </td>
+    <td>{{pr.prix*pr.quantite}} TND</td>
+  </tr>
+  
+  
+    {% endfor %}
+    
+ </table>
+    
+</page>

@@ -1,5 +1,6 @@
-{#{% extends 'pi2tstBundle::Boutique.html.twig'%}
-{% block contents %}#}
+{% extends 'MyappResponsableBundle::layoutAdd.html.twig' %} 
+ 	  
+ {% block contenu %}
 <h1>Télécharger Image</h1> 
 <form action="#" method="post" {{ form_enctype(Form) }}> 
     {{ form_widget(Form) }}
@@ -7,5 +8,5 @@
     <input type="submit" value="Upload Document" class="btn btn-primary" /> 
 
 </form>
-{#{% endblock %}#}
+{% endblock %}
 

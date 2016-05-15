@@ -79,18 +79,18 @@
 				<div class="product-layout product-list col-xs-12">
 		  <div class="product-thumb">
 			<div class="image">
-                          <p style="margin-bottom:60px;">  <a href="{{ path('afficherdetailleProduit', {'id': m.id})}}">
+                          <p style="margin-bottom:60px;">  <a href="{{ path('afficherdetailleProduit', {'id': m.id, 'bout':m.boutique.id})}}">
                                 <img src="{{ asset(path('my_image_route', {'id': m.id})) }}" alt="{{ m.designation }}" title="{{ m.designation }}" class="img-responsive" /></a>
                           </p>
                         </div>
 			<div>
 			  <div class="caption">
-				<div class="name name-product"><a href="{{ path('afficherdetailleProduit', {'id': m.id})}}">{{ m.designation }} : {{ m.marque }}</a></div>
+				<div class="name name-product"><a href="{{ path('afficherdetailleProduit', {'id': m.id, 'bout':m.boutique.id})}}">{{ m.designation }} : {{ m.marque }}</a></div>
 				<div class="description">
 Traditions are the cornerstone description {{ m.description }}</div>
                                 <div class="description">
-                                    etat de produit  : {{ m.etat }}<br>
-                                les taile disponible : {{ m.taille }}
+                                    etat de produit  : <br>
+                                les taile disponible : {{ m.size }}
                                 <br>quantite  : {{ m.quantite }}<br>
                                 reference : {{ m.reference }}
                                 </div>

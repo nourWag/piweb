@@ -1,0 +1,54 @@
+{# empty Twig template #}
+{# empty Twig template #}
+{% extends 'MyappResponsableBundle::New.html.twig'%}
+{% block contents %}
+
+<div class="heading">
+    
+    <h2>Liste des boutiques</h2>
+</div>
+    	
+{#<div class="row">
+ 
+    {% for m in modele %} 
+    <li class="col-sm-3  first-in-line last_line">
+    
+    {{m.nom}}
+    <p>{{m.description}}</p></h1>
+    {{m.promotion}}
+     {{m.categorie}}
+    <h1> {{m.Fax}}</h1>
+        {% for i in m.image_cle %}
+          
+    <marquee align="center" height="250" scrolldelay="5" scrollamount="3" onmouseout="this.start()" onmouseover="this.stop()">	
+    <p><img border="1" src="{{ asset(path('my_image_route', {'id': i.id})) }} " alt="" hspace="0" height="300px" width="300px">    
+    
+    </p></marquee> 
+    
+   {% endfor %}
+
+  
+    
+    </li>
+    {% endfor %}
+</div>	#}
+
+ 
+    {% for m in modele %} 
+   
+    <div class="col-sm-10">
+            <p><b>{{m.nom}}</b> 
+    
+                                                </div>
+	
+    
+   {% endfor %}
+
+   {# <a href="{{path("delete",{'id':m.id})}}"><button class="btn btn-primary">Supprimer</button></a></td>
+    <a href="{{path("update_boutique",{'id':m.id})}}"><button class="btn btn-primary">Modifier</button></a>#}
+    
+    </li>
+   
+</div>
+    
+{% endblock %}

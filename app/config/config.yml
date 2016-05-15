@@ -28,6 +28,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        web_path: %kernel.root_dir%/../web
 
 # Assetic Configuration
 assetic:
@@ -129,3 +131,36 @@ nomaya_social:
         facebook:           "http://www.facebook.com/yann.chauvel"
         googleplus:         "https://plus.google.com/105931415830389032796"
     theme:                  'default' # optional
+vich_uploader:
+    db_driver: orm
+    mappings:
+        product_image:
+            uri_prefix:         images/products
+            upload_destination: %kernel.root_dir%/../web/images/products
+
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
+kitpages_data_grid:
+    grid:
+        default_twig: KitpagesDataGridBundle:Grid:bootstrap3-grid.html.twig
+    paginator:
+        default_twig: KitpagesDataGridBundle:Paginator:bootstrap3-paginator.html.twig
+framework:
+    translator: ~
+    
+fos_comment:
+
+   db_driver: orm
+
+   class:
+
+    model:
+
+     comment: Myapp\ResponsableBundle\MyBundle\Entity\Comment
+
+     thread: Myapp\ResponsableBundle\Entity\Thread
+
+assetic:
+
+ bundles: [ "FOSCommentBundle" ]

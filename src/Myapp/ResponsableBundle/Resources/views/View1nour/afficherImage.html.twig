@@ -1,0 +1,9 @@
+
+
+
+{% for user in product %}
+        <li><img src="{{ asset(vich_uploader_asset(user, 'imageFile')) }}" alt="{{ user.imageName }}" />
+</li>
+<iframe src="{{ asset(vich_uploader_asset(user, 'imageFile')) }}" width="800" height="600" align="middle"></iframe>
+    {% endfor %}
+<img src="{{ asset('images/products/12767920_1017817684942542_1965919321_o.jpg')}}"/>

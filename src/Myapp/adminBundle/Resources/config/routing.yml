@@ -1,9 +1,9 @@
 myappadmin_homepage:
     path:     /hello/{name}
     defaults: { _controller: MyappadminBundle:Default:index }
-PagesBundle_adminPages:
+PagesBundle_adminPages1:
     resource: "@MyappadminBundle/Resources/config/routingAdmin.yml"
-    prefix:   /admin/pages/
+    prefix:   /admin
 
 page:
     pattern:  /page/{id}

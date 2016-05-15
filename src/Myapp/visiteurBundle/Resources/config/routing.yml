@@ -1,3 +1,7 @@
 myappvisiteur_homepage:
     path:     /hello/{name}
     defaults: { _controller: MyappvisiteurBundle:Default:index }
+
+visiter_mall:
+    path:     /visite
+    defaults: { _controller: MyappvisiteurBundle:Visite:visiter }

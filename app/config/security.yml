@@ -17,17 +17,43 @@ security:
             pattern: ^/
             form_login:
                 provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+                login_path: /
+               
+                success_handler: redirect.after.login
+               
                 #csrf_token_generator: security.csrf.token_manager
                 # if you are using Symfony < 2.8, use the following config instead:
-                csrf_provider: form.csrf_provider
-
+              
+                 
             logout:       true
             anonymous:    true
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        # the login page has to be accessible for everybody
+        demo_login:
+            pattern:  ^/demo/secured/login$
+            security: false
+
+        # secures part of the application
+        demo_secured_area:
+            pattern:    ^/demo/secured/
+            # it's important to notice that in this case _demo_security_check and _demo_login
+            # are route names and that they are specified in the AcmeDemoBundle
+            form_login:
+                check_path: _demo_security_check
+                login_path: _demo_login
+            logout:
+                path:   _demo_logout
+                target: _demo    
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
-        - { path: ^/respensable/, role: ROLE_RESPENSABLE }
         - { path: ^/user/, role: ROLE_USER }
+        - { path: ^/admin/, role: ROLE_SUPER_ADMIN }
+        - { path: ^/respensable/, role: ROLE_RESPENSABLE }
+        
+        

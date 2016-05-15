@@ -1,0 +1,31 @@
+{# empty Twig template #}
+{% extends "MyappadminBundle::layoutAd.html.twig" %} 
+ 	  
+ {% block contenu %}
+     <div class="container">
+<form method="POST" action="{{path('admin_users_lock_page',{'id':client.id})}}">
+    <div class="switch switch-yellow">
+      <input type="radio" class="switch-input" name="lock" value="0" id="week3" checked>
+      <label for="week3" class="switch-label switch-label-off">Unlock</label>
+      <input type="radio" class="switch-input" name="lock" value="1" id="month3">
+      <label for="month3" class="switch-label switch-label-on">Lock</label>
+      <span class="switch-selection"></span>
+    </div> 
+      
+      
+      
+    <div class="switch">
+        <input type="radio" class="switch-input" name="disable" value="0" id="week" checked>
+      <label for="week3" class="switch-label switch-label-off">disable</label>
+      <input type="radio" class="switch-input" name="disable" value="1" id="month">
+      <label for="month3" class="switch-label switch-label-on">enable</label>
+      <span class="switch-selection"></span>
+      
+      
+      
+      
+      <input type="submit" class="btn-add">
+    </div>
+    </form>
+     </div>
+       {% endblock contenu %}

@@ -22,7 +22,7 @@ $em->persist($im);
 $em->flush(); 
 return $this->render('MyappResponsableBundle:image:index.html.twig', array()); 
 } 
-return $this->render('MyappResponsableBundle:layoutprofile:upload.html.twig', 
+return $this->render('MyappResponsableBundle:image:upload.html.twig', 
 array('Form'=>$form->createView())); 
 } 
 

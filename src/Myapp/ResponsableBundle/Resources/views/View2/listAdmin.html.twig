@@ -1,0 +1,37 @@
+{% extends 'MyappResponsableBundle::layoutAdd.html.twig'%}
+{% block contenu %}
+ <div class="heading">
+    <i class="fa fa-key"></i>
+    <h2>Liste des boutiques</h2>
+</div>
+    	
+<div class="row">
+ <table border="1">
+    {% for m in modele %} 
+    <li class="col-sm-3  first-in-line last_line">
+        
+            <tr><td><h3>{{m.nom}}</h3></td>
+                <td><h3><p>{{m.categorie}}</p></h3></td>
+                <td><h3><p>{{m.Fax}}</p></h3></td>
+                <td> <h3><p>{{m.numero_telephone}}</p></h3></td>
+                <td> <h3><p>{{m.Email}}</p></h3></td>
+                <td> <h3>{{m.promotion}}</h3></td>
+                <td></td>
+            
+            </tr> 
+       {# {% for i in m.image_cle %}
+            <a href="commentaire.html.twig"></a>
+    <marquee align="center" height="250" scrolldelay="5" scrollamount="3" onmouseout="this.start()" onmouseover="this.stop()">	
+    <p><img border="1" src="{{ asset(path('my_image_route', {'id': i.id})) }} " alt="" hspace="0" height="300px" width="300px">    
+    
+    </p></marquee> 
+   
+   {% endfor %}
+ #}
+    <a href="{{path("path_delete",{'id':m.id})}}"><button class="btn btn-primary">Supprimer</button></a></td>
+    <a href="{{path("path_update",{'id':m.id})}}"><button class="btn btn-primary">Modifier</button></a>
+    
+    </li>
+    {% endfor %}</table>
+</div>						    
+{% endblock %}

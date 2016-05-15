@@ -6,9 +6,7 @@
 profile_user:
     path:     /
     defaults: { _controller: MyappuserBundle:Accueil:aff }
-error403:
-    path:     /error403
-    defaults: { _controller: MyappuserBundle:Accueil:error }    
+ 
 
 upload_pack: 
     path: /upload 
@@ -18,10 +16,8 @@ my_app_esprit_list:
     defaults: { _controller: MyappuserBundle:Image:list } 
 my_app_esprit_aff_article: 
     path: /pack/{id}
-    defaults: { _controller: MyappuserBundle:Image:affiche } 
-my_image_route: 
-    pattern: /images/{id} 
-    defaults: {_controller: MyappuserBundle:Image:photo}
+    defaults: { _controller: MyappResponsableBundle:Image:affiche } 
+
 catalogue: 
     pattern: /catalogue
     defaults: {_controller: MyappuserBundle:packet:list}     
@@ -31,9 +27,7 @@ profile12:
 edit12:
     path:     /edit
     defaults: { _controller: "MyappuserBundle:Profile2:edit" }  
-changePassword12:
-    path:     /changePassword
-    defaults: { _controller: "MyappuserBundle:ChangePassword:changePassword" }      
+
 ajouter_Au_panier:
     path:     /ajou
     defaults: { _controller: MyappuserBundle:Panier:ajouter }
@@ -43,16 +37,17 @@ tunisia_supprimer_du panier:
 afficher_panier:
     path:     /panier
     defaults: { _controller: MyappuserBundle:Panier:affichage }
+afficher_facture:
+    path:     /Facture
+    defaults: { _controller: MyappuserBundle:Facture:ajouter }    
 
 
 
-liraisonf:
-    path:     /liste
-    defaults: { _controller: "MyappuserBundle:Liraisonf:index" }
 
-liraisonf_show:
-    path:     /{id}/show
-    defaults: { _controller: "MyappuserBundle:Liraisonf:show" }
+#
+#liraisonf_show:
+#    path:     /{id}/show
+#    defaults: { _controller: MyappuserBundle:Liraisonf:show }
 
 liraisonf_new:
     path:     /new
@@ -61,7 +56,7 @@ liraisonf_new:
 liraisonf_create:
     path:     /create
     defaults: { _controller: "MyappuserBundle:Liraisonf:create" }
-    requirements: { _method: post }
+ 
 
 liraisonf_edit:
     path:     /{id}/edit
@@ -72,10 +67,10 @@ liraisonf_update:
     defaults: { _controller: "MyappuserBundle:Liraisonf:update" }
     requirements: { _method: post|put }
 
-liraisonf_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "MyappuserBundle:Liraisonf:delete" }
-    requirements: { _method: post|delete }
+#liraisonf_delete:
+#    path:     /{id}/delete
+#    defaults: { _controller: "MyappuserBundle:Liraisonf:delete" }
+#    requirements: { _method: post|delete }
 liraisonf_recherche:
     path:     /recherche
     defaults: { _controller: "MyappuserBundle:Liraisonf:recherche" }
@@ -83,3 +78,5 @@ liraisonf_recherche:
 liraisonf_ajout:
     path:     /ajout
     defaults: { _controller: "MyappuserBundle:Liraisonf:ajout" }
+    
+

@@ -1,6 +1,9 @@
 adminPages:
     pattern:  /
-    defaults: { _controller: "MyappadminBundle:PagesAdmin:index" }
+    defaults: { _controller: "MyappadminBundle:PagesAdmin:index1" }
+admin_users_lock_page:
+    path:     /lock/{id}
+    defaults: { _controller: MyappadminBundle:client:lock }    
 
 adminPages_show:
     pattern:  /{id}/show
@@ -11,23 +14,23 @@ adminPages_new:
     defaults: { _controller: "MyappadminBundle:PagesAdmin:new" }
 
 adminPages_create:
-    pattern:  /create
+    pattern:  create
     defaults: { _controller: "MyappadminBundle:PagesAdmin:create" }
-    requirements: { _method: post }
+   
 
 adminPages_edit:
-    pattern:  /{id}/edit
+    pattern:  /edit
     defaults: { _controller: "MyappadminBundle:PagesAdmin:edit" }
 
 adminPages_update:
     pattern:  /{id}/update
     defaults: { _controller: "MyappadminBundle:PagesAdmin:update" }
-    requirements: { _method: post|put }
+   
 
 adminPages_delete:
-    pattern:  /{id}/delete
+    pattern:  /1/delete
     defaults: { _controller: "MyappadminBundle:PagesAdmin:delete" }
-    requirements: { _method: post|delete }
+
 
 affich:
     pattern:  /affichage
@@ -42,12 +45,12 @@ rech:
 profile:
     path:     /profile
     defaults: { _controller: "MyappadminBundle:Profile2:show" }
-edit:
+edit1:
     path:     /edit
     defaults: { _controller: "MyappadminBundle:Profile2:edit" }  
-changePassword:
-    path:     /changePassword
-    defaults: { _controller: "MyappadminBundle:ChangePassword:changePassword" }    
+#changePassword:
+#    path:     /changePassword
+#    defaults: { _controller: "MyappadminBundle:ChangePassword:changePassword" }    
 logout:
     path:     /logout
     defaults: { _controller: "MyappadminBundle:Security:logout" }    
@@ -67,4 +70,18 @@ _grapheHistogramme:
 _graphePie:
     path:     /pie
     defaults: { _controller: MyappadminBundle:Graphe:Pie }    
-    
+insert_pack: 
+    path: /insert
+    defaults: { _controller: MyappadminBundle:Img:upload }   
+image_edit:
+    path:     /{id}/editpa
+    defaults: { _controller: MyappadminBundle:Image:edit }
+affpack:
+    path:     /affipack
+    defaults: { _controller: "MyappadminBundle:Image:list" }  
+suprimerpack:
+    path:     /supprimer/{id}
+    defaults: { _controller: MyappadminBundle:Image:supprimer } 
+editpack:
+    path:     /modifier/{id}
+    defaults: { _controller: MyappadminBundle:Image:Modifier }     

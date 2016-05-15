@@ -10,24 +10,8 @@ class AccueilController extends Controller{
      public function indexAction()
              
     {
-         
-        
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         $em = $this->getDoctrine()->getManager(); 
-$image=$em->getRepository('MyappResponsableBundle:Image')->findall(); 
-        return $this->render('MyappuserBundle:View1:index.html.twig', array('images'=>$image));
+  
+        return $this->render('MyappuserBundle:View1:index.html.twig' );
     }
 //  protected function isAuthorised($role)
 //    {

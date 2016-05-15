@@ -26,6 +26,16 @@ class PagesAdminController extends Controller
             'entities' => $entities,
         ));
     }
+       public function index1Action()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('MyappadminBundle:Pages')->findAll();
+
+        return $this->render('MyappadminBundle::layoutAd.html.twig', array(
+            'entities' => $entities,
+        ));
+    }
     /**
      * Creates a new Pages entity.
      *
@@ -104,23 +114,29 @@ class PagesAdminController extends Controller
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),        ));
     }
-
+    public function listAction() 
+{ 
+$em = $this->getDoctrine()->getManager(); 
+$image=$em->getRepository('MyappadminBundle:Pages')->findAll(); 
+return $this->render('MyappadminBundle:Administration:pages/layout/show.html.twig', 
+array('images'=>$image)); 
+} 
     /**
      * Displays a form to edit an existing Pages entity.
      *
      */
-    public function editAction($id)
+    public function editAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('MyappadminBundle:Pages')->find($id);
+        $entity = $em->getRepository('MyappadminBundle:Pages')->find($id=11);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Pages entity.');
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+        $deleteForm = $this->createDeleteForm($id=11);
 
         return $this->render('MyappadminBundle:Administration:pages/layout/edit.html.twig', array(
             'entity'      => $entity,
@@ -155,7 +171,7 @@ class PagesAdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('PagesBundle:Pages')->find($id);
+        $entity = $em->getRepository('MyappadminBundle:Pages')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Pages entity.');
@@ -188,7 +204,7 @@ class PagesAdminController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('PagesBundle:Pages')->find($id);
+            $entity = $em->getRepository('MyappadminBundle:Pages')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Pages entity.');

@@ -1,12 +1,34 @@
-{#{% extends 'pi2tstBundle::Boutique.html.twig'%}
-{% block contents %}#}
-    <head></head>
 <body> 
-<h2> <strong> Formulaire De Contact</strong> </h2>
- <p>{{form_errors(form)}}</p>
+
+{# <p>{{form_errors(form)}}</p>
  
  <form role="form" id="fr" method="POST" action='{{path('my_app_mail_sendpage')}}' > 
  {{form_widget(form)}}
  </form>
 </body>
-{#{% endblock %}#}
+{% endblock %}#}
+
+
+           <div class="box box-info">
+                <div class="box-header">
+                  <i class="fa fa-envelope"></i>
+                  <h3 class="box-title">Quick Email</h3>
+                  <!-- tools box -->
+                  <div class="pull-right box-tools">
+                    <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+                  </div><!-- /. tools -->
+                </div>
+                <div class="box-body">
+                    
+                    
+                    
+               <form role="form" id="fr" method="POST" action='{{path('my_app_mail_sendpage')}}' > 
+ {{form_widget(form)}}
+ </form>
+                    
+                    
+                </div>
+                <div class="box-footer clearfix">
+                  <button class="pull-right btn btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>
+                </div>
+              </div>

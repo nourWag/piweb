@@ -1,0 +1,20 @@
+{# empty Twig template #}
+{% extends 'MyappadminBundle::layoutAd.html.twig'%}
+{% block contenu %}
+
+                 
+       <h1>Listes des <span>Boutiques</span></h1>
+   </div>
+             
+<br>
+<br>
+{% for m in modele %}
+    {% if m.etat=="non valide" %}
+    {{m.nom}} 
+  
+       <a href="{{path("salma1",{'id':m.id})}}">Valider boutique </a> <br> <br>
+       
+         {% endif %}
+     {% endfor %}
+
+{% endblock %}

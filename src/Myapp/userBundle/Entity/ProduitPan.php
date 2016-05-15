@@ -47,7 +47,7 @@ class ProduitPan
     /**
      * 
      *
-     * @ORM\Column(name="img", type="integer", nullable=false) 
+     * @ORM\Column(name="img", type="string", nullable=false) 
      */
     private $img;
     

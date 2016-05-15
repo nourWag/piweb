@@ -1,6 +1,6 @@
 <?php
 
-namespace Myapp\adminBundle\Entity;
+namespace Myapp\adminBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,7 +16,7 @@ class PagesType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('contenu')
+//            ->add('contenu')
         ;
     }
     
@@ -26,7 +26,7 @@ class PagesType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'test\Myapp\PagesBundle\Entity\Pages'
+            'data_class' => 'Myapp\adminbundle\Entity\Pages'
         ));
     }
 
@@ -35,6 +35,6 @@ class PagesType extends AbstractType
      */
     public function getName()
     {
-        return 'pages_pagesbundle_pages';
+        return 'pages_adminbundle_pages';
     }
 }

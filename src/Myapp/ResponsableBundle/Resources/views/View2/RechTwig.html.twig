@@ -1,0 +1,39 @@
+{# empty Twig template #}
+<form id="form_recherche" action="{{ path('FrontendPhotothequeBundle_photo_rechercher') }}" method="post">
+        {{ form_widget(form) }}
+        <input type="submit" value="Rechercher" />
+    </form>
+    <div class="loading" style="margin: 0 auto;"></div>
+    <div id="liste_photo">
+        <div class="nb_results">
+            {% if nb_photos == 1 %}
+                {{ nb_photos }} résultat
+            {% else %}
+                {{ nb_photos }} résultats
+            {% endif %}
+        </div>
+        {% include 'MyappResponsableBundle:boutique:liste.html.twig' with {'photos' : photos}  %}
+    </div>
+    <div class="add-btn">
+        <a href="{{ path('FrontendPhotothequeBundle_photo_ajouter') }}"><img src="{{ asset('bundles/frontendphototheque/images/add.png') }}" width="32" height="32" />Ajouter une photo</a>
+    </div>
+     
+    <script>
+        $(".loading").hide();
+        $("#form_recherche").submit(function(){
+            $(".loading").show();
+            var nomphoto = $("#photorecherche_nomphoto").val();
+            var data_form = 'nomphoto=' + nomphoto;
+            $.ajax({
+                type: "POST",
+                url: "{{ path('FrontendPhotothequeBundle_photo_rechercher')}}",
+                data: data_form,
+                cache: false,
+                success: function(data){
+                    $('#liste_photo').html(data);
+                    $(".loading").hide();
+                }
+            });
+            return false;
+        });
+    </script>

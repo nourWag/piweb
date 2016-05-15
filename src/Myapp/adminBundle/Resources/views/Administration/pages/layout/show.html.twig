@@ -1,6 +1,7 @@
-{% extends '::layout/layoutAdmin.html.twig' %}
 
-{% block body -%}
+{% extends "MyappadminBundle::layoutAd.html.twig" %} 
+{% block contenu %}
+{#{% block body -%}
     <h1>Pages</h1>
 
     <table class="record_properties">
@@ -33,4 +34,76 @@
     </li>
     <li>{{ form(delete_form) }}</li>
 </ul>
-{% endblock %}
+{% endblock %}#}
+
+
+    
+
+{#    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ entity.titre }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>#}
+
+     
+                {#{{ entity.contenu }}#}
+               
+     {#       </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('adminPages') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('adminPages_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>#}
+
+
+   <h1>Pages</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ entity.titre }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>#}
+                <td>{{ entity.contenu }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('adminPages') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('adminPages_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock contenu %}

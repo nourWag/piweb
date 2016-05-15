@@ -22,8 +22,14 @@
         "blackknight467/star-rating-bundle": "^1.0",
         "knplabs/knp-paginator-bundle": "^2.5",
         "nomaya/social-bundle": "dev-master",
-        "ob/highcharts-bundle":"dev-master"
-
+        "ob/highcharts-bundle":"dev-master",
+        "vich/uploader-bundle": "^1.0",
+        "doctrine/orm": "v2.5.4",
+        "obtao/html2pdf-bundle": "master-dev",
+        "kitpages/data-grid-bundle": "~2.4",
+        "friendsofsymfony/comment-bundle": "^2.0"
+        
+    
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

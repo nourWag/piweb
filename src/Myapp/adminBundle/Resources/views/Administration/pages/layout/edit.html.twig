@@ -1,12 +1,13 @@
-{% extends '::layout/layoutAdmin.html.twig' %}
+{% extends "MyappadminBundle::layoutAd.html.twig" %} 
+{% block contenu %}
 
 {% block body -%}
-<h2>Pages edit</h2>
+<h2>Ecrire des new</h2>
 <div class="span4">
     {{ form(edit_form) }}
 </div>
 <div class="span12">
-    <ul class="record_actions">
+  {#  <ul class="record_actions">
         <li>
             <a href="{{ path('adminPages') }}">
                 Retour
@@ -14,5 +15,6 @@
         </li>
         <li>{{ form(delete_form) }}</li>
     </ul>
-</div>
+</div>#}
 {% endblock %}
+{% endblock contenu %}

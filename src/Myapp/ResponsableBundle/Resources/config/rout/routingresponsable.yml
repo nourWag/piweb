@@ -1,37 +1,46 @@
 respensablePages:
     path:  /
-    defaults: { _controller: "MyappResponsableBundle:resp:aff" }     
+    defaults: { _controller: MyappResponsableBundle:boutique:productList }  
+
 profile1:
     path:     /profile
     defaults: { _controller: "MyappResponsableBundle:Profile2:show" }
 edit1:
     path:     /edit
     defaults: { _controller: "MyappResponsableBundle:Profile2:edit" }  
-changePassword1:
-    path:     /changePassword
-    defaults: { _controller: "MyappResponsableBundle:ChangePassword:changePassword" }    
+
 respensablePagespack:
    path:  /aff
-   defaults: { _controller: "MyappResponsableBundle:Image:upload" }  
+   defaults: { _controller: "MyappResponsableBundle:Image:upload" } 
+my_app_esprit_aff_article: 
+    path: /pack/{id}
+    defaults: { _controller: MyappResponsableBundle:Image:affiche } 
+my_app_esprit_aff_article1: 
+    path: /pack
+    defaults: { _controller: MyappResponsableBundle:Image:list }
+
 pi2tst_homepage1:
     path:     /homme
     defaults: { _controller: MyappResponsableBundle:Accueil:index }
 pi2tst_homepage2:
     path:     /boutique
     defaults: { _controller: MyappResponsableBundle:Accueil:Boutique }
-pi2tst_home:
+path_ajout:
     path:     /ajout
     defaults: { _controller: MyappResponsableBundle:boutique:ajout2 }
-pi2tst_homepage5:
+path_list:
     path:     /listboutique
     defaults: { _controller: MyappResponsableBundle:boutique:list }
-pi2tst_homepage6:
+path_list2:
+    path:     /comm
+    defaults: { _controller: MyappResponsableBundle:boutique:list2 }    
+path_recherche:
     path:     /find
     defaults: { _controller: MyappResponsableBundle:boutique:recherche }
-delete:
+path_delete:
     path:     /del/{id}
     defaults: { _controller: MyappResponsableBundle:boutique:supprimer }
-update_boutique:
+path_update:
     path:     /maj/{id}
     defaults: { _controller: MyappResponsableBundle:boutique:modifier }
 my_app_mail_succ:
@@ -43,19 +52,133 @@ my_app_mail_form:
 my_app_mail_sendpage:
     path: /sendmail
     defaults: { _controller: MyappResponsableBundle:Mail:sendMail }
-my_app_esprit_upload: 
+my_app_esprit_: 
     path: /uploadd 
     defaults: { _controller: MyappResponsableBundle:Img:upload }
-my_app_esprit_list: 
-    path: /listImage
+my_app_e: 
+    path: /list
     defaults: { _controller: MyappResponsableBundle:Img:list } 
 my_app_esprit_aff_article: 
     path: /aff/{id} 
     defaults: { _controller: MyappResponsableBundle:Img:affiche } 
-my_image_route: 
+my_image_ro: 
     pattern: /images/{id} 
     defaults: {_controller: MyappResponsableBundle:Img:photo}
-  
 
      
+ 
   
+  
+
+
+
+
+afficherProduitResp:
+  pattern: /afficherProduitResp/{id}
+  defaults: { _controller: MyappResponsableBundle:Produit:afficherProduitResp }
+SupprimerProduitRes:
+  pattern: /SupprimerProduitRes/{id}/{idb}
+  defaults: { _controller: MyappResponsableBundle:Produit:SupprimerProduitRes }
+modifierProduitRes:
+  pattern: /modifierProduitRes/{id}/{idb}
+  defaults: { _controller: MyappResponsableBundle:Produit:modifierProduitRes }
+SupprimerImageProduitRes:
+  pattern: /SupprimerImageProduitRes/{id}/{idp}/{idb}
+  defaults: { _controller: MyappResponsableBundle:Produit:SupprimerImageProduitRes }
+  
+ajouterProduitRes:
+  pattern: /ajouterProduitRes/{id}
+  defaults: { _controller: MyappResponsableBundle:Produit:ajouterProduitRes }
+
+testRes:
+  pattern: /testRes/
+  defaults: { _controller: MyappResponsableBundle:Produit:testRes }
+Chart:
+  pattern: /Chart
+  defaults: { _controller: MyappResponsableBundle:Graphe:chartLine }
+
+
+
+
+Ajouter_CarteFidelite:
+    path:     /ajoutercarte
+    defaults: { _controller: MyappResponsableBundle:CarteFidelite:AjouterCarteFidelite }          
+Modifier_CarteFidelite :
+    path:     /modifiercarte/{id}
+    defaults: { _controller: MyappResponsableBundle:CarteFidelite:ModifierCarteFidelite }        
+Supprimer_CarteFidelite:
+    path:     /supprimercarte/{id}
+    defaults: { _controller: MyappResponsableBundle:CarteFidelite:SupprimerCarteFidelite } 
+Valider_CarteFidelite:
+    path:     /validercarte
+    defaults: { _controller: MyappResponsableBundle:CarteFidelite:ValiderCarteFidelite }
+Afficher_CarteFidelite:
+    path:     /affichercarte
+    defaults: { _controller: MyappResponsableBundle:CarteFidelite:AfficherCarteFidelite }
+Rechercher_CarteFidelite:
+    path:     /recherchercarte
+    defaults: { _controller: MyappResponsableBundle:CarteFidelite:RechercherCarteFidelite } 
+
+#  
+#liraisonf:
+#    path:     /liste
+#    defaults: { _controller: "MyappResponsableBundle:Liraisonf:index" }
+#
+#liraisonf_show:
+#    path:     /{id}/show
+#    defaults: { _controller: "MyappResponsableBundle:Liraisonf:show" }
+#
+#liraisonf_new:
+#    path:     /new
+#    defaults: { _controller: "MyappResponsableBundle:Liraisonf:new" }
+#
+#liraisonf_create:
+#    path:     /create
+#    defaults: { _controller: "MyappResponsableBundle:Liraisonf:create" }
+#    requirements: { _method: post }
+#
+#liraisonf_edit:
+#    path:     /{id}/edit
+#    defaults: { _controller: "MyappResponsableBundle:Liraisonf:edit" }
+#
+#liraisonf_update:
+#    path:     /{id}/update
+#    defaults: { _controller: "MyappResponsableBundle:Liraisonf:update" }
+#    requirements: { _method: post|put }
+#
+#liraisonf_delete:
+#    path:     /delete/{id}
+#    defaults: { _controller: "MyappResponsableBundle:Liraisonf:delete" }
+#    
+#liraisonf_recherche:
+#    path:     /recherche
+#    defaults: { _controller: "MyappResponsableBundle:Liraisonf:recherche" }
+##    requirements: { _method: post|put }
+#liraisonf_ajout:
+#    path:     /ajout
+#    defaults: { _controller: "MyappResponsableBundle:Liraisonf:ajout" } 
+liraisonf:
+    path:     /liste
+    defaults: { _controller: MyappResponsableBundle:Liraisonf:index }
+liraisonf_delete12:
+    path:     /delete1/{id}
+    defaults: { _controller: MyappResponsableBundle:Liraisonf:delete }
+supprimerliv:
+    path:     /supprimerli/{id}
+    defaults: { _controller: MyappResponsableBundle:Liraisonf:supprimer }         
+liraisonf_showliv:
+    path:     /{id}/show
+    defaults: { _controller: MyappResponsableBundle:Liraisonf:show }   
+graphe_homepageresp:
+    path:     /hello/{name}
+    defaults: { _controller: MyappResponsableBundle:Default:index }
+_grapheChartLineresp:
+    path:     /ChartLine
+    defaults: { _controller: MyappResponsableBundle:Graphe:ChartLine }  
+_grapheHistogrammeresp:
+    path:     /histogramme
+    defaults: { _controller: MyappResponsableBundle:Graphe:chartHistogramme }
+_graphePieresp:
+    path:     /pie
+    defaults: { _controller: MyappResponsableBundle:Graphe:Pie }    
+        

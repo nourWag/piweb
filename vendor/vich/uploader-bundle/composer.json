@@ -1,0 +1,59 @@
+{
+    "name": "vich/uploader-bundle",
+    "type": "symfony-bundle",
+    "description": "Ease file uploads attached to entities",
+    "keywords": ["file uploads", "upload"],
+    "homepage": "https://github.com/dustin10/VichUploaderBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dustin Dobervich",
+            "email": "ddobervich@gmail.com"
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "require": {
+        "php": "~5.5|~7.0",
+        "symfony/framework-bundle": "~2.3|~3.0",
+        "jms/metadata": "~1.5",
+        "symfony/finder": "~2.0|~3.0",
+        "symfony/property-access": "~2.4|~3.0",
+        "ocramius/proxy-manager": "~1.0|~2.0"
+    },
+    "require-dev": {
+        "ext-sqlite3" : "*",
+
+        "doctrine/mongodb-odm": "~1.0",
+        "knplabs/knp-gaufrette-bundle": "~0.3",
+        "oneup/flysystem-bundle": "~1.0",
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/doctrine-bundle": "~1.6",
+
+        "phpunit/phpunit": "~4.0",
+        "mikey179/vfsStream": "~1.0",
+        "matthiasnoback/symfony-dependency-injection-test": "~0.7"
+    },
+    "suggest": {
+        "doctrine/orm": ">=2.2.3",
+        "doctrine/doctrine-bundle": "*",
+        "doctrine/phpcr-odm": "~1.0",
+        "doctrine/mongodb-odm-bundle": "*",
+        "knplabs/knp-gaufrette-bundle": "*",
+        "willdurand/propel-eventdispatcher-bundle": ">=1.2",
+        "symfony/yaml": "@stable"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vich\\UploaderBundle\\": ""
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vich\\TestBundle\\": "Tests/Fixtures/App/src/TestBundle/"
+        }
+    }
+}

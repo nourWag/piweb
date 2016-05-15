@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.root_dir">C:\wamp\www\piweb\app</parameter>
+    <parameter key="kernel.root_dir">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.name">ap_</parameter>
-    <parameter key="kernel.cache_dir">C:/wamp/www/piweb/app/cache/dev</parameter>
-    <parameter key="kernel.logs_dir">C:\wamp\www\piweb\app\logs</parameter>
+    <parameter key="kernel.name">app</parameter>
+    <parameter key="kernel.cache_dir">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev</parameter>
+    <parameter key="kernel.logs_dir">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\logs</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
@@ -26,6 +26,12 @@
       <parameter key="StarRatingBundle">blackknight467\StarRatingBundle\StarRatingBundle</parameter>
       <parameter key="NomayaSocialBundle">Nomaya\SocialBundle\NomayaSocialBundle</parameter>
       <parameter key="ObHighchartsBundle">Ob\HighchartsBundle\ObHighchartsBundle</parameter>
+      <parameter key="VichUploaderBundle">Vich\UploaderBundle\VichUploaderBundle</parameter>
+      <parameter key="ObtaoHtml2PdfBundle">Obtao\Bundle\Html2PdfBundle\ObtaoHtml2PdfBundle</parameter>
+      <parameter key="KitpagesDataGridBundle">Kitpages\DataGridBundle\KitpagesDataGridBundle</parameter>
+      <parameter key="FOSRestBundle">FOS\RestBundle\FOSRestBundle</parameter>
+      <parameter key="FOSCommentBundle">FOS\CommentBundle\FOSCommentBundle</parameter>
+      <parameter key="JMSSerializerBundle">JMS\SerializerBundle\JMSSerializerBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -36,7 +42,7 @@
     <parameter key="database_driver">pdo_mysql</parameter>
     <parameter key="database_host">127.0.0.1</parameter>
     <parameter key="database_port">null</parameter>
-    <parameter key="database_name">BDTunisiaMall</parameter>
+    <parameter key="database_name">tunisamallha</parameter>
     <parameter key="database_user">root</parameter>
     <parameter key="database_password">null</parameter>
     <parameter key="mailer_transport">smtp</parameter>
@@ -99,7 +105,7 @@
     <parameter key="debug.errors_logger_listener.class">Symfony\Component\HttpKernel\EventListener\ErrorsLoggerListener</parameter>
     <parameter key="debug.event_dispatcher.class">Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher</parameter>
     <parameter key="debug.stopwatch.class">Symfony\Component\Stopwatch\Stopwatch</parameter>
-    <parameter key="debug.container.dump">C:/wamp/www/piweb/app/cache/dev/appDevDebugProjectContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="debug.controller_resolver.class">Symfony\Component\HttpKernel\Controller\TraceableControllerResolver</parameter>
     <parameter key="debug.debug_handlers_listener.class">Symfony\Component\HttpKernel\EventListener\DebugHandlersListener</parameter>
     <parameter key="kernel.secret">ThisTokenIsNotSoSecretChangeIt</parameter>
@@ -121,7 +127,7 @@
     <parameter key="session.storage.options" type="collection">
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">C:/wamp/www/piweb/app/cache/dev/sessions</parameter>
+    <parameter key="session.save_path">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="security.secure_random.class">Symfony\Component\Security\Core\Util\SecureRandom</parameter>
     <parameter key="form.resolved_type_factory.class">Symfony\Component\Form\ResolvedFormTypeFactory</parameter>
@@ -197,7 +203,7 @@
     <parameter key="data_collector.router.class">Symfony\Bundle\FrameworkBundle\DataCollector\RouterDataCollector</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:/wamp/www/piweb/app/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/profiler</parameter>
     <parameter key="profiler.storage.username"></parameter>
     <parameter key="profiler.storage.password"></parameter>
     <parameter key="profiler.storage.lifetime">86400</parameter>
@@ -221,7 +227,7 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">C:/wamp/www/piweb/app/cache/dev/assetic/routing.yml</parameter>
+    <parameter key="router.resource">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/assetic/routing.yml</parameter>
     <parameter key="router.cache_class_prefix">appDev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
@@ -346,7 +352,7 @@
         <parameter>Symfony\Bundle\TwigBundle\TwigDefaultEscapingStrategy</parameter>
         <parameter>guess</parameter>
       </parameter>
-      <parameter key="cache">C:/wamp/www/piweb/app/cache/dev/twig</parameter>
+      <parameter key="cache">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/twig</parameter>
       <parameter key="charset">UTF-8</parameter>
       <parameter key="paths" type="collection"/>
     </parameter>
@@ -357,6 +363,7 @@
     <parameter key="monolog.handler.console.class">Symfony\Bridge\Monolog\Handler\ConsoleHandler</parameter>
     <parameter key="monolog.handler.group.class">Monolog\Handler\GroupHandler</parameter>
     <parameter key="monolog.handler.buffer.class">Monolog\Handler\BufferHandler</parameter>
+    <parameter key="monolog.handler.deduplication.class">Monolog\Handler\DeduplicationHandler</parameter>
     <parameter key="monolog.handler.rotating_file.class">Monolog\Handler\RotatingFileHandler</parameter>
     <parameter key="monolog.handler.syslog.class">Monolog\Handler\SyslogHandler</parameter>
     <parameter key="monolog.handler.syslogudp.class">Monolog\Handler\SyslogUdpHandler</parameter>
@@ -391,6 +398,7 @@
     <parameter key="monolog.mongo.client.class">MongoClient</parameter>
     <parameter key="monolog.handler.elasticsearch.class">Monolog\Handler\ElasticSearchHandler</parameter>
     <parameter key="monolog.elastica.client.class">Elastica\Client</parameter>
+    <parameter key="monolog.use_microseconds">true</parameter>
     <parameter key="monolog.swift_mailer.handlers" type="collection"/>
     <parameter key="monolog.handlers_to_channels" type="collection">
       <parameter key="monolog.handler.console">null</parameter>
@@ -448,7 +456,7 @@
     <parameter key="assetic.worker.cache_busting.class">Assetic\Factory\Worker\CacheBustingWorker</parameter>
     <parameter key="assetic.value_supplier.class">Symfony\Bundle\AsseticBundle\DefaultValueSupplier</parameter>
     <parameter key="assetic.node.paths" type="collection"/>
-    <parameter key="assetic.cache_dir">C:/wamp/www/piweb/app/cache/dev/assetic</parameter>
+    <parameter key="assetic.cache_dir">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/assetic</parameter>
     <parameter key="assetic.bundles" type="collection">
       <parameter>MyappResponsableBundle</parameter>
     </parameter>
@@ -460,10 +468,10 @@
     <parameter key="assetic.debug">true</parameter>
     <parameter key="assetic.use_controller">true</parameter>
     <parameter key="assetic.enable_profiler">false</parameter>
-    <parameter key="assetic.read_from">C:\wamp\www\piweb\app/../web</parameter>
-    <parameter key="assetic.write_to">C:\wamp\www\piweb\app/../web</parameter>
+    <parameter key="assetic.read_from">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app/../web</parameter>
+    <parameter key="assetic.write_to">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app/../web</parameter>
     <parameter key="assetic.variables" type="collection"/>
-    <parameter key="assetic.java.bin">C:\ProgramData\Oracle\Java\javapath\java.EXE</parameter>
+    <parameter key="assetic.java.bin">C:\Windows\system32\java.EXE</parameter>
     <parameter key="assetic.node.bin">/usr/bin/node</parameter>
     <parameter key="assetic.ruby.bin">/usr/bin/ruby</parameter>
     <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>
@@ -582,7 +590,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:/wamp/www/piweb/app/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="sensio_framework_extra.view.guesser.class">Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser</parameter>
     <parameter key="sensio_framework_extra.controller.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener</parameter>
@@ -699,6 +707,152 @@
     </parameter>
     <parameter key="social.theme">default</parameter>
     <parameter key="ob_highcharts.twig_extension.class">Ob\HighchartsBundle\Twig\HighchartsExtension</parameter>
+    <parameter key="vich_uploader.default_filename_attribute_suffix">_name</parameter>
+    <parameter key="vich_uploader.mappings" type="collection">
+      <parameter key="product_image" type="collection">
+        <parameter key="uri_prefix">images/products</parameter>
+        <parameter key="upload_destination">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app/../web/images/products</parameter>
+        <parameter key="inject_on_load">false</parameter>
+        <parameter key="delete_on_update">true</parameter>
+        <parameter key="delete_on_remove">true</parameter>
+        <parameter key="namer" type="collection">
+          <parameter key="service">null</parameter>
+          <parameter key="options">null</parameter>
+        </parameter>
+        <parameter key="directory_namer">null</parameter>
+        <parameter key="db_driver">orm</parameter>
+      </parameter>
+    </parameter>
+    <parameter key="vich_uploader.file_injector.class">Vich\UploaderBundle\Injector\FileInjector</parameter>
+    <parameter key="kitpages_data_grid.grid_manager.class">Kitpages\DataGridBundle\Grid\GridManager</parameter>
+    <parameter key="kitpages_data_grid.paginator_manager.class">Kitpages\DataGridBundle\Paginator\PaginatorManager</parameter>
+    <parameter key="kitpages_data_grid.item_list_normalizer.legacy.class">Kitpages\DataGridBundle\Grid\ItemListNormalizer\LegacyNormalizer</parameter>
+    <parameter key="kitpages_data_grid.item_list_normalizer.standard.class">Kitpages\DataGridBundle\Grid\ItemListNormalizer\StandardNormalizer</parameter>
+    <parameter key="kitpages_data_grid.globals_twig_extension.class">Kitpages\DataGridBundle\Twig\GlobalsTwigExtension</parameter>
+    <parameter key="kitpages_data_grid.grid" type="collection">
+      <parameter key="default_twig">KitpagesDataGridBundle:Grid:bootstrap3-grid.html.twig</parameter>
+      <parameter key="hydrator_class">\Kitpages\DataGridBundle\Hydrators\DataGridHydrator</parameter>
+    </parameter>
+    <parameter key="kitpages_data_grid.paginator" type="collection">
+      <parameter key="default_twig">KitpagesDataGridBundle:Paginator:bootstrap3-paginator.html.twig</parameter>
+      <parameter key="item_count_in_page">50</parameter>
+      <parameter key="visible_page_count_in_paginator">5</parameter>
+    </parameter>
+    <parameter key="kitpages_data_grid.grid.hydrator_class">\Kitpages\DataGridBundle\Hydrators\DataGridHydrator</parameter>
+    <parameter key="fos_rest.serializer.exclusion_strategy.version"></parameter>
+    <parameter key="fos_rest.serializer.exclusion_strategy.groups"></parameter>
+    <parameter key="fos_rest.view_handler.jsonp.callback_param"></parameter>
+    <parameter key="fos_rest.view.exception_wrapper_handler">FOS\RestBundle\View\ExceptionWrapperHandler</parameter>
+    <parameter key="fos_rest.view_handler.default.class">FOS\RestBundle\View\ViewHandler</parameter>
+    <parameter key="fos_rest.view_handler.jsonp.class">FOS\RestBundle\View\JsonpHandler</parameter>
+    <parameter key="fos_rest.serializer.exception_wrapper_serialize_handler.class">FOS\RestBundle\Serializer\ExceptionWrapperSerializeHandler</parameter>
+    <parameter key="fos_rest.routing.loader.controller.class">FOS\RestBundle\Routing\Loader\RestRouteLoader</parameter>
+    <parameter key="fos_rest.routing.loader.yaml_collection.class">FOS\RestBundle\Routing\Loader\RestYamlCollectionLoader</parameter>
+    <parameter key="fos_rest.routing.loader.xml_collection.class">FOS\RestBundle\Routing\Loader\RestXmlCollectionLoader</parameter>
+    <parameter key="fos_rest.routing.loader.processor.class">FOS\RestBundle\Routing\Loader\RestRouteProcessor</parameter>
+    <parameter key="fos_rest.routing.loader.reader.controller.class">FOS\RestBundle\Routing\Loader\Reader\RestControllerReader</parameter>
+    <parameter key="fos_rest.routing.loader.reader.action.class">FOS\RestBundle\Routing\Loader\Reader\RestActionReader</parameter>
+    <parameter key="fos_rest.format_negotiator.class">FOS\RestBundle\Util\FormatNegotiator</parameter>
+    <parameter key="fos_rest.inflector.class">FOS\RestBundle\Util\Inflector\DoctrineInflector</parameter>
+    <parameter key="fos_rest.request_matcher.class">Symfony\Component\HttpFoundation\RequestMatcher</parameter>
+    <parameter key="fos_rest.violation_formatter.class">FOS\RestBundle\Util\ViolationFormatter</parameter>
+    <parameter key="fos_rest.request.param_fetcher.class">FOS\RestBundle\Request\ParamFetcher</parameter>
+    <parameter key="fos_rest.request.param_fetcher.reader.class">FOS\RestBundle\Request\ParamReader</parameter>
+    <parameter key="fos_rest.cache_dir">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/fos_rest</parameter>
+    <parameter key="fos_rest.routing.loader.default_format">null</parameter>
+    <parameter key="fos_rest.routing.loader.include_format">true</parameter>
+    <parameter key="fos_rest.serializer.serialize_null">false</parameter>
+    <parameter key="fos_rest.exception.codes" type="collection"/>
+    <parameter key="fos_rest.exception.messages" type="collection"/>
+    <parameter key="fos_rest.converter.request_body.validation_errors_argument">validationErrors</parameter>
+    <parameter key="fos_rest.mime_types" type="collection"/>
+    <parameter key="fos_rest.formats" type="collection">
+      <parameter key="json">false</parameter>
+      <parameter key="xml">false</parameter>
+      <parameter key="html">true</parameter>
+    </parameter>
+    <parameter key="fos_rest.force_redirects" type="collection">
+      <parameter key="html">302</parameter>
+    </parameter>
+    <parameter key="fos_rest.failed_validation">400</parameter>
+    <parameter key="fos_rest.empty_content">204</parameter>
+    <parameter key="fos_rest.serialize_null">false</parameter>
+    <parameter key="fos_rest.default_engine">twig</parameter>
+    <parameter key="fos_rest.normalizer.camel_keys.class">FOS\RestBundle\Normalizer\CamelKeysNormalizer</parameter>
+    <parameter key="fos_rest.decoder.json.class">FOS\RestBundle\Decoder\JsonDecoder</parameter>
+    <parameter key="fos_rest.decoder.jsontoform.class">FOS\RestBundle\Decoder\JsonToFormDecoder</parameter>
+    <parameter key="fos_rest.decoder.xml.class">FOS\RestBundle\Decoder\XmlDecoder</parameter>
+    <parameter key="fos_rest.decoder_provider.class">FOS\RestBundle\Decoder\ContainerDecoderProvider</parameter>
+    <parameter key="fos_rest.body_listener.class">FOS\RestBundle\EventListener\BodyListener</parameter>
+    <parameter key="fos_rest.throw_exception_on_unsupported_content_type">false</parameter>
+    <parameter key="fos_rest.body_default_format">null</parameter>
+    <parameter key="fos_rest.decoders" type="collection">
+      <parameter key="json">fos_rest.decoder.json</parameter>
+      <parameter key="xml">fos_rest.decoder.xml</parameter>
+    </parameter>
+    <parameter key="fos_comment.model.thread.class">Myapp\ResponsableBundle\Entity\Thread</parameter>
+    <parameter key="fos_comment.model.comment.class">Myapp\ResponsableBundle\MyBundle\Entity\Comment</parameter>
+    <parameter key="fos_comment.model.vote.class">FOS\CommentBundle\Entity\Vote</parameter>
+    <parameter key="fos_comment.manager.thread.default.class">FOS\CommentBundle\Entity\ThreadManager</parameter>
+    <parameter key="fos_comment.manager.comment.default.class">FOS\CommentBundle\Entity\CommentManager</parameter>
+    <parameter key="fos_comment.manager.vote.default.class">FOS\CommentBundle\Entity\VoteManager</parameter>
+    <parameter key="fos_comment.listener.comment_vote_score.class">FOS\CommentBundle\EventListener\CommentVoteScoreListener</parameter>
+    <parameter key="fos_comment.listener.thread_counters.class">FOS\CommentBundle\EventListener\ThreadCountersListener</parameter>
+    <parameter key="fos_comment.listener.thread_permalink.class">FOS\CommentBundle\EventListener\ThreadPermalinkListener</parameter>
+    <parameter key="fos_comment.listener.comment_blamer.class">FOS\CommentBundle\EventListener\CommentBlamerListener</parameter>
+    <parameter key="fos_comment.listener.vote_blamer.class">FOS\CommentBundle\EventListener\VoteBlamerListener</parameter>
+    <parameter key="fos_comment.listener.closed_threads.class">FOS\CommentBundle\EventListener\ClosedThreadListener</parameter>
+    <parameter key="fos_comment.sorting_factory.class">FOS\CommentBundle\Sorting\SortingFactory</parameter>
+    <parameter key="fos_comment.sorter.date.class">FOS\CommentBundle\Sorting\DateSorting</parameter>
+    <parameter key="fos_comment.template.engine">twig</parameter>
+    <parameter key="fos_comment.model_manager_name">null</parameter>
+    <parameter key="fos_comment.form.comment.type">fos_comment_comment</parameter>
+    <parameter key="fos_comment.form.comment.name">fos_comment_comment</parameter>
+    <parameter key="fos_comment.form.thread.type">fos_comment_thread</parameter>
+    <parameter key="fos_comment.form.thread.name">fos_comment_thread</parameter>
+    <parameter key="fos_comment.form.commentable_thread.type">fos_comment_commentable_thread</parameter>
+    <parameter key="fos_comment.form.commentable_thread.name">fos_comment_commentable_thread</parameter>
+    <parameter key="fos_comment.form.delete_comment.type">fos_comment_delete_comment</parameter>
+    <parameter key="fos_comment.form.delete_comment.name">fos_comment_delete_comment</parameter>
+    <parameter key="fos_comment.form.vote.type">fos_comment_vote</parameter>
+    <parameter key="fos_comment.form.vote.name">fos_comment_vote</parameter>
+    <parameter key="fos_comment.sorting_factory.default_sorter">date_desc</parameter>
+    <parameter key="jms_serializer.metadata.file_locator.class">Metadata\Driver\FileLocator</parameter>
+    <parameter key="jms_serializer.metadata.annotation_driver.class">JMS\Serializer\Metadata\Driver\AnnotationDriver</parameter>
+    <parameter key="jms_serializer.metadata.chain_driver.class">Metadata\Driver\DriverChain</parameter>
+    <parameter key="jms_serializer.metadata.yaml_driver.class">JMS\Serializer\Metadata\Driver\YamlDriver</parameter>
+    <parameter key="jms_serializer.metadata.xml_driver.class">JMS\Serializer\Metadata\Driver\XmlDriver</parameter>
+    <parameter key="jms_serializer.metadata.php_driver.class">JMS\Serializer\Metadata\Driver\PhpDriver</parameter>
+    <parameter key="jms_serializer.metadata.doctrine_type_driver.class">JMS\Serializer\Metadata\Driver\DoctrineTypeDriver</parameter>
+    <parameter key="jms_serializer.metadata.doctrine_phpcr_type_driver.class">JMS\Serializer\Metadata\Driver\DoctrinePHPCRTypeDriver</parameter>
+    <parameter key="jms_serializer.metadata.lazy_loading_driver.class">Metadata\Driver\LazyLoadingDriver</parameter>
+    <parameter key="jms_serializer.metadata.metadata_factory.class">Metadata\MetadataFactory</parameter>
+    <parameter key="jms_serializer.metadata.cache.file_cache.class">Metadata\Cache\FileCache</parameter>
+    <parameter key="jms_serializer.event_dispatcher.class">JMS\Serializer\EventDispatcher\LazyEventDispatcher</parameter>
+    <parameter key="jms_serializer.camel_case_naming_strategy.class">JMS\Serializer\Naming\CamelCaseNamingStrategy</parameter>
+    <parameter key="jms_serializer.serialized_name_annotation_strategy.class">JMS\Serializer\Naming\SerializedNameAnnotationStrategy</parameter>
+    <parameter key="jms_serializer.cache_naming_strategy.class">JMS\Serializer\Naming\CacheNamingStrategy</parameter>
+    <parameter key="jms_serializer.doctrine_object_constructor.class">JMS\Serializer\Construction\DoctrineObjectConstructor</parameter>
+    <parameter key="jms_serializer.unserialize_object_constructor.class">JMS\Serializer\Construction\UnserializeObjectConstructor</parameter>
+    <parameter key="jms_serializer.version_exclusion_strategy.class">JMS\Serializer\Exclusion\VersionExclusionStrategy</parameter>
+    <parameter key="jms_serializer.serializer.class">JMS\Serializer\Serializer</parameter>
+    <parameter key="jms_serializer.twig_extension.class">JMS\Serializer\Twig\SerializerExtension</parameter>
+    <parameter key="jms_serializer.templating.helper.class">JMS\SerializerBundle\Templating\SerializerHelper</parameter>
+    <parameter key="jms_serializer.json_serialization_visitor.class">JMS\Serializer\JsonSerializationVisitor</parameter>
+    <parameter key="jms_serializer.json_serialization_visitor.options">0</parameter>
+    <parameter key="jms_serializer.json_deserialization_visitor.class">JMS\Serializer\JsonDeserializationVisitor</parameter>
+    <parameter key="jms_serializer.xml_serialization_visitor.class">JMS\Serializer\XmlSerializationVisitor</parameter>
+    <parameter key="jms_serializer.xml_deserialization_visitor.class">JMS\Serializer\XmlDeserializationVisitor</parameter>
+    <parameter key="jms_serializer.xml_deserialization_visitor.doctype_whitelist" type="collection"/>
+    <parameter key="jms_serializer.yaml_serialization_visitor.class">JMS\Serializer\YamlSerializationVisitor</parameter>
+    <parameter key="jms_serializer.handler_registry.class">JMS\Serializer\Handler\LazyHandlerRegistry</parameter>
+    <parameter key="jms_serializer.datetime_handler.class">JMS\Serializer\Handler\DateHandler</parameter>
+    <parameter key="jms_serializer.array_collection_handler.class">JMS\Serializer\Handler\ArrayCollectionHandler</parameter>
+    <parameter key="jms_serializer.php_collection_handler.class">JMS\Serializer\Handler\PhpCollectionHandler</parameter>
+    <parameter key="jms_serializer.form_error_handler.class">JMS\Serializer\Handler\FormErrorHandler</parameter>
+    <parameter key="jms_serializer.constraint_violation_handler.class">JMS\Serializer\Handler\ConstraintViolationHandler</parameter>
+    <parameter key="jms_serializer.doctrine_proxy_subscriber.class">JMS\Serializer\EventDispatcher\Subscriber\DoctrineProxySubscriber</parameter>
+    <parameter key="jms_serializer.stopwatch_subscriber.class">JMS\SerializerBundle\Serializer\StopwatchEventSubscriber</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -800,7 +954,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>C:\wamp\www\piweb\app/Resources</argument>
+                <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app/Resources</argument>
               </service>
             </argument>
             <argument type="service" id="templating.locator"/>
@@ -826,7 +980,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>C:\wamp\www\piweb\app/Resources</argument>
+                <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app/Resources</argument>
               </service>
             </argument>
           </service>
@@ -848,7 +1002,7 @@
     <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem"/>
     <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator">
       <argument type="service" id="kernel"/>
-      <argument>C:\wamp\www\piweb\app/Resources</argument>
+      <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app/Resources</argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
       <argument>ThisTokenIsNotSoSecretChangeIt</argument>
@@ -933,7 +1087,7 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/wamp/www/piweb/app/cache/dev/translations</argument>
+        <argument key="cache_dir">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/translations</argument>
         <argument key="debug">true</argument>
       </argument>
     </service>
@@ -1151,6 +1305,14 @@
         <argument>0</argument>
       </call>
       <call method="addListenerService">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument>fos_rest.body_listener</argument>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>10</argument>
+      </call>
+      <call method="addListenerService">
         <argument>kernel.controller</argument>
         <argument type="collection">
           <argument>acme.demo.listener</argument>
@@ -1267,6 +1429,30 @@
         <argument>FOS\UserBundle\EventListener\ResettingListener</argument>
       </call>
       <call method="addSubscriberService">
+        <argument>fos_comment.listener.comment_vote_score</argument>
+        <argument>FOS\CommentBundle\EventListener\CommentVoteScoreListener</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>fos_comment.listener.thread_counters</argument>
+        <argument>FOS\CommentBundle\EventListener\ThreadCountersListener</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>fos_comment.listener.thread_permalink</argument>
+        <argument>FOS\CommentBundle\EventListener\ThreadPermalinkListener</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>fos_comment.listener.comment_blamer</argument>
+        <argument>FOS\CommentBundle\EventListener\CommentBlamerListener</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>fos_comment.listener.vote_blamer</argument>
+        <argument>FOS\CommentBundle\EventListener\VoteBlamerListener</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>fos_comment.listener.closed_threads</argument>
+        <argument>FOS\CommentBundle\EventListener\ClosedThreadListener</argument>
+      </call>
+      <call method="addSubscriberService">
         <argument>web_profiler.debug_toolbar</argument>
         <argument>Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener</argument>
       </call>
@@ -1374,7 +1560,7 @@
     </service>
     <service id="security.secure_random" class="Symfony\Component\Security\Core\Util\SecureRandom">
       <tag name="monolog.logger" channel="security"/>
-      <argument>C:/wamp/www/piweb/app/cache/dev/secure_random.seed</argument>
+      <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/secure_random.seed</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="ignore"/>
     </service>
     <service id="form.resolved_type_factory" class="Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy">
@@ -1420,13 +1606,19 @@
               <argument key="reset">form.type.reset</argument>
               <argument key="currency">form.type.currency</argument>
               <argument key="entity">form.type.entity</argument>
-              <argument key="user_registration">user.registration.form</argument>
               <argument key="fos_user_username">fos_user.username_form_type</argument>
               <argument key="fos_user_profile">fos_user.profile.form.type</argument>
               <argument key="fos_user_registration">fos_user.registration.form.type</argument>
               <argument key="fos_user_change_password">fos_user.change_password.form.type</argument>
               <argument key="fos_user_resetting">fos_user.resetting.form.type</argument>
               <argument key="rating">star_rating.type</argument>
+              <argument key="vich_file">vich_uploader.form.type.file</argument>
+              <argument key="vich_image">vich_uploader.form.type.image</argument>
+              <argument key="fos_comment_comment">fos_comment.form_type.comment.default</argument>
+              <argument key="fos_comment_commentable_thread">fos_comment.form_type.commentable_thread.default</argument>
+              <argument key="fos_comment_delete_comment">fos_comment.form_type.delete_comment.default</argument>
+              <argument key="fos_comment_thread">fos_comment.form_type.thread.default</argument>
+              <argument key="fos_comment_vote">fos_comment.form_type.vote.default</argument>
             </argument>
             <argument type="collection">
               <argument key="form" type="collection">
@@ -1595,7 +1787,7 @@
     <service id="templating.filename_parser" class="Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser"/>
     <service id="templating.locator" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator" public="false">
       <argument type="service" id="file_locator"/>
-      <argument>C:/wamp/www/piweb/app/cache/dev</argument>
+      <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev</argument>
     </service>
     <service id="templating.helper.slots" class="Symfony\Component\Templating\Helper\SlotsHelper">
       <tag name="templating.helper" alias="slots"/>
@@ -1633,7 +1825,7 @@
     <service id="templating.helper.code" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper">
       <tag name="templating.helper" alias="code"/>
       <argument>null</argument>
-      <argument>C:\wamp\www\piweb\app</argument>
+      <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app</argument>
       <argument>UTF-8</argument>
     </service>
     <service id="templating.helper.translator" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\TranslatorHelper">
@@ -1686,8 +1878,9 @@
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
-          <argument>C:\wamp\www\piweb\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/config/validation.xml</argument>
-          <argument>C:\wamp\www\piweb\vendor\friendsofsymfony\user-bundle\Resources\config\validation.xml</argument>
+          <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/config/validation.xml</argument>
+          <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\user-bundle\Resources\config\validation.xml</argument>
+          <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\comment-bundle\FOS\CommentBundle\Resources\config\validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -1711,7 +1904,7 @@
         </argument>
       </call>
       <call method="addXmlMapping">
-        <argument>C:\wamp\www\piweb\vendor\friendsofsymfony\user-bundle\DependencyInjection\Compiler/../../Resources/config/storage-validation/orm.xml</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\user-bundle\DependencyInjection\Compiler/../../Resources/config/storage-validation/orm.xml</argument>
       </call>
     </service>
     <service id="validator.expression" class="Symfony\Component\Validator\Constraints\ExpressionValidator">
@@ -1740,7 +1933,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service">
         <service class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-          <argument>file:C:/wamp/www/piweb/app/cache/dev/profiler</argument>
+          <argument>file:C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/profiler</argument>
           <argument></argument>
           <argument></argument>
           <argument>86400</argument>
@@ -1926,6 +2119,15 @@
               </service>
             </argument>
           </call>
+          <call method="addLoader">
+            <argument type="service" id="fos_rest.routing.loader.controller"/>
+          </call>
+          <call method="addLoader">
+            <argument type="service" id="fos_rest.routing.loader.yaml_collection"/>
+          </call>
+          <call method="addLoader">
+            <argument type="service" id="fos_rest.routing.loader.xml_collection"/>
+          </call>
         </service>
       </argument>
     </service>
@@ -1963,7 +2165,16 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>56f9b02637370</argument>
+            <argument>573899097c9e1</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider" public="false">
+            <argument type="service" id="fos_user.user_provider.username"/>
+            <argument type="service" id="security.user_checker"/>
+            <argument>demo_secured_area</argument>
+            <argument type="service" id="security.encoder_factory"/>
+            <argument>true</argument>
           </service>
         </argument>
       </argument>
@@ -2033,15 +2244,121 @@
                 <argument>^/</argument>
               </service>
             </argument>
+            <argument key="security.firewall.map.context.dev" type="service">
+              <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                <argument>^/(_(profiler|wdt)|css|images|js)/</argument>
+              </service>
+            </argument>
+            <argument key="security.firewall.map.context.demo_login" type="service">
+              <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                <argument>^/demo/secured/login$</argument>
+              </service>
+            </argument>
+            <argument key="security.firewall.map.context.demo_secured_area" type="service">
+              <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                <argument>^/demo/secured/</argument>
+              </service>
+            </argument>
           </argument>
         </service>
       </argument>
       <argument type="service" id="debug.event_dispatcher"/>
     </service>
+    <service id="security.http_utils" class="Symfony\Component\Security\Http\HttpUtils" public="false">
+      <argument type="service" id="router" on-invalid="null"/>
+      <argument type="service" id="router" on-invalid="null"/>
+    </service>
     <service id="security.validator.user_password" class="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator">
       <tag name="validator.constraint_validator" alias="security.validator.user_password"/>
       <argument type="service" id="security.context"/>
       <argument type="service" id="security.encoder_factory"/>
+    </service>
+    <service id="security.channel_listener" class="Symfony\Component\Security\Http\Firewall\ChannelListener" public="false">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.access_map"/>
+      <argument type="service">
+        <service class="Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint" public="false">
+          <argument>80</argument>
+          <argument>443</argument>
+        </service>
+      </argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+    </service>
+    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap" public="false">
+      <call method="add">
+        <argument type="service">
+          <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+            <argument>^/login$</argument>
+          </service>
+        </argument>
+        <argument type="collection">
+          <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service">
+          <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+            <argument>^/register</argument>
+          </service>
+        </argument>
+        <argument type="collection">
+          <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service">
+          <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+            <argument>^/resetting</argument>
+          </service>
+        </argument>
+        <argument type="collection">
+          <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service">
+          <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+            <argument>^/user/</argument>
+          </service>
+        </argument>
+        <argument type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service">
+          <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+            <argument>^/admin/</argument>
+          </service>
+        </argument>
+        <argument type="collection">
+          <argument>ROLE_SUPER_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service">
+          <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+            <argument>^/respensable/</argument>
+          </service>
+        </argument>
+        <argument type="collection">
+          <argument>ROLE_RESPENSABLE</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+    </service>
+    <service id="security.logout.handler.session" class="Symfony\Component\Security\Http\Logout\SessionLogoutHandler" public="false"/>
+    <service id="security.access_listener" class="Symfony\Component\Security\Http\Firewall\AccessListener" public="false">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.context"/>
+      <argument type="service" id="security.access.decision_manager"/>
+      <argument type="service" id="security.access_map"/>
+      <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.rememberme.response_listener" class="Symfony\Component\Security\Http\RememberMe\ResponseListener">
       <tag name="kernel.event_subscriber"/>
@@ -2057,6 +2374,13 @@
         <argument>_csrf_token</argument>
         <argument>null</argument>
       </call>
+      <call method="registerListener">
+        <argument>demo_secured_area</argument>
+        <argument>_demo_logout</argument>
+        <argument>logout</argument>
+        <argument>_csrf_token</argument>
+        <argument>null</argument>
+      </call>
     </service>
     <service id="templating.helper.security" class="Symfony\Bundle\SecurityBundle\Templating\Helper\SecurityHelper">
       <tag name="templating.helper" alias="security"/>
@@ -2064,88 +2388,7 @@
     </service>
     <service id="security.firewall.map.context.main" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext">
       <argument type="collection">
-        <argument type="service">
-          <service class="Symfony\Component\Security\Http\Firewall\ChannelListener" public="false">
-            <tag name="monolog.logger" channel="security"/>
-            <argument type="service">
-              <service class="Symfony\Component\Security\Http\AccessMap" public="false">
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/login$</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/register</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/resetting</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/admin/</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>ROLE_ADMIN</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/respensable/</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>ROLE_RESPENSABLE</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/user/</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>ROLE_USER</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-              </service>
-            </argument>
-            <argument type="service">
-              <service class="Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint" public="false">
-                <argument>80</argument>
-                <argument>443</argument>
-              </service>
-            </argument>
-            <argument type="service" id="monolog.logger.security" on-invalid="null"/>
-          </service>
-        </argument>
+        <argument type="service" id="security.channel_listener"/>
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
             <argument type="service" id="security.context"/>
@@ -2160,20 +2403,10 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\LogoutListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument type="service">
-              <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
-                <argument type="service" id="router" on-invalid="null"/>
-                <argument type="service" id="router" on-invalid="null"/>
-              </service>
-            </argument>
+            <argument type="service" id="security.http_utils"/>
             <argument type="service">
               <service class="Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler" public="false">
-                <argument type="service">
-                  <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
-                    <argument type="service" id="router" on-invalid="null"/>
-                    <argument type="service" id="router" on-invalid="null"/>
-                  </service>
-                </argument>
+                <argument type="service" id="security.http_utils"/>
                 <argument>/</argument>
               </service>
             </argument>
@@ -2183,9 +2416,7 @@
               <argument key="logout_path">/logout</argument>
             </argument>
             <call method="addHandler">
-              <argument type="service">
-                <service class="Symfony\Component\Security\Http\Logout\SessionLogoutHandler" public="false"/>
-              </argument>
+              <argument type="service" id="security.logout.handler.session"/>
             </call>
           </service>
         </argument>
@@ -2195,44 +2426,15 @@
             <argument type="service" id="security.context"/>
             <argument type="service" id="security.authentication.manager"/>
             <argument type="service" id="security.authentication.session_strategy"/>
-            <argument type="service">
-              <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
-                <argument type="service" id="router" on-invalid="null"/>
-                <argument type="service" id="router" on-invalid="null"/>
-              </service>
-            </argument>
+            <argument type="service" id="security.http_utils"/>
             <argument>main</argument>
-            <argument type="service">
-              <service class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler" public="false">
-                <argument type="service">
-                  <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
-                    <argument type="service" id="router" on-invalid="null"/>
-                    <argument type="service" id="router" on-invalid="null"/>
-                  </service>
-                </argument>
-                <argument type="collection">
-                  <argument key="always_use_default_target_path">false</argument>
-                  <argument key="default_target_path">/</argument>
-                  <argument key="login_path">/login</argument>
-                  <argument key="target_path_parameter">_target_path</argument>
-                  <argument key="use_referer">false</argument>
-                </argument>
-                <call method="setProviderKey">
-                  <argument>main</argument>
-                </call>
-              </service>
-            </argument>
+            <argument type="service" id="redirect.after.login"/>
             <argument type="service">
               <service class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler" public="false">
                 <argument type="service" id="http_kernel"/>
-                <argument type="service">
-                  <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
-                    <argument type="service" id="router" on-invalid="null"/>
-                    <argument type="service" id="router" on-invalid="null"/>
-                  </service>
-                </argument>
+                <argument type="service" id="security.http_utils"/>
                 <argument type="collection">
-                  <argument key="login_path">/login</argument>
+                  <argument key="login_path">/</argument>
                   <argument key="failure_path">null</argument>
                   <argument key="failure_forward">false</argument>
                   <argument key="failure_path_parameter">_failure_path</argument>
@@ -2258,110 +2460,138 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>56f9b02637370</argument>
+            <argument>573899097c9e1</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
-        <argument type="service">
-          <service class="Symfony\Component\Security\Http\Firewall\AccessListener" public="false">
-            <tag name="monolog.logger" channel="security"/>
-            <argument type="service" id="security.context"/>
-            <argument type="service" id="security.access.decision_manager"/>
-            <argument type="service">
-              <service class="Symfony\Component\Security\Http\AccessMap" public="false">
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/login$</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/register</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/resetting</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/admin/</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>ROLE_ADMIN</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/respensable/</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>ROLE_RESPENSABLE</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/user/</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>ROLE_USER</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-              </service>
-            </argument>
-            <argument type="service" id="security.authentication.manager"/>
-          </service>
-        </argument>
+        <argument type="service" id="security.access_listener"/>
       </argument>
       <argument type="service">
         <service class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
           <argument type="service" id="security.context"/>
           <argument type="service" id="security.authentication.trust_resolver"/>
-          <argument type="service">
-            <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
-              <argument type="service" id="router" on-invalid="null"/>
-              <argument type="service" id="router" on-invalid="null"/>
-            </service>
-          </argument>
+          <argument type="service" id="security.http_utils"/>
           <argument>main</argument>
           <argument type="service">
             <service class="Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint" public="false">
               <argument type="service" id="http_kernel"/>
-              <argument type="service">
-                <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
-                  <argument type="service" id="router" on-invalid="null"/>
-                  <argument type="service" id="router" on-invalid="null"/>
-                </service>
-              </argument>
-              <argument>/login</argument>
+              <argument type="service" id="security.http_utils"/>
+              <argument>/</argument>
+              <argument>false</argument>
+            </service>
+          </argument>
+          <argument>/error403</argument>
+          <argument>null</argument>
+          <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+        </service>
+      </argument>
+    </service>
+    <service id="security.firewall.map.context.dev" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext">
+      <argument type="collection"/>
+      <argument>null</argument>
+    </service>
+    <service id="security.firewall.map.context.demo_login" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext">
+      <argument type="collection"/>
+      <argument>null</argument>
+    </service>
+    <service id="security.firewall.map.context.demo_secured_area" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext">
+      <argument type="collection">
+        <argument type="service" id="security.channel_listener"/>
+        <argument type="service">
+          <service class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
+            <argument type="service" id="security.context"/>
+            <argument type="collection">
+              <argument type="service" id="fos_user.user_provider.username"/>
+            </argument>
+            <argument>demo_secured_area</argument>
+            <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+            <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Component\Security\Http\Firewall\LogoutListener" public="false">
+            <argument type="service" id="security.context"/>
+            <argument type="service" id="security.http_utils"/>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler" public="false">
+                <argument type="service" id="security.http_utils"/>
+                <argument>_demo</argument>
+              </service>
+            </argument>
+            <argument type="collection">
+              <argument key="csrf_parameter">_csrf_token</argument>
+              <argument key="intention">logout</argument>
+              <argument key="logout_path">_demo_logout</argument>
+            </argument>
+            <call method="addHandler">
+              <argument type="service" id="security.logout.handler.session"/>
+            </call>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener" public="false">
+            <tag name="security.remember_me_aware" id="demo_secured_area" provider="fos_user.user_provider.username"/>
+            <argument type="service" id="security.context"/>
+            <argument type="service" id="security.authentication.manager"/>
+            <argument type="service" id="security.authentication.session_strategy"/>
+            <argument type="service" id="security.http_utils"/>
+            <argument>demo_secured_area</argument>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler" public="false">
+                <argument type="service" id="security.http_utils"/>
+                <argument type="collection">
+                  <argument key="login_path">_demo_login</argument>
+                  <argument key="always_use_default_target_path">false</argument>
+                  <argument key="default_target_path">/</argument>
+                  <argument key="target_path_parameter">_target_path</argument>
+                  <argument key="use_referer">false</argument>
+                </argument>
+                <call method="setProviderKey">
+                  <argument>demo_secured_area</argument>
+                </call>
+              </service>
+            </argument>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler" public="false">
+                <argument type="service" id="http_kernel"/>
+                <argument type="service" id="security.http_utils"/>
+                <argument type="collection">
+                  <argument key="login_path">_demo_login</argument>
+                  <argument key="failure_path">null</argument>
+                  <argument key="failure_forward">false</argument>
+                  <argument key="failure_path_parameter">_failure_path</argument>
+                </argument>
+                <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+              </service>
+            </argument>
+            <argument type="collection">
+              <argument key="check_path">_demo_security_check</argument>
+              <argument key="use_forward">false</argument>
+              <argument key="require_previous_session">true</argument>
+              <argument key="username_parameter">_username</argument>
+              <argument key="password_parameter">_password</argument>
+              <argument key="csrf_parameter">_csrf_token</argument>
+              <argument key="intention">authenticate</argument>
+              <argument key="post_only">true</argument>
+            </argument>
+            <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+            <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+            <argument>null</argument>
+          </service>
+        </argument>
+        <argument type="service" id="security.access_listener"/>
+      </argument>
+      <argument type="service">
+        <service class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
+          <argument type="service" id="security.context"/>
+          <argument type="service" id="security.authentication.trust_resolver"/>
+          <argument type="service" id="security.http_utils"/>
+          <argument>demo_secured_area</argument>
+          <argument type="service">
+            <service class="Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint" public="false">
+              <argument type="service" id="http_kernel"/>
+              <argument type="service" id="security.http_utils"/>
+              <argument>_demo_login</argument>
               <argument>false</argument>
             </service>
           </argument>
@@ -2381,7 +2611,7 @@
           <argument>Symfony\Bundle\TwigBundle\TwigDefaultEscapingStrategy</argument>
           <argument>guess</argument>
         </argument>
-        <argument key="cache">C:/wamp/www/piweb/app/cache/dev/twig</argument>
+        <argument key="cache">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="paths" type="collection"/>
       </argument>
@@ -2431,7 +2661,7 @@
           <service class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
             <tag name="twig.extension"/>
             <argument>null</argument>
-            <argument>C:\wamp\www\piweb\app</argument>
+            <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app</argument>
             <argument>UTF-8</argument>
           </service>
         </argument>
@@ -2544,6 +2774,35 @@
         <argument type="service" id="ob_highcharts.twig.highcharts_extension"/>
       </call>
       <call method="addExtension">
+        <argument type="service">
+          <service class="Vich\UploaderBundle\Twig\Extension\UploaderExtension" public="false">
+            <tag name="twig.extension"/>
+            <argument type="service" id="vich_uploader.templating.helper.uploader_helper"/>
+          </service>
+        </argument>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="kitpages_data_grid.globals_twig_extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service">
+          <service class="FOS\CommentBundle\Twig\CommentExtension" public="false">
+            <tag name="twig.extension"/>
+            <argument>null</argument>
+            <argument>null</argument>
+            <argument>null</argument>
+          </service>
+        </argument>
+      </call>
+      <call method="addExtension">
+        <argument type="service">
+          <service class="JMS\Serializer\Twig\SerializerExtension" public="false">
+            <tag name="twig.extension"/>
+            <argument type="service" id="jms_serializer"/>
+          </service>
+        </argument>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="twig.extension.acme.demo"/>
       </call>
       <call method="addExtension">
@@ -2556,6 +2815,10 @@
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="templating.globals"/>
+      </call>
+      <call method="addGlobal">
+        <argument>web_path</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app/../web</argument>
       </call>
     </service>
     <service id="twig.translation.extractor" class="Symfony\Bridge\Twig\Translation\TwigExtractor">
@@ -2573,7 +2836,7 @@
       <argument>true</argument>
     </service>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
-      <argument>C:\wamp\www\piweb\app\logs/dev.log</argument>
+      <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\logs/dev.log</argument>
       <argument>100</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -2618,7 +2881,7 @@
             </argument>
             <argument type="service">
               <service class="Assetic\Cache\ConfigCache" public="false">
-                <argument>C:/wamp/www/piweb/app/cache/dev/assetic/config</argument>
+                <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/assetic/config</argument>
               </service>
             </argument>
             <argument>true</argument>
@@ -2635,7 +2898,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>MyappResponsableBundle</argument>
-                  <argument>C:\wamp\www\piweb\app/Resources/MyappResponsableBundle/views</argument>
+                  <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app/Resources/MyappResponsableBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -2643,7 +2906,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>MyappResponsableBundle</argument>
-                  <argument>C:\wamp\www\piweb\src\Myapp\ResponsableBundle/Resources/views</argument>
+                  <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\ResponsableBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -2659,7 +2922,7 @@
             <tag name="assetic.formula_resource" loader="twig"/>
             <argument type="service" id="templating.loader"/>
             <argument></argument>
-            <argument>C:\wamp\www\piweb\app/Resources/views</argument>
+            <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app/Resources/views</argument>
             <argument>/\.[^.]+\.twig$/</argument>
           </service>
         </argument>
@@ -2672,7 +2935,7 @@
       <argument type="service">
         <service class="Symfony\Component\DependencyInjection\ParameterBag\ParameterBag" factory-method="getParameterBag" factory-service="service_container" public="false"/>
       </argument>
-      <argument>C:\wamp\www\piweb\app/../web</argument>
+      <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app/../web</argument>
       <argument>true</argument>
       <call method="addWorker">
         <argument type="service">
@@ -2689,7 +2952,7 @@
       <argument type="service" id="assetic.asset_manager"/>
       <argument type="service">
         <service class="Assetic\Cache\FilesystemCache" public="false">
-          <argument>C:/wamp/www/piweb/app/cache/dev/assetic/assets</argument>
+          <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/assetic/assets</argument>
         </service>
       </argument>
       <argument>false</argument>
@@ -2718,7 +2981,7 @@
         <argument key="driver">pdo_mysql</argument>
         <argument key="host">127.0.0.1</argument>
         <argument key="port">null</argument>
-        <argument key="dbname">BDTunisiaMall</argument>
+        <argument key="dbname">tunisamallha</argument>
         <argument key="user">root</argument>
         <argument key="password">null</argument>
         <argument key="charset">UTF8</argument>
@@ -2752,9 +3015,48 @@
           <argument type="service" id="service_container"/>
           <call method="addEventSubscriber">
             <argument type="service">
+              <service class="Vich\UploaderBundle\EventListener\Doctrine\CleanListener" public="false">
+                <tag name="doctrine.event_subscriber" priority="50"/>
+                <argument>product_image</argument>
+                <argument type="service">
+                  <service class="Vich\UploaderBundle\Adapter\ORM\DoctrineORMAdapter" public="false"/>
+                </argument>
+                <argument type="service" id="vich_uploader.metadata_reader"/>
+                <argument type="service" id="vich_uploader.upload_handler"/>
+              </service>
+            </argument>
+          </call>
+          <call method="addEventSubscriber">
+            <argument type="service">
               <service class="FOS\UserBundle\Doctrine\UserListener" public="false">
                 <tag name="doctrine.event_subscriber"/>
                 <argument type="service" id="service_container"/>
+              </service>
+            </argument>
+          </call>
+          <call method="addEventSubscriber">
+            <argument type="service">
+              <service class="Vich\UploaderBundle\EventListener\Doctrine\RemoveListener" public="false">
+                <tag name="doctrine.event_subscriber" priority="0"/>
+                <argument>product_image</argument>
+                <argument type="service">
+                  <service class="Vich\UploaderBundle\Adapter\ORM\DoctrineORMAdapter" public="false"/>
+                </argument>
+                <argument type="service" id="vich_uploader.metadata_reader"/>
+                <argument type="service" id="vich_uploader.upload_handler"/>
+              </service>
+            </argument>
+          </call>
+          <call method="addEventSubscriber">
+            <argument type="service">
+              <service class="Vich\UploaderBundle\EventListener\Doctrine\UploadListener" public="false">
+                <tag name="doctrine.event_subscriber" priority="0"/>
+                <argument>product_image</argument>
+                <argument type="service">
+                  <service class="Vich\UploaderBundle\Adapter\ORM\DoctrineORMAdapter" public="false"/>
+                </argument>
+                <argument type="service" id="vich_uploader.metadata_reader"/>
+                <argument type="service" id="vich_uploader.upload_handler"/>
               </service>
             </argument>
           </call>
@@ -2786,17 +3088,17 @@
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_e1db39129d01f519e040381db1694082f4a42339662dfb735829df0dc9511cdd</argument>
+        <argument>sf2orm_default_495313e7c4032f556fed649861fcbbb376d2f5fde1c5884547f98a69953e94b9</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_result_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_e1db39129d01f519e040381db1694082f4a42339662dfb735829df0dc9511cdd</argument>
+        <argument>sf2orm_default_495313e7c4032f556fed649861fcbbb376d2f5fde1c5884547f98a69953e94b9</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_query_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_e1db39129d01f519e040381db1694082f4a42339662dfb735829df0dc9511cdd</argument>
+        <argument>sf2orm_default_495313e7c4032f556fed649861fcbbb376d2f5fde1c5884547f98a69953e94b9</argument>
       </call>
     </service>
     <service id="doctrine.orm.default_entity_listener_resolver" class="Doctrine\ORM\Mapping\DefaultEntityListenerResolver"/>
@@ -2816,6 +3118,8 @@
               <argument key="MyappadminBundle">Myapp\adminBundle\Entity</argument>
               <argument key="MyappResponsableBundle">Myapp\ResponsableBundle\Entity</argument>
               <argument key="MyappuserBundle">Myapp\userBundle\Entity</argument>
+              <argument key="MyappvisiteurBundle">Myapp\visiteurBundle\Entity</argument>
+              <argument key="FOSCommentBundle">FOS\CommentBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -2835,9 +3139,10 @@
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
-                        <argument>C:\wamp\www\piweb\src\Myapp\adminBundle\Entity</argument>
-                        <argument>C:\wamp\www\piweb\src\Myapp\ResponsableBundle\Entity</argument>
-                        <argument>C:\wamp\www\piweb\src\Myapp\userBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\adminBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\ResponsableBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\userBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\visiteurBundle\Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -2848,9 +3153,10 @@
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
-                        <argument>C:\wamp\www\piweb\src\Myapp\adminBundle\Entity</argument>
-                        <argument>C:\wamp\www\piweb\src\Myapp\ResponsableBundle\Entity</argument>
-                        <argument>C:\wamp\www\piweb\src\Myapp\userBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\adminBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\ResponsableBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\userBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\visiteurBundle\Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -2861,9 +3167,10 @@
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
-                        <argument>C:\wamp\www\piweb\src\Myapp\adminBundle\Entity</argument>
-                        <argument>C:\wamp\www\piweb\src\Myapp\ResponsableBundle\Entity</argument>
-                        <argument>C:\wamp\www\piweb\src\Myapp\userBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\adminBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\ResponsableBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\userBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\visiteurBundle\Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -2871,11 +3178,38 @@
                 </call>
                 <call method="addDriver">
                   <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\adminBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\ResponsableBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\userBundle\Entity</argument>
+                        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\visiteurBundle\Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>Myapp\visiteurBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
+                      <argument type="collection">
+                        <argument key="C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\comment-bundle\FOS\CommentBundle\Resources\config\doctrine">FOS\CommentBundle\Entity</argument>
+                      </argument>
+                      <call method="setGlobalBasename">
+                        <argument>mapping</argument>
+                      </call>
+                    </service>
+                  </argument>
+                  <argument>FOS\CommentBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
                     <service class="Doctrine\ORM\Mapping\Driver\XmlDriver">
                       <argument type="service">
                         <service class="Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator">
                           <argument type="collection">
-                            <argument key="C:\wamp\www\piweb\vendor\friendsofsymfony\user-bundle\Resources\config\doctrine-mapping">FOS\UserBundle\Model</argument>
+                            <argument key="C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\user-bundle\Resources\config\doctrine-mapping">FOS\UserBundle\Model</argument>
                           </argument>
                           <argument>.orm.xml</argument>
                         </service>
@@ -2888,7 +3222,7 @@
             </argument>
           </call>
           <call method="setProxyDir">
-            <argument>C:/wamp/www/piweb/app/cache/dev/doctrine/orm/Proxies</argument>
+            <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/doctrine/orm/Proxies</argument>
           </call>
           <call method="setProxyNamespace">
             <argument>Proxies</argument>
@@ -2968,20 +3302,8 @@
       <argument>null</argument>
       <argument>null</argument>
     </service>
-    <service id="redirect.after.login" class="test\Myapp\responsableBundle\Redirection\AfterLoginRedirection">
+    <service id="redirect.after.login" class="MyApp\adminBundle\Redirection\AfterLoginRedirection">
       <argument type="service" id="router"/>
-    </service>
-    <service id="redirect.after.logout" class="test\Myapp\responsableBundle\Redirection\AfterLogoutRedirection">
-      <argument type="service" id="router"/>
-      <argument type="service" id="security.context"/>
-    </service>
-    <service id="redirect.after.denied" class="test\Myapp\responsableBundle\Redirection\AfterDeniedRedirection">
-      <argument type="service" id="router"/>
-      <argument type="service" id="security.context"/>
-    </service>
-    <service id="user.registration.form" class="test\Myapp\responsableBundle\Form\RegistrationFormType">
-      <tag name="form.type" alias="user_registration"/>
-      <argument>Myapp\adminBundle\Entity\User</argument>
     </service>
     <service id="fos_user.security.interactive_login_listener" class="FOS\UserBundle\EventListener\LastLoginListener">
       <tag name="kernel.event_subscriber"/>
@@ -3149,6 +3471,675 @@
     <service id="ob_highcharts.twig.highcharts_extension" class="Ob\HighchartsBundle\Twig\HighchartsExtension">
       <tag name="twig.extension"/>
     </service>
+    <service id="vich_uploader.templating.helper.uploader_helper" class="Vich\UploaderBundle\Templating\Helper\UploaderHelper">
+      <tag name="templating.helper" alias="vich_uploader"/>
+      <argument type="service" id="vich_uploader.storage"/>
+    </service>
+    <service id="vich_uploader.metadata_reader" class="Vich\UploaderBundle\Metadata\MetadataReader" public="false">
+      <argument type="service">
+        <service class="Metadata\MetadataFactory" public="false">
+          <argument type="service">
+            <service class="Vich\UploaderBundle\Metadata\Driver\ChainDriver" public="false">
+              <argument type="collection">
+                <argument type="service">
+                  <service class="Vich\UploaderBundle\Metadata\Driver\AnnotationDriver" public="false">
+                    <argument type="service" id="annotation_reader"/>
+                  </service>
+                </argument>
+                <argument type="service">
+                  <service class="Vich\UploaderBundle\Metadata\Driver\YamlDriver" public="false">
+                    <argument type="service">
+                      <service class="Vich\UploaderBundle\Metadata\Driver\FileLocator" public="false">
+                        <argument type="collection"/>
+                      </service>
+                    </argument>
+                  </service>
+                </argument>
+                <argument type="service">
+                  <service class="Vich\UploaderBundle\Metadata\Driver\XmlDriver" public="false">
+                    <argument type="service">
+                      <service class="Vich\UploaderBundle\Metadata\Driver\FileLocator" public="false">
+                        <argument type="collection"/>
+                      </service>
+                    </argument>
+                  </service>
+                </argument>
+              </argument>
+            </service>
+          </argument>
+          <call method="setCache">
+            <argument type="service">
+              <service class="Metadata\Cache\FileCache" public="false">
+                <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/vich_uploader</argument>
+              </service>
+            </argument>
+          </call>
+        </service>
+      </argument>
+    </service>
+    <service id="vich_uploader.property_mapping_factory" class="Vich\UploaderBundle\Mapping\PropertyMappingFactory" public="false">
+      <argument type="service" id="service_container"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="collection">
+        <argument key="product_image" type="collection">
+          <argument key="uri_prefix">images/products</argument>
+          <argument key="upload_destination">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app/../web/images/products</argument>
+          <argument key="inject_on_load">false</argument>
+          <argument key="delete_on_update">true</argument>
+          <argument key="delete_on_remove">true</argument>
+          <argument key="namer" type="collection">
+            <argument key="service">null</argument>
+            <argument key="options">null</argument>
+          </argument>
+          <argument key="directory_namer">null</argument>
+          <argument key="db_driver">orm</argument>
+        </argument>
+      </argument>
+      <argument>_name</argument>
+    </service>
+    <service id="vich_uploader.namer_uniqid" class="Vich\UploaderBundle\Naming\UniqidNamer"/>
+    <service id="vich_uploader.namer_property" class="Vich\UploaderBundle\Naming\PropertyNamer"/>
+    <service id="vich_uploader.namer_origname" class="Vich\UploaderBundle\Naming\OrignameNamer"/>
+    <service id="vich_uploader.form.type.file" class="Vich\UploaderBundle\Form\Type\VichFileType">
+      <tag name="form.type" alias="vich_file"/>
+      <argument type="service" id="vich_uploader.storage"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+      <argument type="service" id="translator"/>
+    </service>
+    <service id="vich_uploader.form.type.image" class="Vich\UploaderBundle\Form\Type\VichImageType">
+      <tag name="form.type" alias="vich_image"/>
+      <argument type="service" id="vich_uploader.storage"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+      <argument type="service" id="translator"/>
+    </service>
+    <service id="vich_uploader.download_handler" class="Vich\UploaderBundle\Handler\DownloadHandler" lazy="true">
+      <argument type="service" id="vich_uploader.property_mapping_factory"/>
+      <argument type="service" id="vich_uploader.storage"/>
+    </service>
+    <service id="vich_uploader.upload_handler" class="Vich\UploaderBundle\Handler\UploadHandler" lazy="true">
+      <argument type="service" id="vich_uploader.property_mapping_factory"/>
+      <argument type="service" id="vich_uploader.storage"/>
+      <argument type="service">
+        <service class="Vich\UploaderBundle\Injector\FileInjector" public="false">
+          <argument type="service" id="vich_uploader.storage"/>
+        </service>
+      </argument>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="obtao.pdf.generator" class="Obtao\Bundle\Html2PdfBundle\DependencyInjection\PdfGenerator"/>
+    <service id="kitpages_data_grid.grid_manager" class="Kitpages\DataGridBundle\Grid\GridManager">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="kitpages_data_grid.paginator_manager"/>
+      <argument type="service" id="kitpages_data_grid.item_list_normalizer.standard"/>
+      <argument>\Kitpages\DataGridBundle\Hydrators\DataGridHydrator</argument>
+    </service>
+    <service id="kitpages_data_grid.paginator_manager" class="Kitpages\DataGridBundle\Paginator\PaginatorManager">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="collection">
+        <argument key="default_twig">KitpagesDataGridBundle:Paginator:bootstrap3-paginator.html.twig</argument>
+        <argument key="item_count_in_page">50</argument>
+        <argument key="visible_page_count_in_paginator">5</argument>
+      </argument>
+    </service>
+    <service id="kitpages_data_grid.item_list_normalizer.legacy" class="Kitpages\DataGridBundle\Grid\ItemListNormalizer\LegacyNormalizer"/>
+    <service id="kitpages_data_grid.item_list_normalizer.standard" class="Kitpages\DataGridBundle\Grid\ItemListNormalizer\StandardNormalizer"/>
+    <service id="kitpages_data_grid.globals_twig_extension" class="Kitpages\DataGridBundle\Twig\GlobalsTwigExtension">
+      <tag name="twig.extension"/>
+      <argument type="collection">
+        <argument key="default_twig">KitpagesDataGridBundle:Grid:bootstrap3-grid.html.twig</argument>
+        <argument key="hydrator_class">\Kitpages\DataGridBundle\Hydrators\DataGridHydrator</argument>
+      </argument>
+      <argument type="collection">
+        <argument key="default_twig">KitpagesDataGridBundle:Paginator:bootstrap3-paginator.html.twig</argument>
+        <argument key="item_count_in_page">50</argument>
+        <argument key="visible_page_count_in_paginator">5</argument>
+      </argument>
+    </service>
+    <service id="fos_rest.view.exception_wrapper_handler" class="FOS\RestBundle\View\ExceptionWrapperHandler"/>
+    <service id="fos_rest.serializer.exception_wrapper_serialize_handler" class="FOS\RestBundle\Serializer\ExceptionWrapperSerializeHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+    </service>
+    <service id="fos_rest.serializer.exception_wrapper_normalizer" class="FOS\RestBundle\Serializer\ExceptionWrapperNormalizer">
+      <tag name="serializer.normalizer"/>
+      <argument type="service" id="translator"/>
+    </service>
+    <service id="fos_rest.routing.loader.controller" class="FOS\RestBundle\Routing\Loader\RestRouteLoader">
+      <tag name="routing.loader"/>
+      <argument type="service" id="service_container"/>
+      <argument type="service" id="file_locator"/>
+      <argument type="service" id="controller_name_converter"/>
+      <argument type="service" id="fos_rest.routing.loader.reader.controller"/>
+      <argument>null</argument>
+    </service>
+    <service id="fos_rest.routing.loader.processor" class="FOS\RestBundle\Routing\Loader\RestRouteProcessor"/>
+    <service id="fos_rest.routing.loader.yaml_collection" class="FOS\RestBundle\Routing\Loader\RestYamlCollectionLoader">
+      <tag name="routing.loader"/>
+      <argument type="service" id="file_locator"/>
+      <argument type="service" id="fos_rest.routing.loader.processor"/>
+      <argument>true</argument>
+      <argument type="collection">
+        <argument key="json">false</argument>
+        <argument key="xml">false</argument>
+        <argument key="html">true</argument>
+      </argument>
+      <argument>null</argument>
+    </service>
+    <service id="fos_rest.routing.loader.xml_collection" class="FOS\RestBundle\Routing\Loader\RestXmlCollectionLoader">
+      <tag name="routing.loader"/>
+      <argument type="service" id="file_locator"/>
+      <argument type="service" id="fos_rest.routing.loader.processor"/>
+      <argument>true</argument>
+      <argument type="collection">
+        <argument key="json">false</argument>
+        <argument key="xml">false</argument>
+        <argument key="html">true</argument>
+      </argument>
+      <argument>null</argument>
+    </service>
+    <service id="fos_rest.routing.loader.reader.controller" class="FOS\RestBundle\Routing\Loader\Reader\RestControllerReader">
+      <argument type="service" id="fos_rest.routing.loader.reader.action"/>
+      <argument type="service" id="annotation_reader"/>
+    </service>
+    <service id="fos_rest.routing.loader.reader.action" class="FOS\RestBundle\Routing\Loader\Reader\RestActionReader">
+      <argument type="service" id="annotation_reader"/>
+      <argument type="service" id="fos_rest.request.param_fetcher.reader"/>
+      <argument type="service" id="fos_rest.inflector.doctrine"/>
+      <argument>true</argument>
+      <argument type="collection">
+        <argument key="json">false</argument>
+        <argument key="xml">false</argument>
+        <argument key="html">true</argument>
+      </argument>
+    </service>
+    <service id="fos_rest.format_negotiator" class="FOS\RestBundle\Util\FormatNegotiator"/>
+    <service id="fos_rest.exception_format_negotiator" class="FOS\RestBundle\Util\FormatNegotiator"/>
+    <service id="fos_rest.inflector.doctrine" class="FOS\RestBundle\Util\Inflector\DoctrineInflector"/>
+    <service id="fos_rest.violation_formatter" class="FOS\RestBundle\Util\ViolationFormatter"/>
+    <service id="fos_rest.request.param_fetcher" class="FOS\RestBundle\Request\ParamFetcher">
+      <argument type="service" id="fos_rest.request.param_fetcher.reader"/>
+      <argument type="service" id="request_stack" on-invalid="null"/>
+      <argument type="service" id="fos_rest.violation_formatter"/>
+      <argument type="service" id="validator" on-invalid="null"/>
+    </service>
+    <service id="fos_rest.request.param_fetcher.reader" class="FOS\RestBundle\Request\ParamReader">
+      <argument type="service" id="annotation_reader"/>
+    </service>
+    <service id="fos_rest.normalizer.camel_keys" class="FOS\RestBundle\Normalizer\CamelKeysNormalizer"/>
+    <service id="fos_rest.normalizer.camel_keys_with_leading_underscore" class="FOS\RestBundle\Normalizer\CamelKeysNormalizerWithLeadingUnderscore"/>
+    <service id="fos_rest.decoder.json" class="FOS\RestBundle\Decoder\JsonDecoder"/>
+    <service id="fos_rest.decoder.jsontoform" class="FOS\RestBundle\Decoder\JsonToFormDecoder"/>
+    <service id="fos_rest.decoder.xml" class="FOS\RestBundle\Decoder\XmlDecoder"/>
+    <service id="fos_rest.decoder_provider" class="FOS\RestBundle\Decoder\ContainerDecoderProvider">
+      <argument type="collection">
+        <argument key="json">fos_rest.decoder.json</argument>
+        <argument key="xml">fos_rest.decoder.xml</argument>
+      </argument>
+      <call method="setContainer">
+        <argument type="service" id="service_container"/>
+      </call>
+    </service>
+    <service id="fos_rest.body_listener" class="FOS\RestBundle\EventListener\BodyListener">
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="10"/>
+      <argument type="service" id="fos_rest.decoder_provider"/>
+      <argument>false</argument>
+      <call method="setDefaultFormat">
+        <argument>null</argument>
+      </call>
+    </service>
+    <service id="fos_comment.manager.thread.default" class="FOS\CommentBundle\Entity\ThreadManager">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="fos_comment.entity_manager"/>
+      <argument>Myapp\ResponsableBundle\Entity\Thread</argument>
+    </service>
+    <service id="fos_comment.manager.comment.default" class="FOS\CommentBundle\Entity\CommentManager">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="fos_comment.sorting_factory"/>
+      <argument type="service" id="fos_comment.entity_manager"/>
+      <argument>Myapp\ResponsableBundle\MyBundle\Entity\Comment</argument>
+    </service>
+    <service id="fos_comment.manager.vote.default" class="FOS\CommentBundle\Entity\VoteManager">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="fos_comment.entity_manager"/>
+      <argument>FOS\CommentBundle\Entity\Vote</argument>
+    </service>
+    <service id="fos_comment.entity_manager" class="Doctrine\ORM\EntityManager" factory-method="getManager" factory-service="doctrine" public="false">
+      <argument>null</argument>
+    </service>
+    <service id="fos_comment.listener.comment_vote_score" class="FOS\CommentBundle\EventListener\CommentVoteScoreListener">
+      <tag name="kernel.event_subscriber"/>
+    </service>
+    <service id="fos_comment.listener.thread_counters" class="FOS\CommentBundle\EventListener\ThreadCountersListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="fos_comment.manager.comment.default"/>
+    </service>
+    <service id="fos_comment.listener.thread_permalink" class="FOS\CommentBundle\EventListener\ThreadPermalinkListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="fos_comment.listener.comment_blamer" class="FOS\CommentBundle\EventListener\CommentBlamerListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="security.context"/>
+      <argument type="service" id="security.context"/>
+      <argument type="service" id="logger" on-invalid="null"/>
+    </service>
+    <service id="fos_comment.listener.vote_blamer" class="FOS\CommentBundle\EventListener\VoteBlamerListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="security.context"/>
+      <argument type="service" id="security.context"/>
+      <argument type="service" id="logger" on-invalid="null"/>
+    </service>
+    <service id="fos_comment.listener.closed_threads" class="FOS\CommentBundle\EventListener\ClosedThreadListener">
+      <tag name="kernel.event_subscriber"/>
+    </service>
+    <service id="fos_comment.form_type.comment.default" class="FOS\CommentBundle\Form\CommentType">
+      <tag name="form.type" alias="fos_comment_comment"/>
+      <argument>Myapp\ResponsableBundle\MyBundle\Entity\Comment</argument>
+    </service>
+    <service id="fos_comment.form_type.commentable_thread.default" class="FOS\CommentBundle\Form\CommentableThreadType">
+      <tag name="form.type" alias="fos_comment_commentable_thread"/>
+      <argument>Myapp\ResponsableBundle\Entity\Thread</argument>
+    </service>
+    <service id="fos_comment.form_type.delete_comment.default" class="FOS\CommentBundle\Form\DeleteCommentType">
+      <tag name="form.type" alias="fos_comment_delete_comment"/>
+      <argument>Myapp\ResponsableBundle\MyBundle\Entity\Comment</argument>
+    </service>
+    <service id="fos_comment.form_type.thread.default" class="FOS\CommentBundle\Form\ThreadType">
+      <tag name="form.type" alias="fos_comment_thread"/>
+      <argument>Myapp\ResponsableBundle\Entity\Thread</argument>
+    </service>
+    <service id="fos_comment.form_type.vote.default" class="FOS\CommentBundle\Form\VoteType">
+      <tag name="form.type" alias="fos_comment_vote"/>
+      <argument>FOS\CommentBundle\Entity\Vote</argument>
+    </service>
+    <service id="fos_comment.sorting_factory" class="FOS\CommentBundle\Sorting\SortingFactory">
+      <argument type="collection">
+        <argument key="date_asc" type="service">
+          <service class="FOS\CommentBundle\Sorting\DateSorting" public="false">
+            <tag name="fos_comment.sorter" alias="date_asc"/>
+            <argument>ASC</argument>
+          </service>
+        </argument>
+        <argument key="date_desc" type="service">
+          <service class="FOS\CommentBundle\Sorting\DateSorting" public="false">
+            <tag name="fos_comment.sorter" alias="date_desc"/>
+            <argument>DESC</argument>
+          </service>
+        </argument>
+      </argument>
+      <argument>date_desc</argument>
+    </service>
+    <service id="jms_serializer.doctrine_proxy_subscriber" class="JMS\Serializer\EventDispatcher\Subscriber\DoctrineProxySubscriber">
+      <tag name="jms_serializer.event_subscriber"/>
+    </service>
+    <service id="jms_serializer.stopwatch_subscriber" class="JMS\SerializerBundle\Serializer\StopwatchEventSubscriber">
+      <tag name="jms_serializer.event_subscriber"/>
+      <argument type="service" id="debug.stopwatch"/>
+    </service>
+    <service id="jms_serializer.handler_registry" class="JMS\Serializer\Handler\LazyHandlerRegistry">
+      <argument type="service" id="service_container"/>
+      <argument type="collection">
+        <argument key="1" type="collection">
+          <argument key="FOS\RestBundle\Util\ExceptionWrapper" type="collection">
+            <argument key="json" type="collection">
+              <argument>fos_rest.serializer.exception_wrapper_serialize_handler</argument>
+              <argument>serializeToJson</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>fos_rest.serializer.exception_wrapper_serialize_handler</argument>
+              <argument>serializeToXml</argument>
+            </argument>
+          </argument>
+          <argument key="DateTime" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTime</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTime</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTime</argument>
+            </argument>
+          </argument>
+          <argument key="DateInterval" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateInterval</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateInterval</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateInterval</argument>
+            </argument>
+          </argument>
+          <argument key="ArrayCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\Common\Collections\ArrayCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ORM\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ODM\MongoDB\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ODM\PHPCR\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="PhpCollection\Sequence" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeSequence</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeSequence</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeSequence</argument>
+            </argument>
+          </argument>
+          <argument key="PhpCollection\Map" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeMap</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeMap</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeMap</argument>
+            </argument>
+          </argument>
+          <argument key="Symfony\Component\Form\Form" type="collection">
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormToxml</argument>
+            </argument>
+            <argument key="json" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormTojson</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormToyml</argument>
+            </argument>
+          </argument>
+          <argument key="Symfony\Component\Form\FormError" type="collection">
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormErrorToxml</argument>
+            </argument>
+            <argument key="json" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormErrorTojson</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormErrorToyml</argument>
+            </argument>
+          </argument>
+          <argument key="Symfony\Component\Validator\ConstraintViolationList" type="collection">
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeListToxml</argument>
+            </argument>
+            <argument key="json" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeListTojson</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeListToyml</argument>
+            </argument>
+          </argument>
+          <argument key="Symfony\Component\Validator\ConstraintViolation" type="collection">
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeViolationToxml</argument>
+            </argument>
+            <argument key="json" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeViolationTojson</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeViolationToyml</argument>
+            </argument>
+          </argument>
+        </argument>
+        <argument key="2" type="collection">
+          <argument key="DateTime" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeFromjson</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeFromxml</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeFromyml</argument>
+            </argument>
+          </argument>
+          <argument key="ArrayCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\Common\Collections\ArrayCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ORM\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ODM\MongoDB\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ODM\PHPCR\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="PhpCollection\Sequence" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeSequence</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeSequence</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeSequence</argument>
+            </argument>
+          </argument>
+          <argument key="PhpCollection\Map" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeMap</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeMap</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeMap</argument>
+            </argument>
+          </argument>
+        </argument>
+      </argument>
+    </service>
+    <service id="jms_serializer.datetime_handler" class="JMS\Serializer\Handler\DateHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+      <argument>Y-m-d\TH:i:sO</argument>
+      <argument>Europe/Paris</argument>
+      <argument>true</argument>
+    </service>
+    <service id="jms_serializer.array_collection_handler" class="JMS\Serializer\Handler\ArrayCollectionHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+    </service>
+    <service id="jms_serializer.php_collection_handler" class="JMS\Serializer\Handler\PhpCollectionHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+    </service>
+    <service id="jms_serializer.form_error_handler" class="JMS\Serializer\Handler\FormErrorHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+      <argument type="service" id="translator"/>
+    </service>
+    <service id="jms_serializer.constraint_violation_handler" class="JMS\Serializer\Handler\ConstraintViolationHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+    </service>
+    <service id="jms_serializer.unserialize_object_constructor" class="JMS\Serializer\Construction\UnserializeObjectConstructor" public="false"/>
+    <service id="jms_serializer.templating.helper.serializer" class="JMS\SerializerBundle\Templating\SerializerHelper">
+      <tag name="templating.helper" alias="jms_serializer"/>
+      <argument type="service" id="jms_serializer"/>
+    </service>
+    <service id="jms_serializer.json_serialization_visitor" class="JMS\Serializer\JsonSerializationVisitor">
+      <tag name="jms_serializer.serialization_visitor" format="json"/>
+      <argument type="service" id="jms_serializer.naming_strategy"/>
+      <call method="setOptions">
+        <argument>0</argument>
+      </call>
+    </service>
+    <service id="jms_serializer.json_deserialization_visitor" class="JMS\Serializer\JsonDeserializationVisitor">
+      <tag name="jms_serializer.deserialization_visitor" format="json"/>
+      <argument type="service" id="jms_serializer.naming_strategy"/>
+      <argument type="service" id="jms_serializer.unserialize_object_constructor"/>
+    </service>
+    <service id="jms_serializer.xml_serialization_visitor" class="JMS\Serializer\XmlSerializationVisitor">
+      <tag name="jms_serializer.serialization_visitor" format="xml"/>
+      <argument type="service" id="jms_serializer.naming_strategy"/>
+    </service>
+    <service id="jms_serializer.xml_deserialization_visitor" class="JMS\Serializer\XmlDeserializationVisitor">
+      <tag name="jms_serializer.deserialization_visitor" format="xml"/>
+      <argument type="service" id="jms_serializer.naming_strategy"/>
+      <argument type="service" id="jms_serializer.unserialize_object_constructor"/>
+      <call method="setDoctypeWhitelist">
+        <argument type="collection"/>
+      </call>
+    </service>
+    <service id="jms_serializer.yaml_serialization_visitor" class="JMS\Serializer\YamlSerializationVisitor">
+      <tag name="jms_serializer.serialization_visitor" format="yml"/>
+      <argument type="service" id="jms_serializer.naming_strategy"/>
+    </service>
     <service id="twig.extension.acme.demo" class="Acme\DemoBundle\Twig\Extension\DemoExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="twig.loader"/>
@@ -3232,7 +4223,7 @@
       <argument type="service" id="router" on-invalid="ignore"/>
     </service>
     <service id="sensio_distribution.webconfigurator" class="Sensio\Bundle\DistributionBundle\Configurator\Configurator">
-      <argument>C:\wamp\www\piweb\app</argument>
+      <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app</argument>
       <call method="addStep">
         <argument type="service">
           <service class="Sensio\Bundle\DistributionBundle\Configurator\Step\DoctrineStep" public="false">
@@ -3392,7 +4383,7 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.filesystem" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage">
-      <argument>C:/wamp/www/piweb/app/cache/dev/sessions</argument>
+      <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
@@ -3425,6 +4416,8 @@
           <argument key="assetic">assetic.helper.dynamic</argument>
           <argument key="social-buttons">nomaya.socialbarhelper</argument>
           <argument key="social-links">nomaya.sociallinkshelper</argument>
+          <argument key="vich_uploader">vich_uploader.templating.helper.uploader_helper</argument>
+          <argument key="jms_serializer">jms_serializer.templating.helper.serializer</argument>
         </argument>
       </call>
     </service>
@@ -3437,9 +4430,9 @@
     <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
-      <argument>C:/wamp/www/piweb/app/cache/dev/assetic/routing.yml</argument>
+      <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/assetic/routing.yml</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/wamp/www/piweb/app/cache/dev</argument>
+        <argument key="cache_dir">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -3459,7 +4452,7 @@
       <argument type="service">
         <service class="Doctrine\Common\Annotations\AnnotationReader" public="false"/>
       </argument>
-      <argument>C:/wamp/www/piweb/app/cache/dev/annotations</argument>
+      <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/annotations</argument>
       <argument>true</argument>
     </service>
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
@@ -3479,86 +4472,101 @@
       <argument type="service" id="templating.locator"/>
       <argument type="service" id="templating.name_parser"/>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
         <argument>Swiftmailer</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\src\piweb\appBundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\piweb\appBundle/Resources/views</argument>
         <argument>piwebapp</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\src\Myapp\adminBundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\adminBundle/Resources/views</argument>
         <argument>Myappadmin</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\src\Myapp\ResponsableBundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\ResponsableBundle/Resources/views</argument>
         <argument>MyappResponsable</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\app/Resources/FOSUserBundle/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app/Resources/FOSUserBundle/views</argument>
         <argument>FOSUser</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\friendsofsymfony\user-bundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\user-bundle/Resources/views</argument>
         <argument>FOSUser</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\src\Myapp\userBundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\userBundle/Resources/views</argument>
         <argument>Myappuser</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\src\Myapp\visiteurBundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\visiteurBundle/Resources/views</argument>
         <argument>Myappvisiteur</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\knplabs\knp-paginator-bundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\knplabs\knp-paginator-bundle/Resources/views</argument>
         <argument>KnpPaginator</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\blackknight467\star-rating-bundle\blackknight467\StarRatingBundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\blackknight467\star-rating-bundle\blackknight467\StarRatingBundle/Resources/views</argument>
         <argument>StarRating</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\nomaya\social-bundle\Nomaya\SocialBundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\nomaya\social-bundle\Nomaya\SocialBundle/Resources/views</argument>
         <argument>NomayaSocial</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\src\Acme\DemoBundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\vich\uploader-bundle/Resources/views</argument>
+        <argument>VichUploader</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\kitpages\data-grid-bundle\Kitpages\DataGridBundle/Resources/views</argument>
+        <argument>KitpagesDataGrid</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\comment-bundle\FOS\CommentBundle/Resources/views</argument>
+        <argument>FOSComment</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Acme\DemoBundle/Resources/views</argument>
         <argument>AcmeDemo</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/views</argument>
         <argument>SensioDistribution</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\app/Resources/views</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app/Resources/views</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\piweb\vendor\symfony\symfony\src\Symfony\Bridge\Twig/Resources/views/Form</argument>
+        <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bridge\Twig/Resources/views/Form</argument>
       </call>
     </service>
     <service id="logger" class="Symfony\Bridge\Monolog\Logger">
       <argument>app</argument>
+      <call method="useMicrosecondTimestamps">
+        <argument>true</argument>
+      </call>
       <call method="pushHandler">
         <argument type="service" id="monolog.handler.console"/>
       </call>
@@ -3667,6 +4675,281 @@
       </argument>
       <argument>Myapp\adminBundle\Entity\User</argument>
     </service>
+    <service id="vich_uploader.storage" class="Vich\UploaderBundle\Storage\FileSystemStorage">
+      <argument type="service" id="vich_uploader.property_mapping_factory"/>
+    </service>
+    <service id="fos_rest.view_handler" class="FOS\RestBundle\View\ViewHandler">
+      <argument type="collection">
+        <argument key="json">false</argument>
+        <argument key="xml">false</argument>
+        <argument key="html">true</argument>
+      </argument>
+      <argument>400</argument>
+      <argument>204</argument>
+      <argument>false</argument>
+      <argument type="collection">
+        <argument key="html">302</argument>
+      </argument>
+      <argument>twig</argument>
+      <call method="setExclusionStrategyGroups">
+        <argument></argument>
+      </call>
+      <call method="setExclusionStrategyVersion">
+        <argument></argument>
+      </call>
+      <call method="setSerializeNullStrategy">
+        <argument>false</argument>
+      </call>
+      <call method="setContainer">
+        <argument type="service" id="service_container"/>
+      </call>
+    </service>
+    <service id="fos_comment.form_factory.comment" class="FOS\CommentBundle\FormFactory\CommentFormFactory">
+      <argument type="service" id="form.factory"/>
+      <argument>fos_comment_comment</argument>
+      <argument>fos_comment_comment</argument>
+    </service>
+    <service id="fos_comment.form_factory.commentable_thread" class="FOS\CommentBundle\FormFactory\CommentableThreadFormFactory">
+      <argument type="service" id="form.factory"/>
+      <argument>fos_comment_commentable_thread</argument>
+      <argument>fos_comment_commentable_thread</argument>
+    </service>
+    <service id="fos_comment.form_factory.delete_comment" class="FOS\CommentBundle\FormFactory\DeleteCommentFormFactory">
+      <argument type="service" id="form.factory"/>
+      <argument>fos_comment_delete_comment</argument>
+      <argument>fos_comment_delete_comment</argument>
+    </service>
+    <service id="fos_comment.form_factory.thread" class="FOS\CommentBundle\FormFactory\ThreadFormFactory">
+      <argument type="service" id="form.factory"/>
+      <argument>fos_comment_thread</argument>
+      <argument>fos_comment_thread</argument>
+    </service>
+    <service id="fos_comment.form_factory.vote" class="FOS\CommentBundle\FormFactory\VoteFormFactory">
+      <argument type="service" id="form.factory"/>
+      <argument>fos_comment_vote</argument>
+      <argument>fos_comment_vote</argument>
+    </service>
+    <service id="jms_serializer.metadata_driver" class="JMS\Serializer\Metadata\Driver\DoctrineTypeDriver">
+      <argument type="service">
+        <service class="Metadata\Driver\DriverChain" public="false">
+          <argument type="collection">
+            <argument type="service">
+              <service class="JMS\Serializer\Metadata\Driver\YamlDriver" public="false">
+                <argument type="service">
+                  <service class="Metadata\Driver\FileLocator" public="false">
+                    <argument type="collection">
+                      <argument key="Symfony\Bundle\FrameworkBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\SecurityBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\TwigBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\MonologBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\monolog-bundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\SwiftmailerBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\swiftmailer-bundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\AsseticBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\assetic-bundle/Resources/config/serializer</argument>
+                      <argument key="Doctrine\Bundle\DoctrineBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\doctrine\doctrine-bundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\FrameworkExtraBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\sensio\framework-extra-bundle/Resources/config/serializer</argument>
+                      <argument key="piweb\appBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\piweb\appBundle/Resources/config/serializer</argument>
+                      <argument key="Myapp\adminBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\adminBundle/Resources/config/serializer</argument>
+                      <argument key="Myapp\ResponsableBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\ResponsableBundle/Resources/config/serializer</argument>
+                      <argument key="FOS\UserBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\user-bundle/Resources/config/serializer</argument>
+                      <argument key="Myapp\userBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\userBundle/Resources/config/serializer</argument>
+                      <argument key="Myapp\visiteurBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\visiteurBundle/Resources/config/serializer</argument>
+                      <argument key="Knp\Bundle\PaginatorBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\knplabs\knp-paginator-bundle/Resources/config/serializer</argument>
+                      <argument key="blackknight467\StarRatingBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\blackknight467\star-rating-bundle\blackknight467\StarRatingBundle/Resources/config/serializer</argument>
+                      <argument key="Nomaya\SocialBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\nomaya\social-bundle\Nomaya\SocialBundle/Resources/config/serializer</argument>
+                      <argument key="Ob\HighchartsBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\ob\highcharts-bundle/Resources/config/serializer</argument>
+                      <argument key="Vich\UploaderBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\vich\uploader-bundle/Resources/config/serializer</argument>
+                      <argument key="Obtao\Bundle\Html2PdfBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\obtao\html2pdf-bundle\Obtao\Bundle\Html2PdfBundle/Resources/config/serializer</argument>
+                      <argument key="Kitpages\DataGridBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\kitpages\data-grid-bundle\Kitpages\DataGridBundle/Resources/config/serializer</argument>
+                      <argument key="FOS\RestBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\rest-bundle\FOS\RestBundle/Resources/config/serializer</argument>
+                      <argument key="FOS\CommentBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\comment-bundle\FOS\CommentBundle/Resources/config/serializer</argument>
+                      <argument key="JMS\SerializerBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\jms\serializer-bundle\JMS\SerializerBundle/Resources/config/serializer</argument>
+                      <argument key="Acme\DemoBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Acme\DemoBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\WebProfilerBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\DistributionBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\GeneratorBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\sensio\generator-bundle\Sensio\Bundle\GeneratorBundle/Resources/config/serializer</argument>
+                    </argument>
+                  </service>
+                </argument>
+              </service>
+            </argument>
+            <argument type="service">
+              <service class="JMS\Serializer\Metadata\Driver\XmlDriver" public="false">
+                <argument type="service">
+                  <service class="Metadata\Driver\FileLocator" public="false">
+                    <argument type="collection">
+                      <argument key="Symfony\Bundle\FrameworkBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\SecurityBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\TwigBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\MonologBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\monolog-bundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\SwiftmailerBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\swiftmailer-bundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\AsseticBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\assetic-bundle/Resources/config/serializer</argument>
+                      <argument key="Doctrine\Bundle\DoctrineBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\doctrine\doctrine-bundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\FrameworkExtraBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\sensio\framework-extra-bundle/Resources/config/serializer</argument>
+                      <argument key="piweb\appBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\piweb\appBundle/Resources/config/serializer</argument>
+                      <argument key="Myapp\adminBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\adminBundle/Resources/config/serializer</argument>
+                      <argument key="Myapp\ResponsableBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\ResponsableBundle/Resources/config/serializer</argument>
+                      <argument key="FOS\UserBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\user-bundle/Resources/config/serializer</argument>
+                      <argument key="Myapp\userBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\userBundle/Resources/config/serializer</argument>
+                      <argument key="Myapp\visiteurBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\visiteurBundle/Resources/config/serializer</argument>
+                      <argument key="Knp\Bundle\PaginatorBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\knplabs\knp-paginator-bundle/Resources/config/serializer</argument>
+                      <argument key="blackknight467\StarRatingBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\blackknight467\star-rating-bundle\blackknight467\StarRatingBundle/Resources/config/serializer</argument>
+                      <argument key="Nomaya\SocialBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\nomaya\social-bundle\Nomaya\SocialBundle/Resources/config/serializer</argument>
+                      <argument key="Ob\HighchartsBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\ob\highcharts-bundle/Resources/config/serializer</argument>
+                      <argument key="Vich\UploaderBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\vich\uploader-bundle/Resources/config/serializer</argument>
+                      <argument key="Obtao\Bundle\Html2PdfBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\obtao\html2pdf-bundle\Obtao\Bundle\Html2PdfBundle/Resources/config/serializer</argument>
+                      <argument key="Kitpages\DataGridBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\kitpages\data-grid-bundle\Kitpages\DataGridBundle/Resources/config/serializer</argument>
+                      <argument key="FOS\RestBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\rest-bundle\FOS\RestBundle/Resources/config/serializer</argument>
+                      <argument key="FOS\CommentBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\comment-bundle\FOS\CommentBundle/Resources/config/serializer</argument>
+                      <argument key="JMS\SerializerBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\jms\serializer-bundle\JMS\SerializerBundle/Resources/config/serializer</argument>
+                      <argument key="Acme\DemoBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Acme\DemoBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\WebProfilerBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\DistributionBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\GeneratorBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\sensio\generator-bundle\Sensio\Bundle\GeneratorBundle/Resources/config/serializer</argument>
+                    </argument>
+                  </service>
+                </argument>
+              </service>
+            </argument>
+            <argument type="service">
+              <service class="JMS\Serializer\Metadata\Driver\PhpDriver" public="false">
+                <argument type="service">
+                  <service class="Metadata\Driver\FileLocator" public="false">
+                    <argument type="collection">
+                      <argument key="Symfony\Bundle\FrameworkBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\SecurityBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\TwigBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\MonologBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\monolog-bundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\SwiftmailerBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\swiftmailer-bundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\AsseticBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\assetic-bundle/Resources/config/serializer</argument>
+                      <argument key="Doctrine\Bundle\DoctrineBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\doctrine\doctrine-bundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\FrameworkExtraBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\sensio\framework-extra-bundle/Resources/config/serializer</argument>
+                      <argument key="piweb\appBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\piweb\appBundle/Resources/config/serializer</argument>
+                      <argument key="Myapp\adminBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\adminBundle/Resources/config/serializer</argument>
+                      <argument key="Myapp\ResponsableBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\ResponsableBundle/Resources/config/serializer</argument>
+                      <argument key="FOS\UserBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\user-bundle/Resources/config/serializer</argument>
+                      <argument key="Myapp\userBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\userBundle/Resources/config/serializer</argument>
+                      <argument key="Myapp\visiteurBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Myapp\visiteurBundle/Resources/config/serializer</argument>
+                      <argument key="Knp\Bundle\PaginatorBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\knplabs\knp-paginator-bundle/Resources/config/serializer</argument>
+                      <argument key="blackknight467\StarRatingBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\blackknight467\star-rating-bundle\blackknight467\StarRatingBundle/Resources/config/serializer</argument>
+                      <argument key="Nomaya\SocialBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\nomaya\social-bundle\Nomaya\SocialBundle/Resources/config/serializer</argument>
+                      <argument key="Ob\HighchartsBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\ob\highcharts-bundle/Resources/config/serializer</argument>
+                      <argument key="Vich\UploaderBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\vich\uploader-bundle/Resources/config/serializer</argument>
+                      <argument key="Obtao\Bundle\Html2PdfBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\obtao\html2pdf-bundle\Obtao\Bundle\Html2PdfBundle/Resources/config/serializer</argument>
+                      <argument key="Kitpages\DataGridBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\kitpages\data-grid-bundle\Kitpages\DataGridBundle/Resources/config/serializer</argument>
+                      <argument key="FOS\RestBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\rest-bundle\FOS\RestBundle/Resources/config/serializer</argument>
+                      <argument key="FOS\CommentBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\friendsofsymfony\comment-bundle\FOS\CommentBundle/Resources/config/serializer</argument>
+                      <argument key="JMS\SerializerBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\jms\serializer-bundle\JMS\SerializerBundle/Resources/config/serializer</argument>
+                      <argument key="Acme\DemoBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\src\Acme\DemoBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\WebProfilerBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\DistributionBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\GeneratorBundle">C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\vendor\sensio\generator-bundle\Sensio\Bundle\GeneratorBundle/Resources/config/serializer</argument>
+                    </argument>
+                  </service>
+                </argument>
+              </service>
+            </argument>
+            <argument type="service">
+              <service class="JMS\Serializer\Metadata\Driver\AnnotationDriver" public="false">
+                <argument type="service" id="annotation_reader"/>
+              </service>
+            </argument>
+          </argument>
+        </service>
+      </argument>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="jms_serializer.naming_strategy" class="JMS\Serializer\Naming\CacheNamingStrategy">
+      <argument type="service">
+        <service class="JMS\Serializer\Naming\SerializedNameAnnotationStrategy" public="false">
+          <argument type="service">
+            <service class="JMS\Serializer\Naming\CamelCaseNamingStrategy" public="false">
+              <argument>_</argument>
+              <argument>true</argument>
+            </service>
+          </argument>
+        </service>
+      </argument>
+    </service>
+    <service id="jms_serializer.object_constructor" class="JMS\Serializer\Construction\DoctrineObjectConstructor">
+      <argument type="service" id="doctrine"/>
+      <argument type="service" id="jms_serializer.unserialize_object_constructor"/>
+    </service>
+    <service id="jms_serializer" class="JMS\Serializer\Serializer">
+      <argument type="service">
+        <service class="Metadata\MetadataFactory" public="false">
+          <argument type="service">
+            <service class="Metadata\Driver\LazyLoadingDriver" public="false">
+              <argument type="service" id="service_container"/>
+              <argument>jms_serializer.metadata_driver</argument>
+            </service>
+          </argument>
+          <argument>Metadata\ClassHierarchyMetadata</argument>
+          <argument>true</argument>
+          <call method="setCache">
+            <argument type="service">
+              <service class="Metadata\Cache\FileCache" public="false">
+                <argument>C:\Users\snoussi\Desktop\salma\juskSaw\piweb\piweb\app\cache\dev/jms_serializer</argument>
+              </service>
+            </argument>
+          </call>
+        </service>
+      </argument>
+      <argument type="service" id="jms_serializer.handler_registry"/>
+      <argument type="service" id="jms_serializer.unserialize_object_constructor"/>
+      <argument type="service">
+        <service class="PhpCollection\Map">
+          <argument type="collection">
+            <argument key="json" type="service" id="jms_serializer.json_serialization_visitor"/>
+            <argument key="xml" type="service" id="jms_serializer.xml_serialization_visitor"/>
+            <argument key="yml" type="service" id="jms_serializer.yaml_serialization_visitor"/>
+          </argument>
+        </service>
+      </argument>
+      <argument type="service">
+        <service class="PhpCollection\Map">
+          <argument type="collection">
+            <argument key="json" type="service" id="jms_serializer.json_deserialization_visitor"/>
+            <argument key="xml" type="service" id="jms_serializer.xml_deserialization_visitor"/>
+          </argument>
+        </service>
+      </argument>
+      <argument type="service">
+        <service class="JMS\Serializer\EventDispatcher\LazyEventDispatcher" public="false">
+          <argument type="service" id="service_container"/>
+          <call method="setListeners">
+            <argument type="collection">
+              <argument key="serializer.pre_serialize" type="collection">
+                <argument type="collection">
+                  <argument type="collection">
+                    <argument>jms_serializer.stopwatch_subscriber</argument>
+                    <argument>onPreSerialize</argument>
+                  </argument>
+                  <argument>null</argument>
+                  <argument>null</argument>
+                </argument>
+                <argument type="collection">
+                  <argument type="collection">
+                    <argument>jms_serializer.doctrine_proxy_subscriber</argument>
+                    <argument>onPreSerialize</argument>
+                  </argument>
+                  <argument>null</argument>
+                  <argument>null</argument>
+                </argument>
+              </argument>
+              <argument key="serializer.post_serialize" type="collection">
+                <argument type="collection">
+                  <argument type="collection">
+                    <argument>jms_serializer.stopwatch_subscriber</argument>
+                    <argument>onPostSerialize</argument>
+                  </argument>
+                  <argument>null</argument>
+                  <argument>null</argument>
+                </argument>
+              </argument>
+            </argument>
+          </call>
+        </service>
+      </argument>
+    </service>
     <service id="fos_user.doctrine_registry" alias="doctrine"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher"/>
     <service id="session.storage" alias="session.storage.native"/>
@@ -3681,7 +4964,16 @@
     <service id="doctrine.orm.default_result_cache" alias="doctrine_cache.providers.doctrine.orm.default_result_cache"/>
     <service id="doctrine.orm.default_query_cache" alias="doctrine_cache.providers.doctrine.orm.default_query_cache"/>
     <service id="fos_user.util.username_canonicalizer" alias="fos_user.util.email_canonicalizer"/>
+    <service id="fos_rest.router" alias="router"/>
+    <service id="fos_rest.templating" alias="templating"/>
+    <service id="fos_rest.exception_handler" alias="fos_rest.view.exception_wrapper_handler"/>
+    <service id="fos_rest.inflector" alias="fos_rest.inflector.doctrine"/>
+    <service id="fos_comment.manager.thread" alias="fos_comment.manager.thread.default"/>
+    <service id="fos_comment.manager.comment" alias="fos_comment.manager.comment.default"/>
+    <service id="fos_comment.manager.vote" alias="fos_comment.manager.vote.default"/>
+    <service id="serializer" alias="jms_serializer"/>
     <service id="sensio.distribution.webconfigurator" alias="sensio_distribution.webconfigurator"/>
     <service id="console.command.sensiolabs_security_command_securitycheckercommand" alias="sensio_distribution.security_checker.command"/>
+    <service id="fos_rest.serializer" alias="jms_serializer"/>
   </services>
 </container>

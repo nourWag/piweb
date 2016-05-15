@@ -1,25 +1,25 @@
-{% extends "MyappuserBundle::layout.html.twig" %}
+{% extends "MyappuserBundle::layoutPan.html.twig" %}
 {% block panier %}
     
 <body>
 <h1> Mon Panier </h1>
-<table class="table table-hover" border="2px">
+<table class="table table-hover" >
     
  
 <tr>
-    <th> ID </th>
+    
     <th> Reference </th>
     <th> Image </th>
-    <th> prix unitaire </th>
+    <th> Prix unitaire </th>
     <th> Quantite </th>
-    <th>Prix total</th>
+    <th> Prix total </th>
     <th></th>
 </tr>
 {% for pr in produits %}
   <tr name="produit" id="{{pr.idPr}}">
-    <td> {{pr.idPr}} </td>
+   
     <td> {{pr.reference}} </td>
-    <td><img style="width: 20%" src="{{ asset(path('my_image_route2', {'id': pr.img})) }}" alt="" /></td>
+    <td><img style="width: 20%" src="{{ asset( 'images/products/'~pr.img) }}" alt="" /></td>
     <td> {{pr.prix}} TND </td>
     <td> {{pr.quantite}} </td>
     <td>{{pr.prix*pr.quantite}} TND</td>
@@ -33,9 +33,10 @@
     
  </table>
     <br>
-    <br>
-  <button type="button" class="btn btn-primary"> Continuer mes achats </button>  
-  <button type="button" class="btn btn-success"> Valider mon panier </button>  
+    <br> 
+   <a href="{{ path('afficher_facture')}}">
+  <button type="button" class="btn btn-success"> Ma Facture </button>
+   </a>
   
     
     
@@ -52,7 +53,7 @@ $(document).ready(function() {
                  method: 'GET',
                  data: { idprodui :idProdui },
                  success: function(result){
-                    alert("le produit est supprimé");
+                    alert("le produit est supprime");
                     }
                 });
             $(" tr[id="+idProdui+"]").remove();

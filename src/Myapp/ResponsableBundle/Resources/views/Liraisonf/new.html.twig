@@ -1,0 +1,16 @@
+{% extends "MyappuserBundle::layoutlogin.html.twig" %}
+{% block livraison %}
+    <h1>Nouvelle Livraison</h1>
+   {{ form(form) }}
+    
+    
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('liraisonf') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{# empty Twig template #}
+{% extends 'MyappResponsableBundle::layoutAdd.html.twig' %} 
+ 	
+ {% block contenu4 %}
+       <div class="box box-primary">
+      {% for m in modele %} 
+         
+          <ul class="todo-list">
+                    <li>
+                      <!-- drag handle -->
+                      <span class="handle">
+                        <i class="fa fa-ellipsis-v"></i>
+                        <i class="fa fa-ellipsis-v"></i>
+                      </span>
+                      <!-- checkbox -->
+                      <input type="checkbox" value="" name="">
+                      <!-- todo text -->
+                      <span class="text">{{m.categorie}}</span>
+                      <!-- Emphasis label -->
+                      <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+                      <!-- General tools such as edit or delete-->
+                      <div class="tools">
+                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-trash-o"></i>
+                      </div>
+                    </li>
+    
+  
+          </ul>
+                      
+      {% endfor %}
+      <div class="box-footer clearfix no-border">
+                  <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
+                </div>
+      </div>
+     {% endblock %} 

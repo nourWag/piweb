@@ -22,6 +22,46 @@ class User extends BaseUser
     function getId() {
         return $this->id;
     }
+/**
 
+*
 
-} ?>
+* @ORM\Column(type="string", length=255)
+
+* 
+
+*/
+
+protected $nom;
+
+/**
+
+*
+
+* @ORM\Column(type="string", length=255)
+
+* 
+
+*/
+
+protected $prenom;
+public function getNom() {
+    return $this->nom;
+}
+
+public function getPrenom() {
+    return $this->prenom;
+}
+
+public function setNom($nom) {
+    $this->nom = $nom;
+}
+
+public function setPrenom($prenom) {
+    $this->prenom = $prenom;
+}
+ 
+ 
+}
+
+ 

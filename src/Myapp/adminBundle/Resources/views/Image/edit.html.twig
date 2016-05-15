@@ -1,0 +1,23 @@
+{% extends 'MyappadminBundle::layoutAd.html.twig' %} 
+ 	  
+ {% block contenu %}
+  
+<h1>Modifier un modele </h1>
+<form name=f1 method="post"  {{ form_enctype(form) }} action=''> 
+    <table> 
+    <tr>
+        <td>Libelle: </td>
+        <td>{{ form_widget(form.id)}}</td>
+        
+    </tr>
+    <tr>  
+    <td>   Pays:</td>
+    <td>{{ form_widget(form.titre)}}</td>
+    </tr>
+      
+</table>
+    <br>
+  
+{{form_rest(form)}}
+</form>
+{% endblock %}

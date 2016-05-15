@@ -1,0 +1,322 @@
+{% extends "MyappResponsableBundle::layout.html.twig" %}
+{% block ListeproduitFood %}
+ <div    class="product-category-34">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    {% javascripts
+      '@StarRatingBundle/Resources/public/js/rating.js' %}
+      <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+<script language="javascript">
+function test(){
+
+var x=document.getElementById('sort').value;
+var r=document.getElementById('x1').innerHTML;
+//alert(r);
+if(x=="default")
+{$('#default').show();
+$('#divisionSort').hide();
+}
+else{
+    $('#divisionSort').show();
+    $('#default').hide();
+}
+xhr = new XMLHttpRequest();
+xhr.open('GET',"{{ asset('js/openphp.php?y=') }}"+x+"&x="+r,true);
+
+xhr.onreadystatechange=function()
+{
+if((xhr.readyState ==4)&&(xhr.status==200)){
+document.getElementById('divisionSort').innerHTML=xhr.responseText;
+}
+}
+xhr.send();
+}
+</script>
+ 
+ <script language="javascript">
+function test2(){
+
+var x=document.getElementById('ch').value;
+var r=document.getElementById('x1').innerHTML;
+//alert(r);
+
+$('#default').hide();
+$('#divisionSort').show();
+
+
+xhr = new XMLHttpRequest();
+xhr.open('GET',"{{ asset('js/rech2.php?y=') }}"+x+"&x="+r,true);
+
+xhr.onreadystatechange=function()
+{
+if((xhr.readyState ==4)&&(xhr.status==200)){
+document.getElementById('divisionSort').innerHTML=xhr.responseText;
+}
+}
+xhr.send();
+}
+</script>
+
+
+
+<div id="page">
+
+
+
+
+
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		if ($('body').width() > 990) { 
+			$('.nav__primary').tmStickUp({correctionSelector: $('#menu_stick')});
+		};
+	});
+</script>
+
+
+
+<div class="container">
+  <ul class="breadcrumb">
+		<li><a href="{{ path('pi_homepage1')}}"><i class="fa fa-home"></i></a></li>
+		<li><a href="salma">boutique</a></li>
+                <li><a href="{{ path('afficherG', {'id': boutique.id,'catB': boutique.categorie} )}}">produits</a></li>
+	  
+  </ul>
+  <div class="row">
+      <column id="column-left" class="col-sm-3 ">
+    <div class="box account info">
+	<div class="box-heading">
+		<h3>Bienvenue</h3>
+	</div>
+	<div class="box-content">
+		<ul>
+			<li><a href="{{ path('afficherG', {'id': boutique.id,'catB':boutique.categorie} )}}" >Tous les produits</a></li>			
+			<li><a href="{{ path('afficherGC', {'id': boutique.id,'cat':'Fast Food' } )}}" >Fast Food</a></li>
+			<li><a href="{{ path('afficherGC', {'id': boutique.id,'cat':'Plat' } )}}" >Plat</a></li>
+			<li><a href="{{ path('afficherGC', {'id': boutique.id,'cat':'Pizza' } )}}" >Pizza</a></li>
+			<li><a href="{{ path('afficherGC', {'id': boutique.id,'cat':'Boissons' } )}}" >Boissons</a></li>
+                        <li><a href="{{ path('afficherGC', {'id': boutique.id,'cat':'gateau' } )}}" >g&acirc;teau</a></li>
+			
+					</ul>
+	</div>
+</div>
+
+    <div class="box bestsellers">
+	<div class="box-heading">
+			<h3>Meilleures ventes</h3>
+	</div>
+       {% for produitM in produitMs %} 
+	<div class="box-content">
+
+		<div class="row product-layout box-product">
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"><div class="product-thumb transition" >
+		<div class="image">
+                   <a href="{{ path('afficherdetailleProduit2', {'id': produitM.id,'bout': boutique.id } )}}">
+               <img style=" width:  250px;height: 250px" alt="Dolor sit amet" title="Dolor sit amet" class="img-responsive lazy" src="{{ asset(vich_uploader_asset(produitM, 'imageFile')) }}" alt="{{ produitM.imageName }}" />
+                   </a></div>
+				<div class="caption">
+					<h4>
+                                            <a href="{{ path('afficherdetailleProduit2', {'id': produitM.id,'bout': boutique.id } )}}">{{ produitM.designation }}</a></h4>
+					<div class="description">
+                     {{produitM.description }}.</div>
+					<div id="rating">
+                                            {{ produitM.note|rating }} 
+					</div>
+					<div class="price">
+					<span class="price-new">${{ produitM.prixdachat }}</span> <span class="price-old">${{ produitM.prixancien }}</span>
+					</div>
+									</div>
+				<div class="cart-button">
+					<button class="btn btn-add" type="button" onclick="cart.add('30');">
+						<i class="fa fa-shopping-cart hidden-lg"></i>
+						<span class="hidden-xs hidden-sm hidden-md">acheter cela</span>
+					</button>
+					<button class="btn btn-icon" type="button" data-toggle="tooltip" title="vote" onclick="wishlist.add('30');"><i class="fa fa-heart"></i></button>
+					<button class="btn btn-icon" type="button" data-toggle="tooltip" title="detaille" onclick="compare.add('30');"><i class="fa fa-exchange"></i></button>
+				</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+					</div>
+	</div>
+                                        {% endfor %}
+</div>
+    <div class="box special">
+	<div class="box-heading"><h3>Specials</h3></div>
+         {% for produitM in produitV %} 
+	<div class="box-content">
+		<div class="row product-layout box-product">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="product-thumb transition">
+				<div class="image">
+                                    <a href="{{ path('afficherdetailleProduit2', {'id': produitM.id,'bout': boutique.id } )}}">
+                                        <img style=" width:  250px;height: 250px" alt="Dolor sit amet" title="Dolor sit amet" class="img-responsive lazy" src="{{ asset(vich_uploader_asset(produitM, 'imageFile')) }}" alt="{{ produitM.imageName }}" />
+                   
+                                    </a></div>
+				<div class="caption">
+					<div class="name">
+                                            <a href="{{ path('afficherdetailleProduit2', {'id': produitM.id,'bout': boutique.id } )}}">{{ produitM.designation }}
+                                            </a>
+                                        </div>
+					<div class="description">
+Traditions are {{produitM.description }}</div>
+										<div id="rating">
+														 {{ produitM.note|rating }} </div>
+															<div class="price">
+										<span class="price-new">${{ produitM.prixdachat }}</span> <span class="price-old">${{ produitM.prixancien }}</span>
+															</div>
+									</div>
+				<div class="cart-button">
+					<button class="btn btn-add" type="button" onclick="cart.add('33');"><i class="fa fa-shopping-cart hidden-lg"></i> <span class="hidden-xs hidden-sm hidden-md">achete cela</span></button>
+					<button class="btn btn-icon " type="button" data-toggle="tooltip" title="vote" onclick="wishlist.add('33');"><i class="fa fa-heart"></i></button>
+					<button class="btn btn-icon" type="button" data-toggle="tooltip" title="afficher " onclick="compare.add('33');"><i class="fa fa-exchange"></i></button>
+				</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+					</div>
+	</div>
+                                        {% endfor %}
+</div>
+
+
+  </column>
+                                
+				<div id="content" class="col-sm-9">
+                                    
+                                    
+                                     <div id="search" class="clearfix">
+                    
+                    
+	
+        <input type="text" name="search1" value="" placeholder="Search" onkeyup="test2()" id="ch" />  
+      
+       
+          <button type="submit" class="button-search">
+                
+                 <i class="fa fa-search"></i>
+        
+        
+              </button></a>
+        
+       
+                </div>	
+                                    <h2>{{ boutique.nom}}</h2>
+	  	  <h10 id="x1">{{ boutique.id}}</h10>
+	  
+	  	  	  		<div class="product-filter clearfix">
+			<div class="row">
+				<div class="col-md-2">
+					<label class="control-label" for="input-sort">Sort By:</label>
+				</div>
+			<div class="col-md-3">
+				<select id="sort" class="form-control col-sm-3" onchange="test()">
+					<option value="default" selected="selected">Default</option>
+					<option value="1">Name (A - Z)</option>
+					<option value="2">Name (Z - A)</option>
+					<option value="3">Price (Low &gt; High)</option>
+					<option value="4">Price (High &gt; Low)</option>
+					<option value="5">Rating (Highest)</option>
+					<option value="6">Rating (Lowest)</option>
+					
+																	</select>
+				</div>
+				<div class="col-md-2">
+					<label class="control-label" for="input-limit">Show:</label>
+				</div>
+				<div class="col-md-2">
+					<select id="input-limit" class="form-control" onchange="">
+					<option value="" selected="selected">{{ produits.getTotalItemCount }}</option>
+																
+					</select>
+				</div>
+                           
+    <p class="pull-left nam-page">Showing  {{ produits.getTotalItemCount }} </p> 
+				<div class="col-md-3 text-right">
+					<div class="button-view">
+						<button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="List"><i class="fa fa-th-list"></i></button>
+						<button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="Grid"><i class="fa fa-th"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+                                    
+                                    
+		<div class="nav-cat clearfix">
+			
+			 <div class="navigation" class="pull-left">
+                    {{ knp_pagination_render(produits) }}
+                         </div>    
+			<div class="pull-right">
+				<a href="" id="compare-total">
+					Panier 					
+                                        <i class="fa fa-chevron-right"></i>
+				</a>
+			</div>
+		</div>
+                  <div  id="divisionSort" ></div>                  
+       <div id="default">                             
+	  <div class="row">
+              
+              
+              
+ {% for produit in produits %}   
+  
+				<div class="product-layout product-list col-xs-12">
+		  <div class="product-thumb">
+			<div class="image" >
+                          
+                            <a href="{{ path('afficherdetailleProduit2', {'id': produit.id,'bout': boutique.id } )}}">
+                                
+                                
+                                <img style=" width:  250px;height: 250px" src="{{ asset(vich_uploader_asset(produit, 'imageFile')) }}" alt="{{ produit.imageName }}" /> </a>
+                        </div>
+			<div>
+			  <div class="caption">
+                              
+				<div class="name name-product">
+                                    <a href="{{ path('afficherdetailleProduit2', {'id': produit.id,'bout': boutique.id } )}}">{{ produit.designation }}</a>
+                                </div>
+                                
+				<div class="description">
+                                    {{ produit.description }}
+                                </div>
+			 <div id="rating">
+                              
+                                        {{ produit.note|rating }}
+	  				  				  				 
+			</div>
+												<div class="price price-product">
+				  				  <span class="price-new">${{ produit.prixdachat }}</span> <span class="price-old">${{ produit.prixancien }}</span>
+				  				  				</div>
+								</div>
+				<div class="cart-button">
+					<button class="btn btn-add" type="button" onclick="cart.add('28');"><i class="fa fa-shopping-cart hidden-lg"></i> <span class="hidden-xs hidden-sm hidden-md">acheter cela</span></button>
+					<button class="btn btn-icon" type="button" data-toggle="tooltip" title="vote" onclick="wishlist.add('28');"><i class="fa fa-heart"></i></button>
+					<button class="btn btn-icon" type="button" data-toggle="tooltip" title="detaille" onclick="compare.add('28');"><i class="fa fa-exchange"></i></button>
+				</div>
+			</div>
+				<div class="clear"></div>
+		  </div>
+		</div>
+  {%endfor %} 
+ 
+				
+          </div>
+       </div>
+  
+                                    
+                                    
+	 
+	  	  	  </div>
+	</div>
+</div>
+
+<script src="catalog/view/theme/theme509/js/livesearch.js" type="text/javascript"></script>
+
+</div>
+
+
+ </div>
+  {% endblock %}

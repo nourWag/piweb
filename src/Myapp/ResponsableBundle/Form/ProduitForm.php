@@ -20,25 +20,30 @@ class ProduitForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('note','rating', array(
-        //...
-        'stars' => 5,
-        //...
-    ))
-          ->add('couleur','entity',array('class'=>'MyappResponsableBundle:couleur','property'=>'id',"multiple" => true,"expanded"=>true))
-          ->add('size','entity',array('class'=>'MyappResponsableBundle:Size','property'=>'id',"multiple" => true,"expanded"=>true))
+                ->add('marque')
+            ->add('note','rating'
+    )
+          ->add('couleur')
+          ->add('size')
+                //,'entity',array('class'=>'MyappResponsableBundle:Size','property'=>'id',"multiple" => true,"expanded"=>true))
                 ->add('description')
                 ->add('reference')
-                ->add('taille')
-                ->add('etat')
+               
+                ->add('updatedAt')
                 ->add('marque')
                 ->add('prixvente')
                 ->add('prixdachat')
                 ->add('quantite')
                 ->add('disponible')
+                ->add('prixancien')
               
+               ->add('categorie','choice',array('choices'=>array('femme'=>'femme',"home"=>'homme')))
                
                 ->add('designation')
+                ->add('boutique','entity',array('class'=>'MyappResponsableBundle:boutique','property'=>'nom',"expanded"=>false))
+              
+                ->add('imageName',      'text')
+    ->add('imageFile',     'file',array('required' => false))
                ->add('valider','submit');
         ;
     }

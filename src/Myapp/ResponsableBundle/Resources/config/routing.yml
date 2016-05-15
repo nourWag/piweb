@@ -31,7 +31,7 @@ afficher_produits:
 paginationpa:
     path:     /hello
     defaults: { _controller: MyappResponsableBundle:Produit:afficherP2 }
-afficherdetailleProduit :
+afficherdetailleProduitNe :
     path:     /produit/{id}
     defaults: { _controller: MyappResponsableBundle:Produit:afficherPDetaille }
 my_image_route2:
@@ -67,3 +67,68 @@ produit_rechercher:
 afficherPClient:
     pattern: /afficherPClient
     defaults: {_controller: MyappResponsableBundle:Produit:afficherPClient}
+
+
+fos_comment_api:
+  type: rest
+
+  resource: "@FOSCommentBundle/Resources/config/routing.yml"
+
+  prefix: /api
+
+  defaults: { _format: html }
+path_categorie1:
+  pattern: /cat
+  defaults: { _controller: MyappResponsableBundle:boutique:list_categorie1 }
+path_categorie2:
+  pattern: /cat2
+  defaults: { _controller: MyappResponsableBundle:boutique:list_categorie2 }
+path_categorie4:
+  pattern: /cat4
+  defaults: { _controller: MyappResponsableBundle:boutique:list_categorie4 }
+path_categorie3:
+  pattern: /cat3/{nom}
+  defaults: { _controller: MyappResponsableBundle:boutique:ListCategorie3 }
+path_promotion:
+  pattern: /promotion
+  defaults: { _controller: MyappResponsableBundle:boutique:ListPromotion }
+  
+  
+  
+  
+pi_homepage1:
+    path:     /
+    defaults: { _controller: MyappResponsableBundle:Accueill:index }
+ajouterImage:
+    path:     /imageAjoutF
+    defaults: { _controller: MyappResponsableBundle:Produit:imageAjoutF }
+afficherImage:
+    path:     /afficherImage
+    defaults: { _controller: MyappResponsableBundle:Produit:afficherImageP }
+ajouterImageProduit:
+    path:     /imageAjoutFP
+    defaults: { _controller: MyappResponsableBundle:Produit:imageAjoutProduitF }
+afficherImageProduit:
+    path:     /afGI/{id}
+    defaults: { _controller: MyappResponsableBundle:Produit:afficherImageProduit }
+
+afficherG:
+    path:     /afG/{id}/{catB}
+    defaults: { _controller: MyappResponsableBundle:Produit:afficherg }
+afficherGC:
+    path:     /afGF/{id}/{cat}
+    defaults: { _controller: MyappResponsableBundle:Produit:affichergF }
+afficherdetailleProduit2 :
+    path:     /produit/{id}/{bout}
+    defaults: { _controller: MyappResponsableBundle:Produit:afficherPDetaille }
+afficher_produit_solde :
+    path:     /afficher_produit_solde
+    defaults: { _controller: MyappResponsableBundle:Produit:afficher_produit_solde }
+afficher_produit_evenement :
+    path:     /afficher_produit_evenement
+    defaults: { _controller: MyappResponsableBundle:Produit:afficher_produit_evenement }
+afficher_produit_new :
+    path:     /afficher_produit_new
+    defaults: { _controller: MyappResponsableBundle:Produit:afficher_produit_new }
+
+

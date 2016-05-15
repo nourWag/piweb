@@ -1,0 +1,31 @@
+{% extends "MyappResponsableBundle::layoutAdd.html.twig" %}
+{% block content2 %}
+            
+<html>
+    <head>
+    </head>
+    <body>
+        
+<form method="post" >
+        <fieldset>
+            <legend>Ajouter Carte :</legend>
+            <table>
+                <tr>
+                     <td>{{ form_widget(form) }}</td>
+                </tr>
+              <tr>
+                     <td>{{ form_widget(form) }}</td>
+                </tr>
+               <tr>
+                     <td>{{ form_widget(form) }}</td>
+                </tr>
+           
+            </table>
+             
+                    
+           
+        </fieldset>
+                  {{ form_end(form) }}  
+    </form>
+    </body>
+    {% endblock %}

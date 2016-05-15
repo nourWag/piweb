@@ -1,0 +1,219 @@
+{% extends "MyappResponsableBundle::layout.html.twig" %}
+{% block Listeproduitsolde %}
+ <script type="text/javascript">
+	jQuery(document).ready(function(){
+		if ($('body').width() > 990) { 
+			$('.nav__primary').tmStickUp({correctionSelector: $('#menu_stick')});
+		};
+	});
+</script>
+
+
+<p id="back-top"> <a href="#top"><span></span></a> </p>
+   
+        
+<div class="container">    
+    <!-- Content left -->
+			<div class="col-sm-5 col-lg-7 product_page-left">				
+				<!-- product image -->
+		
+				
+		
+								<script type="text/javascript">
+					jQuery(document).ready(function(){
+					var myPhotoSwipe = $("#gallery a").photoSwipe({ enableMouseWheel: false , enableKeyboard: false, captionAndToolbarAutoHideDelay:0 });
+					});
+				</script>
+				<div id="full_gallery">
+					<ul id="gallery">
+																	<li><a href="http://localhost:8000/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/image/cache/catalog/product-46-643x1000.png" data-something="something1" data-another-thing="anotherthing1"><img src="http://localhost:8000/template_52891_cw21kXN65RYum715QAIo/theme509/theme509((full))/image/cache/catalog/product-46-643x1000.png" alt="Aenean viverra" /></a></li>
+					
+					</ul>			
+				</div>
+								
+			</div>
+     
+   
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    {% javascripts
+      '@StarRatingBundle/Resources/public/js/rating.js' %}
+      <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+<script language="javascript">
+function test(){
+$('#default').hide();
+
+var x=document.getElementById('sort').value;
+if(x=="default")
+{$('#default').show();
+$('#divisionSort').hide();}
+else{
+    $('#divisionSort').show();
+    $('#default').hide();
+}
+xhr = new XMLHttpRequest();
+xhr.open('GET',"{{ asset('js/openphp.php?y=') }}"+x,true);
+
+xhr.onreadystatechange=function()
+{
+if((xhr.readyState ==4)&&(xhr.status==200)){
+document.getElementById('divisionSort').innerHTML=xhr.responseText;
+}
+}
+xhr.send();
+}
+</script>
+ 
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		if ($('body').width() > 990) { 
+			$('.nav__primary').tmStickUp({correctionSelector: $('#menu_stick')});
+		};
+	});
+</script>
+
+
+
+
+     
+     
+     
+  <ul class="breadcrumb">
+		<li><a href="{{ path('pi_homepage1')}}"><i class="fa fa-home"></i></a></li>
+		
+                <li><a href="{{ path('afficher_produit_solde')}}">solde</a></li>
+	  
+  </ul>
+  <div class="row" style="width: 1600px">
+    
+                                
+				<div id="content" class="col-sm-9">	 
+                                    <h2>Solde</h2>
+	  	  
+	  
+	  	  	  		<div class="product-filter clearfix">
+			<div class="row">
+				<div class="col-md-2">
+					<label class="control-label" for="input-sort">Sort By:</label>
+				</div>
+			<div class="col-md-3">
+				<select id="sort" class="form-control col-sm-3" onchange="test()">
+					<option value="default" selected="selected">Default</option>
+					<option value="1">Name (A - Z)</option>
+					<option value="2">Name (Z - A)</option>
+					<option value="3">Price (Low &gt; High)</option>
+					<option value="4">Price (High &gt; Low)</option>
+					<option value="5">Rating (Highest)</option>
+					<option value="6">Rating (Lowest)</option>
+					
+																	</select>
+				</div>
+				<div class="col-md-2">
+					<label class="control-label" for="input-limit">Show:</label>
+				</div>
+				<div class="col-md-2">
+					<select id="input-limit" class="form-control" onchange="">
+					<option value="" selected="selected">{{ produits.getTotalItemCount }}</option>
+																
+					</select>
+				</div>
+                           
+    <p class="pull-left nam-page">Showing  {{ produits.getTotalItemCount }} </p> 
+				<div class="col-md-3 text-right">
+					<div class="button-view">
+						<button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="List"><i class="fa fa-th-list"></i></button>
+						<button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="Grid"><i class="fa fa-th"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+                                    
+                                    
+		<div class="nav-cat clearfix">
+			
+			 <div class="navigation" class="pull-left">
+                    {{ knp_pagination_render(produits) }}
+                         </div>    
+			<div class="pull-right">
+				<a href="" id="compare-total">
+					Panier 					
+                                        <i class="fa fa-chevron-right"></i>
+				</a>
+			</div>
+		</div>
+                  <div  id="divisionSort" ></div>                  
+       <div id="default">                             
+	  <div class="row">
+              
+              
+              
+ {% for produit in produits %}   
+  
+				<div class="product-layout product-list col-xs-12">
+		  <div class="product-thumb">
+			<div class="image" >
+                          
+                            <a href="{{ path('afficherdetailleProduit', {'id': produit.id,'bout':  produit.boutique.id  } )}}">
+                                
+                                
+                                <img style=" width:  250px;height: 250px" src="{{ asset(vich_uploader_asset(produit, 'imageFile')) }}" alt="{{ produit.imageName }}" /> </a>
+                        </div>
+			<div>
+			  <div class="caption">
+                              
+				<div class="name name-product">
+                                    <a href="{{ path('afficherdetailleProduit', {'id': produit.id,'bout': produit.boutique.id } )}}">{{ produit.designation }}</a>
+                                </div>
+                                
+				<div class="description">
+                                    {{ produit.description }}
+                                </div>
+			 <div id="rating">
+                              
+                                        {{ produit.note|rating }}
+	  				  				  				 
+			</div>
+												<div class="price price-product">
+				  				  <span class="price-new">${{ produit.prixdachat }}</span> <span class="price-old">${{ produit.prixancien }}</span>
+				  				  				</div>
+								</div>
+				<div class="cart-button">
+					<button class="btn btn-add" type="button" onclick="cart.add('28');"><i class="fa fa-shopping-cart hidden-lg"></i> <span class="hidden-xs hidden-sm hidden-md">acheter cela</span></button>
+					<button class="btn btn-icon" type="button" data-toggle="tooltip" title="vote" onclick="wishlist.add('28');"><i class="fa fa-heart"></i></button>
+					<button class="btn btn-icon" type="button" data-toggle="tooltip" title="detaille" onclick="compare.add('28');"><i class="fa fa-exchange"></i></button>
+				</div>
+			</div>
+				<div class="clear"></div>
+		  </div>
+		</div>
+  {%endfor %} 
+ 
+				
+          </div>
+       </div>
+  
+                                    
+                                    
+	 
+	  	  	  </div>
+	</div>
+</div>
+
+<script src="catalog/view/theme/theme509/js/livesearch.js" type="text/javascript"></script>
+
+
+
+
+ 
+  {% endblock %}

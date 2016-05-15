@@ -1,0 +1,29 @@
+{% extends 'MyappResponsableBundle::layoutAdd.html.twig' %} 
+ 	  
+ {% block contenu %}
+    <form method="post" action=''>
+    <table>
+        <tr><td>Nom :</td><tr>
+    <tr>
+        <td>{{ form_widget(f.nom) }}</td>
+    </tr>
+    <tr>
+        <td>Description_boutique :</td><tr>
+    <tr>
+        <td>{{ form_widget(f.categorie) }}</td>
+    </tr>
+    <tr>
+        <td>Promotion_boutique :</td><tr>
+    <tr>
+        <td>{{ form_widget(f.promotion) }}</td>
+    </tr>
+    <tr>
+        <td></td></tr>
+    <tr><td></td></tr>
+    <tr>
+        <td><input type="submit" value="Valider" placeholder="Description boutique" class="btn btn-primary" /></td></tr>
+    
+    </table>
+{{form_rest(f)}}
+</form>
+{% endblock %} 

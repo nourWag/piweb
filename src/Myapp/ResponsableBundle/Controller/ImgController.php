@@ -20,7 +20,7 @@ if ($form->isValid())
     $em->persist($im); 
     $em->flush(); 
 //return $this->render('pi2tstBundle:image:index.html.twig', array()); 
-return $this->redirect($this->generateUrl("my_app_esprit_list"));
+return $this->redirect($this->generateUrl("my_app_e"));
 } 
 return $this->render('MyappResponsableBundle:image:upload.html.twig', array('Form'=>$form->createView())); 
 } 

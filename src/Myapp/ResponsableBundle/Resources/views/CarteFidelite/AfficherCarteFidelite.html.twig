@@ -1,0 +1,57 @@
+{# empty Twig template #}
+{% extends "MyappResponsableBundle::layoutAdd.html.twig" %}
+
+{% block content2 %}
+    
+    <li class="icn_categories"><a {% for m in mds%} href="{{path('Rechercher_CarteFidelite',{'idCarteFidelite' :  m.idCarteFidelite  })}}" {% endfor %}>
+                                Recherche</a></li> 
+    <center>
+  <table border="2">
+    <tr>
+        <td>
+          idCarteFidelite
+        </td>
+    
+         <td>
+           NombreDePoint 
+        </td>
+         <td>
+           dateCreationCarteFidelite
+        </td>
+        <td>
+           supprimer 
+        </td>
+        <td>
+           modifier 
+        </td>
+    </tr>  
+    {% for m in mds%}
+        <tr>
+            <td>
+               {{m.idCarteFidelite}} 
+            </td> 
+            <td>
+               {{m.nombrePointFidele}}  
+            </td>
+            <td>
+                {{m.dateCreationCarteFidelite|date('d-m-Y-h-m')}}  
+            </td>
+          <td>
+             <a href="{{path('Supprimer_CarteFidelite',{'id' : m.idCarteFidelite})}}"
+                  >supprimer</a> 
+            </td>
+             <td>
+               <a href="{{path('Modifier_CarteFidelite',{'id' : m.idCarteFidelite})}}"
+                  >modifier</a> 
+            </td>
+            
+        </tr>
+       {% endfor %}
+   
+      
+</table>
+</center> 
+
+
+  {% endblock %} 
+

@@ -44,7 +44,9 @@ private $boutiquecle;
  * 
  * @ORM\ManyToOne(targetEntity="Produit") 
  */ 
-private $produit;function getProduit() {
+private $produit;
+
+function getProduit() {
     return $this->produit;
 }
 

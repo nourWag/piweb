@@ -250,7 +250,9 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-                  <span class="hidden-xs">Alexander Pierce</span>
+                   {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                  <span class="hidden-xs">{{ app.user.email }}</span>
+                      {% endif %}
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
@@ -302,7 +304,8 @@
               <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>Alexander Pierce</p>
+                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+              <p>{{ app.user.username }}</p>      {% endif  %}
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
@@ -324,9 +327,9 @@
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="active"><a href="{{ path('affich') }}">
-<i class="fa fa-circle-o"></i> afficher liste de client</a></li>
-                <li><a href= "{{ path('rech') }}"><i class="fa fa-circle-o"></i>  rechercher client </a></li>
+                <li class="active"><a href="{{ path('adminPages_edit') }}">
+<i class="fa fa-circle-o"></i>ajouter de new</a></li>
+                <li><a href= "{{ path('rech') }}"><i class="fa fa-circle-o"></i> liste de  client </a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -348,43 +351,43 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="{{ path('_grapheChartLine') }}">
                 <i class="fa fa-pie-chart"></i>
                 <span>Charts</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
-              <ul class="treeview-menu">
+            {#  <ul class="treeview-menu">
                 <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
                 <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
                 <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
                 <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-              </ul>
+              </ul>#}
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="{{ path('_grapheHistogramme') }}">
                 <i class="fa fa-laptop"></i>
-                <span>UI Elements</span>
+                <span>Histogramme </span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
-              <ul class="treeview-menu">
+             {# <ul class="treeview-menu">
                 <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
                 <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
                 <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
                 <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
                 <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
                 <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
-              </ul>
+              </ul>#}
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="{{ path('_graphePie') }}">
                 <i class="fa fa-edit"></i> <span>Forms</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
-              <ul class="treeview-menu">
+            {#  <ul class="treeview-menu">
                 <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
                 <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
                 <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-              </ul>
+              </ul>#}
             </li>
             <li class="treeview">
               <a href="#">
@@ -449,9 +452,9 @@
             </li>
             <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
             <li class="header">paramétres</li>
-            <li><a href="{{ path('changePassword') }}"><i class="fa fa-circle-o text-red"></i> <span>change password</span></a></li>
-            <li><a href="{{ path('edit') }}"><i class="fa fa-circle-o text-yellow"></i> <span>editer infomation</span></a></li>
-            <li><a href="{{ path('profile') }}"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+            <li><a href="{{ path('fos_user_change_password') }}"><i class="fa fa-circle-o text-red"></i> <span>change password</span></a></li>
+            <li><a href="{{ path('fos_user_profile_edit') }}"><i class="fa fa-circle-o text-yellow"></i> <span>editer infomation</span></a></li>
+            <li><a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
           </ul>
         </section>
         <!-- /.sidebar -->
@@ -467,6 +470,9 @@
 	  
 
       <!-- Content Wrapper. Contains page content -->
+       {% block blanche %}
+      
+      
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -806,19 +812,26 @@
               <!-- /.box -->
 
               <!-- solid sales graph -->
+              
               <div class="box box-solid bg-teal-gradient">
                 <div class="box-header">
                   <i class="fa fa-th"></i>
                   <h3 class="box-title">Sales Graph</h3>
+                  
                   <div class="box-tools pull-right">
                     <button class="btn bg-teal btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
                     <button class="btn bg-teal btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
                   </div>
                 </div>
+                  
                 <div class="box-body border-radius-none">
                   <div class="chart" id="line-chart" style="height: 250px;"></div>
                 </div><!-- /.box-body -->
                 <div class="box-footer no-border">
+                    
+                    
+                    {% block statistiques %}
+                        {% endblock statistiques %}
                   <div class="row">
                     <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
                       <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60" data-fgColor="#39CCCC">
@@ -907,6 +920,8 @@
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
+      
+       {% endblock blanche %}
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
